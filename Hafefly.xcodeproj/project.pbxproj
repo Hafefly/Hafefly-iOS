@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC996A29B48DD200AFA80A /* HafeflyApp.swift */; };
-		18BC996D29B48DD200AFA80A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC996C29B48DD200AFA80A /* ContentView.swift */; };
 		18BC996F29B48DD400AFA80A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC996E29B48DD400AFA80A /* Assets.xcassets */; };
 		18BC997329B48DD400AFA80A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BC997229B48DD400AFA80A /* Preview Assets.xcassets */; };
 		18BC997A29B491C200AFA80A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC997929B491C200AFA80A /* OnboardingView.swift */; };
@@ -19,12 +18,23 @@
 		18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99A529B5E0C700AFA80A /* HafeflyButton.swift */; };
 		18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99AB29B5E12A00AFA80A /* AppDelegate.swift */; };
 		18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99AD29B5E13400AFA80A /* EventHandler.swift */; };
+		18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99C629B642B800AFA80A /* NavigationCoordinator.swift */; };
+		18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99CA29B6437B00AFA80A /* CoordinatorStack.swift */; };
+		18BC99CD29B6440A00AFA80A /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99CC29B6440A00AFA80A /* CoordinatorView.swift */; };
+		18BC99D129B6445C00AFA80A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99D029B6445C00AFA80A /* HomeView.swift */; };
+		18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99D329B6446F00AFA80A /* HomeViewModel.swift */; };
+		18BC99D629B644DC00AFA80A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99D529B644DC00AFA80A /* SplashView.swift */; };
+		18BC99D929B644F000AFA80A /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99D829B644F000AFA80A /* SplashViewModel.swift */; };
+		18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99DA29B6456500AFA80A /* LoginView.swift */; };
+		18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99DD29B6458000AFA80A /* LoginViewModel.swift */; };
+		18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99E029B6459400AFA80A /* SignUpView.swift */; };
+		18BC99E429B645A900AFA80A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99E329B645A900AFA80A /* SignUpViewModel.swift */; };
+		18BC99E629B6464900AFA80A /* Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99E529B6464900AFA80A /* Observe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18BC996729B48DD200AFA80A /* Hafefly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hafefly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC996A29B48DD200AFA80A /* HafeflyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HafeflyApp.swift; sourceTree = "<group>"; };
-		18BC996C29B48DD200AFA80A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18BC996E29B48DD400AFA80A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18BC997029B48DD400AFA80A /* Hafefly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hafefly.entitlements; sourceTree = "<group>"; };
 		18BC997229B48DD400AFA80A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -41,6 +51,18 @@
 		18BC99C129B63CCA00AFA80A /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		18BC99C229B63CCB00AFA80A /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		18BC99C329B63CD300AFA80A /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		18BC99C629B642B800AFA80A /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		18BC99CA29B6437B00AFA80A /* CoordinatorStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStack.swift; sourceTree = "<group>"; };
+		18BC99CC29B6440A00AFA80A /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		18BC99D029B6445C00AFA80A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		18BC99D329B6446F00AFA80A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		18BC99D529B644DC00AFA80A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		18BC99D829B644F000AFA80A /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		18BC99DA29B6456500AFA80A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		18BC99DD29B6458000AFA80A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		18BC99E029B6459400AFA80A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		18BC99E329B645A900AFA80A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		18BC99E529B6464900AFA80A /* Observe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +100,8 @@
 				18BC997D29B4982C00AFA80A /* Extensions */,
 				18BC99A729B5E0CC00AFA80A /* Components */,
 				18BC99A829B5E0E500AFA80A /* Views */,
+				18BC99AA29B5E11F00AFA80A /* main */,
+				18BC99C829B642C200AFA80A /* Services */,
 				18BC996E29B48DD400AFA80A /* Assets.xcassets */,
 				18BC997029B48DD400AFA80A /* Hafefly.entitlements */,
 				18BC997129B48DD400AFA80A /* Preview Content */,
@@ -96,6 +120,7 @@
 		18BC997D29B4982C00AFA80A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				18BC99E729B6468900AFA80A /* Combine */,
 				18BC997E29B4984B00AFA80A /* SwiftUi */,
 				18BC998529B4A39400AFA80A /* Foundation */,
 			);
@@ -140,8 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				18BC99A929B5E10900AFA80A /* Onboarding */,
-				18BC996C29B48DD200AFA80A /* ContentView.swift */,
-				18BC99AA29B5E11F00AFA80A /* main */,
+				18BC99D729B644E300AFA80A /* Splash */,
+				18BC99D229B6446000AFA80A /* Home */,
+				18BC99DF29B6458500AFA80A /* Sign */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +207,77 @@
 				18BC99C429B63CDD00AFA80A /* Rubik */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		18BC99C829B642C200AFA80A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99C929B642CD00AFA80A /* Navigation */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		18BC99C929B642CD00AFA80A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99C629B642B800AFA80A /* NavigationCoordinator.swift */,
+				18BC99CA29B6437B00AFA80A /* CoordinatorStack.swift */,
+				18BC99CC29B6440A00AFA80A /* CoordinatorView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		18BC99D229B6446000AFA80A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99D029B6445C00AFA80A /* HomeView.swift */,
+				18BC99D329B6446F00AFA80A /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18BC99D729B644E300AFA80A /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99D529B644DC00AFA80A /* SplashView.swift */,
+				18BC99D829B644F000AFA80A /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		18BC99DC29B6456800AFA80A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99DA29B6456500AFA80A /* LoginView.swift */,
+				18BC99DD29B6458000AFA80A /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		18BC99DF29B6458500AFA80A /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99DC29B6456800AFA80A /* Login */,
+				18BC99E229B6459800AFA80A /* SignUp */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		18BC99E229B6459800AFA80A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99E029B6459400AFA80A /* SignUpView.swift */,
+				18BC99E329B645A900AFA80A /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		18BC99E729B6468900AFA80A /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99E529B6464900AFA80A /* Observe.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,15 +350,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BC996D29B48DD200AFA80A /* ContentView.swift in Sources */,
+				18BC99D629B644DC00AFA80A /* SplashView.swift in Sources */,
 				18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */,
+				18BC99E429B645A900AFA80A /* SignUpViewModel.swift in Sources */,
+				18BC99D129B6445C00AFA80A /* HomeView.swift in Sources */,
 				18BC998029B49A3E00AFA80A /* Text.swift in Sources */,
 				18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */,
+				18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */,
+				18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */,
+				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
+				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
+				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
+				18BC99D929B644F000AFA80A /* SplashViewModel.swift in Sources */,
 				18BC997A29B491C200AFA80A /* OnboardingView.swift in Sources */,
+				18BC99CD29B6440A00AFA80A /* CoordinatorView.swift in Sources */,
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
+				18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */,
+				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

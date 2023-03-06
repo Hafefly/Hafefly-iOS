@@ -11,7 +11,7 @@ import SwiftUI
 struct HafeflyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoordinatorView()
         }
     }
 }
