@@ -64,8 +64,14 @@ struct OnboardingView: View {
     
     @ViewBuilder
     private func OnboardingActions(_ step: Binding<UInt>) -> some View {
-        if step == 3 {
-            
+        if step.wrappedValue == 3 {
+            HafeflyButton {
+                //
+            } label: {
+                Text("Get started")
+                    .font(.white, .bold, 18)
+            }
+
         } else {
             HStack{
                 Button {
