@@ -31,47 +31,23 @@ struct OnboardingView: View {
                 .resizable()
                 .scaledToFit()
                 .overlay(LinearGradient(colors: [Color(red: 0.35, green: 0.49, blue: 0.71), .clear], startPoint: .bottom, endPoint: .top))
-            ZStack{
+            
+            VStack{
+                Text(title)
+                    .font(.white, .semiBold, 26)
                 Spacer()
-                VStack(spacing: 100){
-                    Text(title)
-                        .font(.white, .semiBold, 26)
-                    Text(description)
-                        .font(.white, .regular, 22)
-                        .multilineTextAlignment(TextAlignment.center)
-                        .padding(.horizontal, 18)
-                    OnboardingDots(step)
-                }
+                    .frame()
+                Text(description)
+                    .font(.white, .regular, 22)
+                    .multilineTextAlignment(TextAlignment.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.horizontal, 18)
+                Spacer()
+                    .frame()
+                OnboardingDots(step)
             }
         }
         .background(Color.hafeflyLightBlue)
-    }
-    
-    @ViewBuilder
-    private func OnboardingActions(_ step: Binding<UInt>) -> some View {
-        HStack{
-            Button {
-                withAnimation {
-                    step.wrappedValue = 3
-                }
-            } label: {
-                Text("skip".localized).font(.white, .medium, 18)
-            }
-            Spacer()
-            Button {
-                withAnimation {
-                    step.wrappedValue += 1
-                }
-            } label: {
-                HStack {
-                    Text("next")
-                        .font(.white, .medium, 18)
-                    Image(systemName: "arrow.right")
-                        .foregroundColor(.white)
-                }
-                
-            }
-        }
     }
     
     @ViewBuilder
@@ -86,6 +62,35 @@ struct OnboardingView: View {
         .frame(width: 180)
     }
     
+    @ViewBuilder
+    private func OnboardingActions(_ step: Binding<UInt>) -> some View {
+        if step == 3 {
+            
+        } else {
+            HStack{
+                Button {
+                    withAnimation {
+                        step.wrappedValue = 3
+                    }
+                } label: {
+                    Text("skip".localized).font(.white, .medium, 18)
+                }
+                Spacer()
+                Button {
+                    withAnimation {
+                        step.wrappedValue += 1
+                    }
+                } label: {
+                    HStack {
+                        Text("next")
+                            .font(.white, .medium, 18)
+                        Image(systemName: "arrow.right")
+                            .foregroundColor(.white)
+                    }
+                }
+            }
+        }
+    }
 }
 
 struct OnboardingViews_Previews: PreviewProvider {

@@ -17,6 +17,9 @@
 		18BC998229B49A6600AFA80A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC998129B49A6600AFA80A /* Font.swift */; };
 		18BC998429B4A38F00AFA80A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC998329B4A38F00AFA80A /* String.swift */; };
 		18BC99A229B5D78A00AFA80A /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 18BC99A129B5D78900AFA80A /* Fonts */; };
+		18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99A529B5E0C700AFA80A /* HafeflyButton.swift */; };
+		18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99AB29B5E12A00AFA80A /* AppDelegate.swift */; };
+		18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99AD29B5E13400AFA80A /* EventHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		18BC998329B4A38F00AFA80A /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		18BC99A129B5D78900AFA80A /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		18BC99A429B5D81200AFA80A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		18BC99A529B5E0C700AFA80A /* HafeflyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HafeflyButton.swift; sourceTree = "<group>"; };
+		18BC99AB29B5E12A00AFA80A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18BC99AD29B5E13400AFA80A /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +74,8 @@
 				18BC99A429B5D81200AFA80A /* Info.plist */,
 				18BC99A329B5D7D400AFA80A /* Ressources */,
 				18BC997D29B4982C00AFA80A /* Extensions */,
-				18BC996A29B48DD200AFA80A /* HafeflyApp.swift */,
-				18BC997929B491C200AFA80A /* OnboardingView.swift */,
-				18BC996C29B48DD200AFA80A /* ContentView.swift */,
+				18BC99A729B5E0CC00AFA80A /* Components */,
+				18BC99A829B5E0E500AFA80A /* Views */,
 				18BC996E29B48DD400AFA80A /* Assets.xcassets */,
 				18BC997029B48DD400AFA80A /* Hafefly.entitlements */,
 				18BC997129B48DD400AFA80A /* Preview Content */,
@@ -119,6 +124,42 @@
 				18BC99A129B5D78900AFA80A /* Fonts */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		18BC99A729B5E0CC00AFA80A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99A529B5E0C700AFA80A /* HafeflyButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		18BC99A829B5E0E500AFA80A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99A929B5E10900AFA80A /* Onboarding */,
+				18BC996C29B48DD200AFA80A /* ContentView.swift */,
+				18BC99AA29B5E11F00AFA80A /* main */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		18BC99A929B5E10900AFA80A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				18BC997929B491C200AFA80A /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		18BC99AA29B5E11F00AFA80A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				18BC996A29B48DD200AFA80A /* HafeflyApp.swift */,
+				18BC99AB29B5E12A00AFA80A /* AppDelegate.swift */,
+				18BC99AD29B5E13400AFA80A /* EventHandler.swift */,
+			);
+			path = main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,12 +234,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BC996D29B48DD200AFA80A /* ContentView.swift in Sources */,
+				18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */,
 				18BC998029B49A3E00AFA80A /* Text.swift in Sources */,
+				18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
 				18BC997A29B491C200AFA80A /* OnboardingView.swift in Sources */,
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
+				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
