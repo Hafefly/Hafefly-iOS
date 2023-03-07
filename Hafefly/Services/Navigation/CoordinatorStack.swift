@@ -73,7 +73,8 @@ extension CoordinatorView {
             switch screen {
             case .onBoarding: OnboardingView()
             case .login: LoginView()
-            case .signup: SignUpView()
+            case .signupInfo: SignUpInfoView()
+            case .signup(let firstname, let lastname, let province, let phonenumber): SignUpView(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber)
             case .splash: SplashView()
             case .home: HomeView()
             }

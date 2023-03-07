@@ -30,6 +30,11 @@
 		18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99E029B6459400AFA80A /* SignUpView.swift */; };
 		18BC99E429B645A900AFA80A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99E329B645A900AFA80A /* SignUpViewModel.swift */; };
 		18BC99E629B6464900AFA80A /* Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99E529B6464900AFA80A /* Observe.swift */; };
+		5707237029B75BC600579000 /* ViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707236F29B75BC600579000 /* ViewLayout.swift */; };
+		5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237129B75EA000579000 /* HafeflyTextField.swift */; };
+		5707237429B78B9600579000 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237329B78B9600579000 /* View.swift */; };
+		5707237629B78DA900579000 /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237529B78DA900579000 /* Province.swift */; };
+		5707237929B7929500579000 /* SignInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237829B7929500579000 /* SignInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +68,11 @@
 		18BC99E029B6459400AFA80A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		18BC99E329B645A900AFA80A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		18BC99E529B6464900AFA80A /* Observe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observe.swift; sourceTree = "<group>"; };
+		5707236F29B75BC600579000 /* ViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayout.swift; sourceTree = "<group>"; };
+		5707237129B75EA000579000 /* HafeflyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HafeflyTextField.swift; sourceTree = "<group>"; };
+		5707237329B78B9600579000 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		5707237529B78DA900579000 /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
+		5707237829B7929500579000 /* SignInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +143,7 @@
 				18BC997B29B4982600AFA80A /* Color.swift */,
 				18BC997F29B49A3E00AFA80A /* Text.swift */,
 				18BC998129B49A6600AFA80A /* Font.swift */,
+				5707237329B78B9600579000 /* View.swift */,
 			);
 			path = SwiftUi;
 			sourceTree = "<group>";
@@ -157,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				18BC99A529B5E0C700AFA80A /* HafeflyButton.swift */,
+				5707236F29B75BC600579000 /* ViewLayout.swift */,
+				5707237129B75EA000579000 /* HafeflyTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -213,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				18BC99C929B642CD00AFA80A /* Navigation */,
+				5707237729B78DAD00579000 /* Models */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -258,18 +272,18 @@
 			isa = PBXGroup;
 			children = (
 				18BC99DC29B6456800AFA80A /* Login */,
-				18BC99E229B6459800AFA80A /* SignUp */,
+				18BC99E229B6459800AFA80A /* SignUpInfo */,
 			);
 			path = Sign;
 			sourceTree = "<group>";
 		};
-		18BC99E229B6459800AFA80A /* SignUp */ = {
+		18BC99E229B6459800AFA80A /* SignUpInfo */ = {
 			isa = PBXGroup;
 			children = (
-				18BC99E029B6459400AFA80A /* SignUpView.swift */,
-				18BC99E329B645A900AFA80A /* SignUpViewModel.swift */,
+				5707237B29B792DA00579000 /* SignInfo */,
+				5707237A29B792AA00579000 /* SignUp */,
 			);
-			path = SignUp;
+			path = SignUpInfo;
 			sourceTree = "<group>";
 		};
 		18BC99E729B6468900AFA80A /* Combine */ = {
@@ -278,6 +292,31 @@
 				18BC99E529B6464900AFA80A /* Observe.swift */,
 			);
 			path = Combine;
+			sourceTree = "<group>";
+		};
+		5707237729B78DAD00579000 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5707237529B78DA900579000 /* Province.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5707237A29B792AA00579000 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				18BC99E029B6459400AFA80A /* SignUpView.swift */,
+				18BC99E329B645A900AFA80A /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		5707237B29B792DA00579000 /* SignInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5707237829B7929500579000 /* SignInfoView.swift */,
+			);
+			path = SignInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5707237029B75BC600579000 /* ViewLayout.swift in Sources */,
 				18BC99D629B644DC00AFA80A /* SplashView.swift in Sources */,
 				18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */,
 				18BC99E429B645A900AFA80A /* SignUpViewModel.swift in Sources */,
@@ -357,9 +397,12 @@
 				18BC998029B49A3E00AFA80A /* Text.swift in Sources */,
 				18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */,
 				18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */,
+				5707237629B78DA900579000 /* Province.swift in Sources */,
+				5707237429B78B9600579000 /* View.swift in Sources */,
 				18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */,
 				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
+				5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */,
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
@@ -369,6 +412,7 @@
 				18BC99CD29B6440A00AFA80A /* CoordinatorView.swift in Sources */,
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
 				18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */,
+				5707237929B7929500579000 /* SignInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
 			);
@@ -518,10 +562,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.raynmore.Hafefly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -557,10 +603,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.raynmore.Hafefly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

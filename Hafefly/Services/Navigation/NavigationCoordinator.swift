@@ -19,7 +19,8 @@ public class NavigationCoordinator {
     enum Screens {
         case onBoarding
         case login
-        case signup
+        case signupInfo
+        case signup(String, String, Province, String)
         case splash
         case home
     }

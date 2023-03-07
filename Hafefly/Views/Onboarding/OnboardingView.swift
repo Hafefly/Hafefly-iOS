@@ -66,12 +66,11 @@ struct OnboardingView: View {
     private func OnboardingActions(_ step: Binding<UInt>) -> some View {
         if step.wrappedValue == 3 {
             HafeflyButton {
-                //
+                NavigationCoordinator.shared.switchStartPoint(.login)
             } label: {
                 Text("Get started")
                     .font(.white, .bold, 18)
             }
-
         } else {
             HStack{
                 Button {
