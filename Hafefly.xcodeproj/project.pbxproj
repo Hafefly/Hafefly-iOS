@@ -34,7 +34,8 @@
 		5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237129B75EA000579000 /* HafeflyTextField.swift */; };
 		5707237429B78B9600579000 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237329B78B9600579000 /* View.swift */; };
 		5707237629B78DA900579000 /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237529B78DA900579000 /* Province.swift */; };
-		5707237929B7929500579000 /* SignInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237829B7929500579000 /* SignInfoView.swift */; };
+		5707237929B7929500579000 /* SignUpInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237829B7929500579000 /* SignUpInfoView.swift */; };
+		5707237D29B7D14400579000 /* SignUpInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237C29B7D14400579000 /* SignUpInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +73,8 @@
 		5707237129B75EA000579000 /* HafeflyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HafeflyTextField.swift; sourceTree = "<group>"; };
 		5707237329B78B9600579000 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5707237529B78DA900579000 /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
-		5707237829B7929500579000 /* SignInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInfoView.swift; sourceTree = "<group>"; };
+		5707237829B7929500579000 /* SignUpInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoView.swift; sourceTree = "<group>"; };
+		5707237C29B7D14400579000 /* SignUpInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +316,8 @@
 		5707237B29B792DA00579000 /* SignInfo */ = {
 			isa = PBXGroup;
 			children = (
-				5707237829B7929500579000 /* SignInfoView.swift */,
+				5707237829B7929500579000 /* SignUpInfoView.swift */,
+				5707237C29B7D14400579000 /* SignUpInfoViewModel.swift */,
 			);
 			path = SignInfo;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				18BC99D129B6445C00AFA80A /* HomeView.swift in Sources */,
 				18BC998029B49A3E00AFA80A /* Text.swift in Sources */,
 				18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */,
+				5707237D29B7D14400579000 /* SignUpInfoViewModel.swift in Sources */,
 				18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */,
 				5707237629B78DA900579000 /* Province.swift in Sources */,
 				5707237429B78B9600579000 /* View.swift in Sources */,
@@ -412,7 +416,7 @@
 				18BC99CD29B6440A00AFA80A /* CoordinatorView.swift in Sources */,
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
 				18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */,
-				5707237929B7929500579000 /* SignInfoView.swift in Sources */,
+				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
 			);

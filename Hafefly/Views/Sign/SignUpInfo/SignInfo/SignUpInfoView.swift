@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct SignUpInfoView: View {
+    
+    @StateObject private var model = Model()
+    
     @State private var firstname: String = ""
     @State private var lastname: String = ""
     @State private var phonenumber: String = ""
+    @State private var otpCode: String = ""
     
     @State private var province: Province = .Algiers
     
@@ -35,15 +39,29 @@ struct SignUpInfoView: View {
                             TextField("firstname".localized, text: $firstname)
                             TextField("lastname".localized, text: $lastname)
                         }
-                        TextField("firstname".localized, text: $firstname)
+                        Picker("province".localized, selection: $province) {
+                            ForEach(Province.allCases, id: \.hashValue) {
+                                Text($0.rawValue)
+                                    .font(.hafeflyLightBlue, .medium, 18)
+                                    .padding()
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                        .frame(height: 56)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.hafeflyLightBlue, lineWidth: 4)
+                        )
+                        .cornerRadius(8)
+                        .shadow(color: .hafeflyLightBlue, radius: 10)
                         HStack{
-                            TextField("firstname".localized, text: $firstname)
-                            Text("resend_otp".localized)
-                                .font(.white, .semiBold, 14)
-                                .padding()
-                                .frame(width: 100, height: 54)
-                                .background(RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color.hafeflyLightBlue))
+                            TextField("phonenumber".localized, text: $phonenumber)
+                            HafeflyButton(disabled: model.otpButtonDisabled) {
+                                model.sendOtp(phonenumber: phonenumber)
+                            } label: {
+                                Text(model.otpButtonText)
+                                    .font(.white, .regular, 16)
+                            }.frame(width: 100, height: 56)
                         }
                         
                     }.textFieldStyle(HafeflyTextFieldStyle())
@@ -67,7 +85,11 @@ struct SignUpInfoView: View {
     }
     
     private func continueSignUp(firstname: String, lastname: String, province: Province, phonenumber: String){
-        // Navigation
+        model.verifyOtp(for: phonenumber, code: otpCode) { success in
+            if success {
+                NavigationCoordinator.pushScreen(.signup(firstname, lastname, province, phonenumber))
+            }
+        }
     }
 }
 
