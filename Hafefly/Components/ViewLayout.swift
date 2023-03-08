@@ -43,12 +43,15 @@ struct HeaderView: View {
     
     var body: some View {
         VStack {
-            Text(title)
-                .font(.white, .semiBold, 20)
-                .padding(.leading, 10)
-                .lineLimit(2)
-                .padding(EdgeInsets())
-            Spacer()
+            HStack{
+                Spacer()
+                Text(title)
+                    .font(.white, .semiBold, 20)
+                    .padding(.leading, 10)
+                    .lineLimit(2)
+                    .padding(EdgeInsets())
+                Spacer()
+            }
         }
         .padding(.horizontal, 16)
         .frame(height: HeaderView.headerHeight)

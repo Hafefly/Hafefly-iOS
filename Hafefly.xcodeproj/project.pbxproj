@@ -36,6 +36,14 @@
 		5707237629B78DA900579000 /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237529B78DA900579000 /* Province.swift */; };
 		5707237929B7929500579000 /* SignUpInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237829B7929500579000 /* SignUpInfoView.swift */; };
 		5707237D29B7D14400579000 /* SignUpInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707237C29B7D14400579000 /* SignUpInfoViewModel.swift */; };
+		5707238529B8EE4900579000 /* Barbershop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707238429B8EE4900579000 /* Barbershop.swift */; };
+		5707238729B8F03E00579000 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707238629B8F03E00579000 /* Double.swift */; };
+		5707238B29B8F10A00579000 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707238A29B8F10A00579000 /* CategoryCard.swift */; };
+		5707238D29B8F13200579000 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707238C29B8F13200579000 /* Category.swift */; };
+		5707238F29B904CC00579000 /* BarbershopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707238E29B904CC00579000 /* BarbershopCard.swift */; };
+		5707239129B9141600579000 /* Barber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239029B9141600579000 /* Barber.swift */; };
+		5707239329B9158300579000 /* WorkingHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239229B9158300579000 /* WorkingHours.swift */; };
+		5707239529B9158F00579000 /* Pricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239429B9158F00579000 /* Pricing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +83,14 @@
 		5707237529B78DA900579000 /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
 		5707237829B7929500579000 /* SignUpInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoView.swift; sourceTree = "<group>"; };
 		5707237C29B7D14400579000 /* SignUpInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoViewModel.swift; sourceTree = "<group>"; };
+		5707238429B8EE4900579000 /* Barbershop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barbershop.swift; sourceTree = "<group>"; };
+		5707238629B8F03E00579000 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		5707238A29B8F10A00579000 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		5707238C29B8F13200579000 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5707238E29B904CC00579000 /* BarbershopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopCard.swift; sourceTree = "<group>"; };
+		5707239029B9141600579000 /* Barber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barber.swift; sourceTree = "<group>"; };
+		5707239229B9158300579000 /* WorkingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHours.swift; sourceTree = "<group>"; };
+		5707239429B9158F00579000 /* Pricing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pricing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +162,7 @@
 				18BC997F29B49A3E00AFA80A /* Text.swift */,
 				18BC998129B49A6600AFA80A /* Font.swift */,
 				5707237329B78B9600579000 /* View.swift */,
+				5707238629B8F03E00579000 /* Double.swift */,
 			);
 			path = SwiftUi;
 			sourceTree = "<group>";
@@ -172,6 +189,8 @@
 				18BC99A529B5E0C700AFA80A /* HafeflyButton.swift */,
 				5707236F29B75BC600579000 /* ViewLayout.swift */,
 				5707237129B75EA000579000 /* HafeflyTextField.swift */,
+				5707238A29B8F10A00579000 /* CategoryCard.swift */,
+				5707238E29B904CC00579000 /* BarbershopCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -300,6 +319,11 @@
 			isa = PBXGroup;
 			children = (
 				5707237529B78DA900579000 /* Province.swift */,
+				5707238429B8EE4900579000 /* Barbershop.swift */,
+				5707238C29B8F13200579000 /* Category.swift */,
+				5707239029B9141600579000 /* Barber.swift */,
+				5707239229B9158300579000 /* WorkingHours.swift */,
+				5707239429B9158F00579000 /* Pricing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -393,8 +417,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5707237029B75BC600579000 /* ViewLayout.swift in Sources */,
+				5707239529B9158F00579000 /* Pricing.swift in Sources */,
 				18BC99D629B644DC00AFA80A /* SplashView.swift in Sources */,
 				18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */,
+				5707238D29B8F13200579000 /* Category.swift in Sources */,
 				18BC99E429B645A900AFA80A /* SignUpViewModel.swift in Sources */,
 				18BC99D129B6445C00AFA80A /* HomeView.swift in Sources */,
 				18BC998029B49A3E00AFA80A /* Text.swift in Sources */,
@@ -408,16 +434,22 @@
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
 				5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */,
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
+				5707238F29B904CC00579000 /* BarbershopCard.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
+				5707239129B9141600579000 /* Barber.swift in Sources */,
 				18BC99D929B644F000AFA80A /* SplashViewModel.swift in Sources */,
 				18BC997A29B491C200AFA80A /* OnboardingView.swift in Sources */,
+				5707238B29B8F10A00579000 /* CategoryCard.swift in Sources */,
 				18BC99CD29B6440A00AFA80A /* CoordinatorView.swift in Sources */,
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
+				5707238529B8EE4900579000 /* Barbershop.swift in Sources */,
 				18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */,
 				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
+				5707239329B9158300579000 /* WorkingHours.swift in Sources */,
+				5707238729B8F03E00579000 /* Double.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
