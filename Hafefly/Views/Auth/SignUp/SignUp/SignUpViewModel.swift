@@ -10,7 +10,7 @@ import Foundation
 extension SignUpView {
     class Model: ObservableObject {
         func signUp(firstname: String, lastname: String, province: Province, phonenumber: String, username: String, password: String){
-            NavigationCoordinator.shared.switchStartPoint(.home)
+            NavigationCoordinator.shared.switchStartPoint(.main(.home))
         }
     }
 }

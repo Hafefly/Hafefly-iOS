@@ -10,7 +10,7 @@ import Foundation
 extension LoginView {
     class Model: ObservableObject {
         func login(username: String, password: String) {
-            NavigationCoordinator.shared.switchStartPoint(.home)
+            NavigationCoordinator.shared.switchStartPoint(.main(.home))
         }
         
         func signup() {

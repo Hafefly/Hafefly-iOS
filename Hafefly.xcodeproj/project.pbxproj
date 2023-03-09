@@ -208,9 +208,9 @@
 			children = (
 				18BC99A929B5E10900AFA80A /* Onboarding */,
 				18BC99D729B644E300AFA80A /* Splash */,
-				18BC99D229B6446000AFA80A /* Home */,
-				18BC99DF29B6458500AFA80A /* Sign */,
+				18BC99DF29B6458500AFA80A /* Auth */,
 				570723A129B92FBD00579000 /* Main */,
+				18BC99D229B6446000AFA80A /* Home */,
 				5707239E29B92F9300579000 /* Search */,
 				5707239F29B92F9D00579000 /* Map */,
 				570723A029B92FB000579000 /* Profile */,
@@ -301,22 +301,22 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		18BC99DF29B6458500AFA80A /* Sign */ = {
+		18BC99DF29B6458500AFA80A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				18BC99DC29B6456800AFA80A /* Login */,
-				18BC99E229B6459800AFA80A /* SignUpInfo */,
+				18BC99E229B6459800AFA80A /* SignUp */,
 			);
-			path = Sign;
+			path = Auth;
 			sourceTree = "<group>";
 		};
-		18BC99E229B6459800AFA80A /* SignUpInfo */ = {
+		18BC99E229B6459800AFA80A /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				5707237B29B792DA00579000 /* SignInfo */,
 				5707237A29B792AA00579000 /* SignUp */,
 			);
-			path = SignUpInfo;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		18BC99E729B6468900AFA80A /* Combine */ = {

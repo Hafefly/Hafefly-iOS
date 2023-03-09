@@ -10,9 +10,8 @@ import SwiftUI
 public struct CoordinatorView: View {
     enum StartPoint {
         case onBoarding
-        case splash
         case login
-        case home
+        case main(Tabs)
     }
     
     let coordinator = NavigationCoordinator.shared

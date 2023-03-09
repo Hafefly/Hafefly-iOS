@@ -75,8 +75,7 @@ extension CoordinatorView {
             case .login: LoginView()
             case .signupInfo: SignUpInfoView()
             case .signup(let firstname, let lastname, let province, let phonenumber): SignUpView(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber)
-            case .splash: SplashView()
-            case .home: HomeView()
+            case .main(let tab): MainView(tab: tab ?? .home)
             }
         }
     }

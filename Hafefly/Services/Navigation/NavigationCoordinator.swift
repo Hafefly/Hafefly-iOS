@@ -14,15 +14,14 @@ protocol NavigationBackHandler {
 
 public class NavigationCoordinator {
     
-    static let shared = NavigationCoordinator(start: CoordinatorView.StartPoint.splash)
+    static let shared = NavigationCoordinator(start: CoordinatorView.StartPoint.main(.home))
     
     enum Screens {
         case onBoarding
         case login
         case signupInfo
         case signup(String, String, Province, String)
-        case splash
-        case home
+        case main(Tabs?)
     }
     
     public enum TransitAnimation {
@@ -123,9 +122,8 @@ extension CoordinatorView.StartPoint {
     var screen: NavigationCoordinator.Screens {
         switch self {
         case .onBoarding: return .onBoarding
-        case .splash: return .splash
         case .login: return .login
-        case .home: return .home
+        case .main(let tab): return .main(tab)
         }
     }
 }
