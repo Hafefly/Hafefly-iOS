@@ -11,22 +11,41 @@ struct MainView: View {
     
     @State var tab: Tabs = .home
     
+    let shadowImage = UIImage.gradientImageWithBounds(
+        bounds: CGRect( x: 0, y: 0, width: UIScreen.main.scale, height: 10),
+        colors: [
+            UIColor.clear.cgColor,
+            UIColor.black.withAlphaComponent(0.2).cgColor
+        ]
+    )
+    
     var body: some View {
         TabView(selection: $tab) {
             ForEach(Tabs.allCases, id: \.self){ tab in
-                tab.view
-                    .tabItem {
-                        VStack{
-                            Image(tab.icon)
-                                .renderingMode(.template)
-                            Text(tab.rawValue)
-                                .font(.white, .semiBold, 22)
-                        }
+                ViewLayout {
+                    HeaderView(title: tab == .home ? "Hafefly" : tab.rawValue.lowercased().localized)
+                } content: { edges in
+                    tab.view
+                        .padding(.top, edges.top + 16)
+                        .padding(.bottom, edges.bottom)
+                        .padding(.horizontal, 16)
+                }
+                .tabItem {
+                    VStack{
+                        Image(tab.icon)
+                            .renderingMode(.template)
+                        Text(tab.rawValue)
+                            .font(.white, .semiBold, 22)
                     }
+                }
             }
         }
         .onAppear {
-            UITabBar.appearance().barTintColor = UIColor(Color.favoriteBlue)
+            let appearance = UITabBarAppearance()
+            appearance.shadowImage = shadowImage
+            appearance.backgroundColor = UIColor(Color.favoriteBlue)
+            UITabBar.appearance().backgroundColor = UIColor(Color.favoriteBlue)
+            UITabBar.appearance().standardAppearance = appearance
         }
         .accentColor(.white)
     }

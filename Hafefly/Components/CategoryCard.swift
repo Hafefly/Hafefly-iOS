@@ -19,13 +19,13 @@ struct CategoryCard: View {
         VStack{
             VStack(alignment: .leading){
                 Text(category.name)
-                    .font(.white, .semiBold, 22)
+                    .font(.white, RubikFont: .semiBold, 22)
                 if category.barbershops.isEmpty {
                     Text("empty")
-                        .font(.white, .regular, 18)
+                        .font(.white, RubikFont: .regular, 18)
                 } else {
                     Text("\(category.itemsCount) barbershop")
-                        .font(.white, .regular, 18)
+                        .font(.white, RubikFont: .regular, 18)
                 }
             }
             Spacer()

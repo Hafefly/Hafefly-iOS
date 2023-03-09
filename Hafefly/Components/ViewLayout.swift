@@ -27,7 +27,7 @@ struct ViewLayout<Header: View, Content: View>: View {
                         leading: proxy.safeAreaInsets.leading,
                         bottom: proxy.safeAreaInsets.bottom,
                         trailing: proxy.safeAreaInsets.trailing))
-                .background(LinearGradient(colors: [.hafeflyDarkBlue, .favoriteBlue], startPoint: .top, endPoint: .bottom).ignoresSafeArea())
+                .background(LinearGradient(colors: [.hafeflyBlue, .hafeflyDarkBlue], startPoint: .bottom, endPoint: .top).ignoresSafeArea())
                 .setupDefaultBackHandler()
                 .ignoresSafeArea()
                 header
@@ -46,7 +46,7 @@ struct HeaderView: View {
             HStack{
                 Spacer()
                 Text(title)
-                    .font(.white, .semiBold, 20)
+                    .font(.white, RaisinFont: .regular, 18)
                     .padding(.leading, 10)
                     .lineLimit(2)
                     .padding(EdgeInsets())

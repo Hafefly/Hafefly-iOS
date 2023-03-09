@@ -48,6 +48,8 @@
 		5707239929B92F7800579000 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239829B92F7800579000 /* SearchView.swift */; };
 		5707239B29B92F7F00579000 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239A29B92F7F00579000 /* MapView.swift */; };
 		5707239D29B92F8800579000 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239C29B92F8800579000 /* ProfileView.swift */; };
+		570723A529B9F3CA00579000 /* UiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723A429B9F3CA00579000 /* UiImage.swift */; };
+		570723A729B9FCC600579000 /* Rum_Raisin in Resources */ = {isa = PBXBuildFile; fileRef = 570723A629B9FCC600579000 /* Rum_Raisin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,8 @@
 		5707239829B92F7800579000 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		5707239A29B92F7F00579000 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5707239C29B92F8800579000 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		570723A429B9F3CA00579000 /* UiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiImage.swift; sourceTree = "<group>"; };
+		570723A629B9FCC600579000 /* Rum_Raisin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Rum_Raisin; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 				18BC998129B49A6600AFA80A /* Font.swift */,
 				5707237329B78B9600579000 /* View.swift */,
 				5707238629B8F03E00579000 /* Double.swift */,
+				570723A429B9F3CA00579000 /* UiImage.swift */,
 			);
 			path = SwiftUi;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 		18BC99C529B63CE500AFA80A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				570723A629B9FCC600579000 /* Rum_Raisin */,
 				18BC99C429B63CDD00AFA80A /* Rubik */,
 			);
 			path = Fonts;
@@ -448,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570723A729B9FCC600579000 /* Rum_Raisin in Resources */,
 				18BC997329B48DD400AFA80A /* Preview Assets.xcassets in Resources */,
 				18BC996F29B48DD400AFA80A /* Assets.xcassets in Resources */,
 			);
@@ -485,6 +492,7 @@
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
+				570723A529B9F3CA00579000 /* UiImage.swift in Sources */,
 				5707239929B92F7800579000 /* SearchView.swift in Sources */,
 				5707239129B9141600579000 /* Barber.swift in Sources */,
 				18BC99D929B644F000AFA80A /* SplashViewModel.swift in Sources */,

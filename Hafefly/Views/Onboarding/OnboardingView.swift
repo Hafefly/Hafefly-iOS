@@ -34,11 +34,11 @@ struct OnboardingView: View {
             
             VStack{
                 Text(title)
-                    .font(.white, .semiBold, 26)
+                    .font(.white, RubikFont: .semiBold, 26)
                 Spacer()
                     .frame()
                 Text(description)
-                    .font(.white, .regular, 22)
+                    .font(.white, RubikFont: .regular, 22)
                     .multilineTextAlignment(TextAlignment.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal, 18)
@@ -69,7 +69,7 @@ struct OnboardingView: View {
                 NavigationCoordinator.shared.switchStartPoint(.login)
             } label: {
                 Text("Get started")
-                    .font(.white, .bold, 18)
+                    .font(.white, RubikFont: .bold, 18)
             }
         } else {
             HStack{
@@ -78,7 +78,8 @@ struct OnboardingView: View {
                         step.wrappedValue = 3
                     }
                 } label: {
-                    Text("skip".localized).font(.white, .medium, 18)
+                    Text("skip".localized)
+                        .font(.white, RubikFont: .medium, 18)
                 }
                 Spacer()
                 Button {
@@ -88,7 +89,7 @@ struct OnboardingView: View {
                 } label: {
                     HStack {
                         Text("next")
-                            .font(.white, .medium, 18)
+                            .font(.white, RubikFont: .medium, 18)
                         Image(systemName: "arrow.right")
                             .foregroundColor(.white)
                     }

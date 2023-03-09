@@ -29,7 +29,7 @@ struct BarbershopCard: View {
                 VStack(alignment: .leading){
                     VStack(alignment: .leading, spacing: 2){
                         Text(barbershop.name)
-                            .font(.white, .medium, 22)
+                            .font(.white, RubikFont: .medium, 22)
                         HStack{
                             Image("ic_gps")
                                 .resizable()
@@ -37,7 +37,7 @@ struct BarbershopCard: View {
                                 .scaledToFit()
                                 .frame(width: 14)
                             Text(barbershop.town)
-                                .font(.white, .regular, 16)
+                                .font(.white, RubikFont: .regular, 16)
                         }.foregroundColor(.white)
                     }
                     Spacer()
@@ -48,7 +48,7 @@ struct BarbershopCard: View {
                             .foregroundColor(.yellow)
                             .frame(width: 18, height: 18)
                         Text(barbershop.rating.rating())
-                            .font(.white, .bold, 18)
+                            .font(.white, RubikFont: .bold, 18)
                     }
                 }
                 Spacer()

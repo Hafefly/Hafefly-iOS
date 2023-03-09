@@ -15,4 +15,8 @@ extension Font {
         case semiBold = "Rubik-SemiBold"
         case bold = "Rubik-Bold"
     }
+    
+    enum HafeflyRaisin: String {
+        case regular = "RumRaisin-Regular"
+    }
 }

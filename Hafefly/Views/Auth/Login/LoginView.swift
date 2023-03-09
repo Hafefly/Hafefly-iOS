@@ -52,7 +52,7 @@ struct LoginView: View {
                     model.login(username: username, password: password)
                 } label: {
                     Text("sign_in".localized)
-                        .font(.white, .semiBold, 18)
+                        .font(.white, RubikFont: .semiBold, 18)
                 }.padding(.bottom, 24)
             }
             .padding(24)
