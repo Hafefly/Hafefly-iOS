@@ -35,7 +35,7 @@ struct MainView: View {
                         Image(tab.icon)
                             .renderingMode(.template)
                         Text(tab.rawValue)
-                            .font(.white, .semiBold, 22)
+                            .font(.white, RubikFont: .semiBold, 22)
                     }
                 }
             }
