@@ -8,9 +8,16 @@
 import Foundation
 
 extension SearchView {
-    class model: ObservableObject {
-        func search(for text: String, completion: @escaping ([Barbershop]) -> Void) {
+    class Model: ObservableObject {
+        
+        @Published var searchedBarbershops = [Barbershop]()
+        
+        func search(for text: String) {
             
+            // assign new barbershops here
+            DispatchQueue.main.async {
+                // self.searchedBarbershops =
+            }
         }
     }
 }

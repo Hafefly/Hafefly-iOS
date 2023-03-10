@@ -21,6 +21,7 @@ struct CategoryCard: View {
                 VStack(alignment: .leading){
                     Text(category.name)
                         .font(.white, Font.HafeflyRubik.semiBold, 22)
+                        .multilineTextAlignment(.leading)
                     if category.barbershops.isEmpty {
                         Text("empty")
                             .font(.white, Font.HafeflyRubik.regular, 18)
@@ -53,6 +54,6 @@ struct CategoryCard: View {
 
 struct CategoryCard_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryCard(Category(icon: "ic_heart", name: "Favorite", color: .red, barbershops: []))
+        CategoryCard(Category.categories[1])
     }
 }
