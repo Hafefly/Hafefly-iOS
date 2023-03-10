@@ -44,7 +44,7 @@ struct SignUpView: View {
                     model.signUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber, username: username, password: password)
                 } label: {
                     Text("sign_up".localized)
-                        .font(.white, RubikFont: .semiBold, 18)
+                        .font(.white, Font.HafeflyRubik.semiBold, 18)
                 }.padding(.bottom, 24)
             }
             .padding(24)

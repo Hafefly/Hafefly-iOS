@@ -8,7 +8,7 @@
 import Foundation
 
 extension Double {
-    func rating(_ round: Int = 2) -> String {
+    func rating(_ round: Int = 1) -> String {
         if self > Double(Int(self)) {
             return String(format: "%.\(round)f", self)
         } else {

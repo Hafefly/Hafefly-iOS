@@ -22,6 +22,7 @@ public class NavigationCoordinator {
         case signupInfo
         case signup(String, String, Province, String)
         case main(Tabs?)
+        case category(Category)
     }
     
     public enum TransitAnimation {

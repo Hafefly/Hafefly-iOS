@@ -20,6 +20,12 @@ struct Barbershop {
     let vip: Bool
     let barbers: [Barber]
     
+    var isOpen: Bool {
+        let now = Date()
+        
+        return now >= workingHours.opening || now <= workingHours.closing
+    }
+    
     var position: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
 

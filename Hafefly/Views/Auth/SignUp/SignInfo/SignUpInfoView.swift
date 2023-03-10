@@ -42,7 +42,7 @@ struct SignUpInfoView: View {
                         Picker("province".localized, selection: $province) {
                             ForEach(Province.allCases, id: \.hashValue) {
                                 Text($0.rawValue)
-                                    .font(.hafeflyLightBlue, RubikFont: .medium, 18)
+                                    .font(.hafeflyLightBlue, Font.HafeflyRubik.medium, 18)
                                     .padding()
                             }
                         }
@@ -60,14 +60,14 @@ struct SignUpInfoView: View {
                                 model.sendOtp(phonenumber: phonenumber)
                             } label: {
                                 Text(model.otpButtonText)
-                                    .font(.white, RubikFont: .regular, 16)
+                                    .font(.white, Font.HafeflyRubik.regular, 16)
                             }.frame(width: 100, height: 56)
                         }
                         
                     }.textFieldStyle(HafeflyTextFieldStyle())
                     HStack{
                         Text("forgot_password".localized)
-                            .font(.white, RubikFont: .medium, 18)
+                            .font(.white, Font.HafeflyRubik.medium, 18)
                         Spacer()
                     }.padding(.horizontal, 8)
                 }
@@ -77,7 +77,7 @@ struct SignUpInfoView: View {
                     continueSignUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber)
                 } label: {
                     Text("continue".localized)
-                        .font(.white, RubikFont: .semiBold, 18)
+                        .font(.white, Font.HafeflyRubik.semiBold, 18)
                 }.padding(.bottom, 24)
             }
             .padding()

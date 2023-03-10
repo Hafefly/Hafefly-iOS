@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+extension HomeView {
+    class Model: ObservableObject {
+        
+        func openCategory(_ category: Category) {
+            NavigationCoordinator.pushScreen(.category(category))
+        }
+    }
+}

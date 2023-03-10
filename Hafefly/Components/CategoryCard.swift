@@ -16,30 +16,32 @@ struct CategoryCard: View {
     }
     
     var body: some View {
-        VStack{
-            VStack(alignment: .leading){
-                Text(category.name)
-                    .font(.white, RubikFont: .semiBold, 22)
-                if category.barbershops.isEmpty {
-                    Text("empty")
-                        .font(.white, RubikFont: .regular, 18)
-                } else {
-                    Text("\(category.itemsCount) barbershop")
-                        .font(.white, RubikFont: .regular, 18)
+        ZStack{
+            VStack{
+                VStack(alignment: .leading){
+                    Text(category.name)
+                        .font(.white, Font.HafeflyRubik.semiBold, 22)
+                    if category.barbershops.isEmpty {
+                        Text("empty")
+                            .font(.white, Font.HafeflyRubik.regular, 18)
+                    } else {
+                        Text("\(category.itemsCount) barbershop")
+                            .font(.white, Font.HafeflyRubik.regular, 18)
+                    }
+                }
+                .frame(width: 100, alignment: .leading)
+                Spacer()
+                ZStack{
+                    Image(category.icon)
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(category.color)
+                        .frame(width: 24, height: 24)
+                        .padding()
+                        .background(Circle().fill(.white))
                 }
             }
-            Spacer()
-            ZStack{
-                Image(category.icon)
-                    .resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(category.color)
-                    .frame(width: 24, height: 24)
-                    .padding()
-                    .background(Circle().fill(.white))
-            }
         }
-        .frame(width: 100)
         .frame(maxHeight: 170)
         .padding(.horizontal, 24)
         .padding(.vertical)

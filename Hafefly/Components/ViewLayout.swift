@@ -46,7 +46,7 @@ struct HeaderView: View {
             HStack{
                 Spacer()
                 Text(title)
-                    .font(.white, RaisinFont: .regular, 18)
+                    .font(.white, Font.HafeflyRaisin.regular, 18)
                     .padding(.leading, 10)
                     .lineLimit(2)
                     .padding(EdgeInsets())

@@ -19,7 +19,7 @@ struct Category {
     }
     
     static let categories = [
-        Category(icon: "ic_heart", name: "Favorites", color: .red, barbershops: []),
+        Category(icon: "ic_heart", name: "Favorites", color: .red, barbershops: Barbershop.barbershops),
         Category(icon: "ic_star", name: "Highest Rating", color: .yellow, barbershops: []),
         Category(icon: "ic_location", name: "Nearby", color: .blue, barbershops: [])
     ]

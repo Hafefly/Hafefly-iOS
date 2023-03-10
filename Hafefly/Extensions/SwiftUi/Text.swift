@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 extension Text {
-    func font(_ color: Color, RubikFont: Font.HafeflyRubik, _ size: CGFloat) -> Text {
-        switch RubikFont {
+    func font(_ color: Color,_ font: Font.HafeflyRubik, _ size: CGFloat) -> Text {
+        switch font {
         case .regular:
             return self
                 .font(.custom(Font.HafeflyRubik.regular.rawValue, size: size))
@@ -30,8 +30,8 @@ extension Text {
         }
     }
     
-    func font(_ color: Color, RaisinFont: Font.HafeflyRaisin, _ size: CGFloat) -> Text {
-        switch RaisinFont {
+    func font(_ color: Color,_ font: Font.HafeflyRaisin, _ size: CGFloat) -> Text {
+        switch font {
         case .regular:
             return self
                 .font(.custom(Font.HafeflyRubik.regular.rawValue, size: size))

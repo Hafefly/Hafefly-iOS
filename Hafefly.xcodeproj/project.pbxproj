@@ -50,6 +50,9 @@
 		5707239D29B92F8800579000 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239C29B92F8800579000 /* ProfileView.swift */; };
 		570723A529B9F3CA00579000 /* UiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723A429B9F3CA00579000 /* UiImage.swift */; };
 		570723A729B9FCC600579000 /* Rum_Raisin in Resources */ = {isa = PBXBuildFile; fileRef = 570723A629B9FCC600579000 /* Rum_Raisin */; };
+		570723AB29BA560E00579000 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AA29BA560E00579000 /* CategoryView.swift */; };
+		570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AD29BAA2A600579000 /* BarbershopOverlay.swift */; };
+		570723B029BB35F500579000 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AF29BB35F500579000 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +106,9 @@
 		5707239C29B92F8800579000 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		570723A429B9F3CA00579000 /* UiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiImage.swift; sourceTree = "<group>"; };
 		570723A629B9FCC600579000 /* Rum_Raisin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Rum_Raisin; sourceTree = "<group>"; };
+		570723AA29BA560E00579000 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		570723AD29BAA2A600579000 /* BarbershopOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopOverlay.swift; sourceTree = "<group>"; };
+		570723AF29BB35F500579000 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				18BC998329B4A38F00AFA80A /* String.swift */,
+				570723AF29BB35F500579000 /* Date.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 				5707237129B75EA000579000 /* HafeflyTextField.swift */,
 				5707238A29B8F10A00579000 /* CategoryCard.swift */,
 				5707238E29B904CC00579000 /* BarbershopCard.swift */,
+				570723AD29BAA2A600579000 /* BarbershopOverlay.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -219,6 +227,7 @@
 				5707239E29B92F9300579000 /* Search */,
 				5707239F29B92F9D00579000 /* Map */,
 				570723A029B92FB000579000 /* Profile */,
+				570723AC29BA561C00579000 /* Category */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,6 +405,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		570723AC29BA561C00579000 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				570723AA29BA560E00579000 /* CategoryView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,6 +502,7 @@
 				18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */,
 				5707239B29B92F7F00579000 /* MapView.swift in Sources */,
 				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
+				570723B029BB35F500579000 /* Date.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
 				5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */,
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
@@ -493,6 +511,7 @@
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
 				570723A529B9F3CA00579000 /* UiImage.swift in Sources */,
+				570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */,
 				5707239929B92F7800579000 /* SearchView.swift in Sources */,
 				5707239129B9141600579000 /* Barber.swift in Sources */,
 				18BC99D929B644F000AFA80A /* SplashViewModel.swift in Sources */,
@@ -507,6 +526,7 @@
 				5707239329B9158300579000 /* WorkingHours.swift in Sources */,
 				5707238729B8F03E00579000 /* Double.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
+				570723AB29BA560E00579000 /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

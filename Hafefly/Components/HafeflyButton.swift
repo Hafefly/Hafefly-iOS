@@ -38,7 +38,7 @@ struct HafeflyButton_Previews: PreviewProvider {
             //
         } label: {
             Text("Get started")
-                .font(.white, RubikFont: .bold, 18)
+                .font(.white, Font.HafeflyRubik.bold, 18)
         }
     }
 }

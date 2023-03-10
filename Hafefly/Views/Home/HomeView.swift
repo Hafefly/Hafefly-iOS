@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject private var model = Model()
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 28){
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16){
-                    ForEach(Category.categories, id: \.uuid) {
-                        CategoryCard($0)
-                    }.padding(.vertical)
+                    ForEach(Category.categories, id: \.uuid) { category in
+                        Button {
+                            model.openCategory(category)
+                        } label: {
+                            CategoryCard(category)
+                        }
+                    }
+                    .padding(.vertical)
                 }
             }
             
@@ -22,14 +30,16 @@ struct HomeView: View {
                 HStack{
                     Image("ic_ticket")
                         .resizable()
-                        .frame(width: 24, height: 24)
+                        .frame(width: 26, height: 22)
                     Text("vip_barbershops".localized)
-                        .font(.white, RubikFont: .semiBold, 24)
+                        .font(.white, Font.HafeflyRubik.semiBold, 24)
                 }
                 ScrollView(showsIndicators: false){
-                    VStack(spacing: 16){
-                        ForEach(Barbershop.barbershops, id: \.id) { barbershop in
-                            BarbershopCard(barbershop: barbershop, isFavorite: Category.categories[0].barbershops.contains{$0.id == barbershop.id})
+                    ZStack{
+                        LazyVStack(spacing: 16){
+                            ForEach(Barbershop.barbershops, id: \.id) { barbershop in
+                                BarbershopCard(barbershop: barbershop, isFavorite: Category.categories[0].barbershops.contains{$0.id == barbershop.id})
+                            }
                         }
                     }
                 }

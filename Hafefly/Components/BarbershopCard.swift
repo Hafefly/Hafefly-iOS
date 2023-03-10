@@ -13,7 +13,7 @@ struct BarbershopCard: View {
     
     @State var isFavorite: Bool = false
     
-    init(barbershop: Barbershop, isFavorite: Bool) {
+    init(barbershop: Barbershop, isFavorite: Bool = true) {
         self.barbershop = barbershop
         self._isFavorite = State(initialValue: isFavorite)
     }
@@ -29,7 +29,7 @@ struct BarbershopCard: View {
                 VStack(alignment: .leading){
                     VStack(alignment: .leading, spacing: 2){
                         Text(barbershop.name)
-                            .font(.white, RubikFont: .medium, 22)
+                            .font(.white, Font.HafeflyRubik.medium, 22)
                         HStack{
                             Image("ic_gps")
                                 .resizable()
@@ -37,7 +37,7 @@ struct BarbershopCard: View {
                                 .scaledToFit()
                                 .frame(width: 14)
                             Text(barbershop.town)
-                                .font(.white, RubikFont: .regular, 16)
+                                .font(.white, Font.HafeflyRubik.regular, 16)
                         }.foregroundColor(.white)
                     }
                     Spacer()
@@ -48,7 +48,7 @@ struct BarbershopCard: View {
                             .foregroundColor(.yellow)
                             .frame(width: 18, height: 18)
                         Text(barbershop.rating.rating())
-                            .font(.white, RubikFont: .bold, 18)
+                            .font(.white, Font.HafeflyRubik.bold, 18)
                     }
                 }
                 Spacer()
