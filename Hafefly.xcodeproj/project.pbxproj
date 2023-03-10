@@ -53,6 +53,7 @@
 		570723AB29BA560E00579000 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AA29BA560E00579000 /* CategoryView.swift */; };
 		570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AD29BAA2A600579000 /* BarbershopOverlay.swift */; };
 		570723B029BB35F500579000 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AF29BB35F500579000 /* Date.swift */; };
+		570723B229BB414B00579000 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723B129BB414B00579000 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		570723AA29BA560E00579000 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		570723AD29BAA2A600579000 /* BarbershopOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopOverlay.swift; sourceTree = "<group>"; };
 		570723AF29BB35F500579000 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		570723B129BB414B00579000 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				5707239829B92F7800579000 /* SearchView.swift */,
+				570723B129BB414B00579000 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
 				5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */,
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
+				570723B229BB414B00579000 /* SearchViewModel.swift in Sources */,
 				5707238F29B904CC00579000 /* BarbershopCard.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,

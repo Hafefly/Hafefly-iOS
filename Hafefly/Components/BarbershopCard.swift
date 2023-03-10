@@ -32,10 +32,6 @@ struct BarbershopCard: View {
                             .font(.white, Font.HafeflyRubik.medium, 22)
                         HStack{
                             Image("ic_gps")
-                                .resizable()
-                                .renderingMode(.template)
-                                .scaledToFit()
-                                .frame(width: 14)
                             Text(barbershop.town)
                                 .font(.white, Font.HafeflyRubik.regular, 16)
                         }.foregroundColor(.white)
@@ -53,7 +49,7 @@ struct BarbershopCard: View {
                 }
                 Spacer()
                 VStack{
-                    Button {
+                    Button{
                         isFavorite.toggle()
                     } label: {
                         Image("ic_heart")
