@@ -12,6 +12,9 @@ struct HafeflyApp: App {
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
+                .onAppear {
+                    LocationManager.shared.requestLocation()
+                }
         }
     }
 }

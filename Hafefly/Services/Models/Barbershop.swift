@@ -8,7 +8,11 @@
 import Foundation
 import CoreLocation
 
-struct Barbershop {
+struct Barbershop: Identifiable, Equatable {
+    static func == (lhs: Barbershop, rhs: Barbershop) -> Bool {
+        return lhs.id != rhs.id
+    }
+    
     let id: Int
     let name: String
     let image: String

@@ -63,7 +63,7 @@ struct BarbershopOverlay: View {
                             .scaledToFit()
                             .frame(width: 24)
                         Text("\(barbershop.workingHours.opening.getFormattedDate())  -  \(barbershop.workingHours.closing.getFormattedDate())")
-                            .font(.white, Font.HafeflyRubik.medium, 26)
+                            .font(.white, Font.HafeflyRubik.medium, 22)
                     }
                     
                     HStack(spacing: 16){

@@ -23,6 +23,7 @@ public class NavigationCoordinator {
         case signup(String, String, Province, String)
         case main(Tabs?)
         case category(Category)
+        case barbershopOverlay(Barbershop)
     }
     
     public enum TransitAnimation {

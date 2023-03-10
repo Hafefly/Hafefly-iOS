@@ -54,6 +54,10 @@
 		570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AD29BAA2A600579000 /* BarbershopOverlay.swift */; };
 		570723B029BB35F500579000 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AF29BB35F500579000 /* Date.swift */; };
 		570723B229BB414B00579000 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723B129BB414B00579000 /* SearchViewModel.swift */; };
+		570723B629BB75F900579000 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723B529BB75F900579000 /* LocationManager.swift */; };
+		570723BA29BB76FB00579000 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723B929BB76FB00579000 /* MapViewModel.swift */; };
+		570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723BB29BB786C00579000 /* HafeflyMap.swift */; };
+		570723C129BBD33200579000 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 570723C029BBD33200579000 /* PopupView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +115,9 @@
 		570723AD29BAA2A600579000 /* BarbershopOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopOverlay.swift; sourceTree = "<group>"; };
 		570723AF29BB35F500579000 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		570723B129BB414B00579000 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		570723B529BB75F900579000 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		570723B929BB76FB00579000 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		570723BB29BB786C00579000 /* HafeflyMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HafeflyMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570723C129BBD33200579000 /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				18BC99A429B5D81200AFA80A /* Info.plist */,
+				570723B729BB760300579000 /* Managers */,
 				18BC99A329B5D7D400AFA80A /* Ressources */,
 				18BC997D29B4982C00AFA80A /* Extensions */,
 				18BC99A729B5E0CC00AFA80A /* Components */,
@@ -214,6 +223,7 @@
 				5707238A29B8F10A00579000 /* CategoryCard.swift */,
 				5707238E29B904CC00579000 /* BarbershopCard.swift */,
 				570723AD29BAA2A600579000 /* BarbershopOverlay.swift */,
+				570723BB29BB786C00579000 /* HafeflyMap.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -388,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				5707239A29B92F7F00579000 /* MapView.swift */,
+				570723B929BB76FB00579000 /* MapViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -416,6 +427,22 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		570723B729BB760300579000 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				570723B829BB760C00579000 /* Location */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		570723B829BB760C00579000 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				570723B529BB75F900579000 /* LocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,6 +459,9 @@
 			dependencies = (
 			);
 			name = Hafefly;
+			packageProductDependencies = (
+				570723C029BBD33200579000 /* PopupView */,
+			);
 			productName = Hafefly;
 			productReference = 18BC996729B48DD200AFA80A /* Hafefly.app */;
 			productType = "com.apple.product-type.application";
@@ -460,6 +490,9 @@
 				Base,
 			);
 			mainGroup = 18BC995E29B48DD200AFA80A;
+			packageReferences = (
+				570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */,
+			);
 			productRefGroup = 18BC996829B48DD200AFA80A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -498,12 +531,14 @@
 				18BC99D129B6445C00AFA80A /* HomeView.swift in Sources */,
 				18BC998029B49A3E00AFA80A /* Text.swift in Sources */,
 				18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */,
+				570723BA29BB76FB00579000 /* MapViewModel.swift in Sources */,
 				5707237D29B7D14400579000 /* SignUpInfoViewModel.swift in Sources */,
 				18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */,
 				5707237629B78DA900579000 /* Province.swift in Sources */,
 				5707237429B78B9600579000 /* View.swift in Sources */,
 				18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */,
 				5707239B29B92F7F00579000 /* MapView.swift in Sources */,
+				570723B629BB75F900579000 /* LocationManager.swift in Sources */,
 				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
 				570723B029BB35F500579000 /* Date.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
@@ -513,6 +548,7 @@
 				5707238F29B904CC00579000 /* BarbershopCard.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
+				570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
 				570723A529B9F3CA00579000 /* UiImage.swift in Sources */,
 				570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */,
@@ -660,6 +696,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hafefly/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hafefly needs you location to show you nearby barbershops";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -701,6 +738,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hafefly/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hafefly needs you location to show you nearby barbershops";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -750,6 +788,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		570723C029BBD33200579000 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18BC995F29B48DD200AFA80A /* Project object */;
 }
