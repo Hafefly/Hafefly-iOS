@@ -58,6 +58,9 @@
 		570723BA29BB76FB00579000 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723B929BB76FB00579000 /* MapViewModel.swift */; };
 		570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723BB29BB786C00579000 /* HafeflyMap.swift */; };
 		570723C129BBD33200579000 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 570723C029BBD33200579000 /* PopupView */; };
+		570723C329BC787000579000 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C229BC787000579000 /* ProfileViewModel.swift */; };
+		570723C529BC78B200579000 /* UiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C429BC78B200579000 /* UiState.swift */; };
+		570723C829BC81BA00579000 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C729BC81BA00579000 /* UInt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +121,9 @@
 		570723B529BB75F900579000 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		570723B929BB76FB00579000 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		570723BB29BB786C00579000 /* HafeflyMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HafeflyMap.swift; sourceTree = "<group>"; };
+		570723C229BC787000579000 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		570723C429BC78B200579000 /* UiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiState.swift; sourceTree = "<group>"; };
+		570723C729BC81BA00579000 /* UInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,7 @@
 			children = (
 				18BC998329B4A38F00AFA80A /* String.swift */,
 				570723AF29BB35F500579000 /* Date.swift */,
+				570723C729BC81BA00579000 /* UInt.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -407,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				5707239C29B92F8800579000 /* ProfileView.swift */,
+				570723C229BC787000579000 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -431,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				570723B829BB760C00579000 /* Location */,
+				570723C629BC791100579000 /* UiState */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -441,6 +450,14 @@
 				570723B529BB75F900579000 /* LocationManager.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		570723C629BC791100579000 /* UiState */ = {
+			isa = PBXGroup;
+			children = (
+				570723C429BC78B200579000 /* UiState.swift */,
+			);
+			path = UiState;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -536,6 +553,7 @@
 				18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */,
 				5707237629B78DA900579000 /* Province.swift in Sources */,
 				5707237429B78B9600579000 /* View.swift in Sources */,
+				570723C529BC78B200579000 /* UiState.swift in Sources */,
 				18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */,
 				5707239B29B92F7F00579000 /* MapView.swift in Sources */,
 				570723B629BB75F900579000 /* LocationManager.swift in Sources */,
@@ -550,6 +568,7 @@
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
 				570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
+				570723C329BC787000579000 /* ProfileViewModel.swift in Sources */,
 				570723A529B9F3CA00579000 /* UiImage.swift in Sources */,
 				570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */,
 				5707239929B92F7800579000 /* SearchView.swift in Sources */,
@@ -563,6 +582,7 @@
 				18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */,
 				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
+				570723C829BC81BA00579000 /* UInt.swift in Sources */,
 				5707239329B9158300579000 /* WorkingHours.swift in Sources */,
 				5707238729B8F03E00579000 /* Double.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,

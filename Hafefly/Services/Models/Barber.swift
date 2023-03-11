@@ -11,6 +11,7 @@ struct Barber {
     let id: UInt
     let barbershopID: UInt
     let barbershopName: String
+    let profileImage: String?
     let name: String
     let bio: String
     let age: UInt
