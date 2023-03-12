@@ -57,7 +57,7 @@ struct BarbershopView: View {
                             HStack{
                                 Spacer()
                                 BarberCard(barber) {
-                                    NavigationCoordinator.pushScreen(.barber(barber))
+                                    NavigationCoordinator.pushScreen(.barber(barber, barbershop.pricing))
                                 }
                                 Spacer()
                             }

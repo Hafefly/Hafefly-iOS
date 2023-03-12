@@ -8,8 +8,12 @@
 import SwiftUI
 
 extension View {
-    func setupDefaultBackHandler() -> some View {
-        self.modifier(BackHandlerModifier())
+    func setupDefaultBackHandler(home: Bool = false) -> some View {
+        self.modifier(BackHandlerModifier(popToHome: home, handler: nil))
+    }
+    
+    func setupBackHandler(_ handler: NavigationBackHandler) -> some View {
+        self.modifier(BackHandlerModifier(popToHome: false, handler: handler))
     }
     
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
@@ -28,16 +32,21 @@ struct RoundedCorner: Shape {
     }
 }
 
-/// - Back hadling (due to swipe)
+//MARK: - Back hadling (due to swipe)
 private struct BackHandlerModifier: ViewModifier, NavigationBackHandler {
+    let popToHome: Bool
+    let handler: NavigationBackHandler?
     
     func popScreenDueToSwipe() {
-        NavigationCoordinator.popBack()
+        NavigationCoordinator.popBack(home: popToHome)
     }
     
-    @EnvironmentObject private var screenInfo: NavigationCoordinator.ScreenInfo
+//    @EnvironmentObject private var screenInfo: NavigationCoordinator.ScreenInfo
     
     func body(content: Content) -> some View {
        content
+//            .onAppear {
+//                screenInfo.backHandler = handler ?? self
+//            }
     }
 }

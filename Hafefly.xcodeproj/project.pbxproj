@@ -64,6 +64,7 @@
 		570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C929BC8A2000579000 /* BarbershopView.swift */; };
 		570723D029BCEB5900579000 /* CardStack in Frameworks */ = {isa = PBXBuildFile; productRef = 570723CF29BCEB5900579000 /* CardStack */; };
 		570723D429BDC21000579000 /* BarberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723D329BDC21000579000 /* BarberView.swift */; };
+		570723D929BDD9D100579000 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723D829BDD9D100579000 /* BookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		570723C729BC81BA00579000 /* UInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
 		570723C929BC8A2000579000 /* BarbershopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopView.swift; sourceTree = "<group>"; };
 		570723D329BDC21000579000 /* BarberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberView.swift; sourceTree = "<group>"; };
+		570723D829BDD9D100579000 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 				570723AC29BA561C00579000 /* Category */,
 				570723D229BDC1EB00579000 /* Barbershop */,
 				570723D529BDC21400579000 /* Barber */,
+				570723DA29BDD9D500579000 /* Book */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,6 +487,14 @@
 			path = Barber;
 			sourceTree = "<group>";
 		};
+		570723DA29BDD9D500579000 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				570723D829BDD9D100579000 /* BookView.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -580,6 +591,7 @@
 				5707237629B78DA900579000 /* Province.swift in Sources */,
 				5707237429B78B9600579000 /* View.swift in Sources */,
 				570723C529BC78B200579000 /* UiState.swift in Sources */,
+				570723D929BDD9D100579000 /* BookView.swift in Sources */,
 				18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */,
 				5707239B29B92F7F00579000 /* MapView.swift in Sources */,
 				570723B629BB75F900579000 /* LocationManager.swift in Sources */,

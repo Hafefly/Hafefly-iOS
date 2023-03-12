@@ -25,7 +25,8 @@ public class NavigationCoordinator {
         case category(Category)
         case barbershopOverlay(Barbershop)
         case barbershop(Barbershop)
-        case barber(Barber)
+        case barber(Barber, Pricing)
+        case book(Pricing)
     }
     
     public enum TransitAnimation {

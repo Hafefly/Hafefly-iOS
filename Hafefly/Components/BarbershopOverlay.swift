@@ -41,7 +41,7 @@ struct BarbershopOverlay: View {
                         }
                     }
                     Spacer()
-                    Image("ils_razor")
+                    Image("ilu_mower")
                 }
                 .padding()
                 .background(Color.favoriteBlue)

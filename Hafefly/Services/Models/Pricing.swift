@@ -14,4 +14,5 @@ struct Pricing {
     let razor: UInt
     let scissors: UInt
     let strightener: UInt
+    let atHome: UInt?
 }

@@ -10,9 +10,11 @@ import SwiftUI
 struct BarberView: View {
     
     let barber: Barber
+    let pricing: Pricing
     
-    init(_ barber: Barber) {
+    init(_ barber: Barber, pricing: Pricing) {
         self.barber = barber
+        self.pricing = pricing
     }
     var body: some View {
         VStack{
@@ -52,7 +54,7 @@ struct BarberView: View {
                 Spacer()
                 
                 HafeflyButton(foregroundColor: .orange) {
-                    //Navigation
+                    NavigationCoordinator.pushScreen(.book(pricing))
                 } label: {
                     Text("book".localized)
                         .font(.white, Font.HafeflyRubik.bold, 24)
@@ -75,7 +77,7 @@ struct BarberView: View {
                     .font(.white.opacity(0.8), Font.HafeflyRubik.regular, 18)
             }
             Spacer()
-            Image("ils_razor")
+            Image("ilu_mower")
         }
         .padding(12)
         .background(Color.favoriteBlue)
@@ -149,6 +151,7 @@ struct BarberView: View {
 
 struct BarberView_Previews: PreviewProvider {
     static var previews: some View {
-        BarberView(Barbershop.barbershops[0].barbers[0])
+        let barbershop = Barbershop.barbershops[0]
+        BarberView(barbershop.barbers[0], pricing: barbershop.pricing)
     }
 }

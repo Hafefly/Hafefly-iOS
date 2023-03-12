@@ -79,7 +79,8 @@ extension CoordinatorView {
             case .category(let category): CategoryView(category)
             case .barbershopOverlay(let barbershop): BarbershopOverlay(barbershop)
             case .barbershop(let barbershop): BarbershopView(barbershop)
-            case .barber(let barber): BarberView(barber)
+            case .barber(let barber, let pricing): BarberView(barber, pricing: pricing)
+            case .book(let pricing): BookView(pricing)
             }
         }
     }
