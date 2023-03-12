@@ -78,7 +78,8 @@ extension CoordinatorView {
             case .main(let tab): MainView(tab: tab ?? .home)
             case .category(let category): CategoryView(category)
             case .barbershopOverlay(let barbershop): BarbershopOverlay(barbershop)
-            case .barbershopView(let barbershop): BarbershopView(barbershop)
+            case .barbershop(let barbershop): BarbershopView(barbershop)
+            case .barber(let barber): BarberView(barber)
             }
         }
     }

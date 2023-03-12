@@ -38,11 +38,7 @@ struct HomeView: View {
                     ZStack{
                         LazyVStack(spacing: 16){
                             ForEach(Barbershop.barbershops, id: \.id) { barbershop in
-                                Button {
-                                    NavigationCoordinator.pushScreen(.barbershopView(barbershop))
-                                } label: {
-                                    BarbershopCard(barbershop: barbershop, isFavorite: Category.categories[0].barbershops.contains{$0.id == barbershop.id})
-                                }
+                                BarbershopCard(barbershop: barbershop, isFavorite: Category.categories[0].barbershops.contains{$0.id == barbershop.id})
                             }
                         }
                     }

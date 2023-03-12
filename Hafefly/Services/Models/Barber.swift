@@ -24,4 +24,12 @@ struct Barber: Identifiable {
     let rating: Double
     let verified: Bool
     let workingHours: WorkingHours
+    let reviews: [Review]
+}
+
+struct Review: Identifiable {
+    let id: UInt
+    let message: String
+    let username: String
+    let rating: Double?
 }

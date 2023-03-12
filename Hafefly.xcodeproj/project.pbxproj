@@ -63,6 +63,7 @@
 		570723C829BC81BA00579000 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C729BC81BA00579000 /* UInt.swift */; };
 		570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C929BC8A2000579000 /* BarbershopView.swift */; };
 		570723D029BCEB5900579000 /* CardStack in Frameworks */ = {isa = PBXBuildFile; productRef = 570723CF29BCEB5900579000 /* CardStack */; };
+		570723D429BDC21000579000 /* BarberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723D329BDC21000579000 /* BarberView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		570723C429BC78B200579000 /* UiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiState.swift; sourceTree = "<group>"; };
 		570723C729BC81BA00579000 /* UInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
 		570723C929BC8A2000579000 /* BarbershopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopView.swift; sourceTree = "<group>"; };
+		570723D329BDC21000579000 /* BarberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +253,8 @@
 				5707239F29B92F9D00579000 /* Map */,
 				570723A029B92FB000579000 /* Profile */,
 				570723AC29BA561C00579000 /* Category */,
-				570723C929BC8A2000579000 /* BarbershopView.swift */,
+				570723D229BDC1EB00579000 /* Barbershop */,
+				570723D529BDC21400579000 /* Barber */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,6 +468,22 @@
 			path = UiState;
 			sourceTree = "<group>";
 		};
+		570723D229BDC1EB00579000 /* Barbershop */ = {
+			isa = PBXGroup;
+			children = (
+				570723C929BC8A2000579000 /* BarbershopView.swift */,
+			);
+			path = Barbershop;
+			sourceTree = "<group>";
+		};
+		570723D529BDC21400579000 /* Barber */ = {
+			isa = PBXGroup;
+			children = (
+				570723D329BDC21000579000 /* BarberView.swift */,
+			);
+			path = Barber;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -564,6 +583,7 @@
 				18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */,
 				5707239B29B92F7F00579000 /* MapView.swift in Sources */,
 				570723B629BB75F900579000 /* LocationManager.swift in Sources */,
+				570723D429BDC21000579000 /* BarberView.swift in Sources */,
 				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
 				570723B029BB35F500579000 /* Date.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,

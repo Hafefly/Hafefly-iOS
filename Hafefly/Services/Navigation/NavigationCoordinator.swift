@@ -24,7 +24,8 @@ public class NavigationCoordinator {
         case main(Tabs?)
         case category(Category)
         case barbershopOverlay(Barbershop)
-        case barbershopView(Barbershop)
+        case barbershop(Barbershop)
+        case barber(Barber)
     }
     
     public enum TransitAnimation {
