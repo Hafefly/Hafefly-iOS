@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Barber {
+struct Barber: Identifiable {
     let id: UInt
     let barbershopID: UInt
     let barbershopName: String

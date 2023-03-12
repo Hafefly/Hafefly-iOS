@@ -63,7 +63,7 @@ struct BarbershopCard: View {
                     Button {
                         //
                     } label: {
-                        Image("ic_location")
+                        Image("ic_nearby")
                             .resizable()
                             .frame(width: 22, height: 22)
                             .padding(8)

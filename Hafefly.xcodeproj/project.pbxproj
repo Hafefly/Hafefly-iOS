@@ -61,6 +61,8 @@
 		570723C329BC787000579000 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C229BC787000579000 /* ProfileViewModel.swift */; };
 		570723C529BC78B200579000 /* UiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C429BC78B200579000 /* UiState.swift */; };
 		570723C829BC81BA00579000 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C729BC81BA00579000 /* UInt.swift */; };
+		570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723C929BC8A2000579000 /* BarbershopView.swift */; };
+		570723D029BCEB5900579000 /* CardStack in Frameworks */ = {isa = PBXBuildFile; productRef = 570723CF29BCEB5900579000 /* CardStack */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +126,7 @@
 		570723C229BC787000579000 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		570723C429BC78B200579000 /* UiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiState.swift; sourceTree = "<group>"; };
 		570723C729BC81BA00579000 /* UInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
+		570723C929BC8A2000579000 /* BarbershopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				570723C129BBD33200579000 /* PopupView in Frameworks */,
+				570723D029BCEB5900579000 /* CardStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +251,7 @@
 				5707239F29B92F9D00579000 /* Map */,
 				570723A029B92FB000579000 /* Profile */,
 				570723AC29BA561C00579000 /* Category */,
+				570723C929BC8A2000579000 /* BarbershopView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 			name = Hafefly;
 			packageProductDependencies = (
 				570723C029BBD33200579000 /* PopupView */,
+				570723CF29BCEB5900579000 /* CardStack */,
 			);
 			productName = Hafefly;
 			productReference = 18BC996729B48DD200AFA80A /* Hafefly.app */;
@@ -509,6 +515,7 @@
 			mainGroup = 18BC995E29B48DD200AFA80A;
 			packageReferences = (
 				570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */,
+				570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */,
 			);
 			productRefGroup = 18BC996829B48DD200AFA80A /* Products */;
 			projectDirPath = "";
@@ -565,6 +572,7 @@
 				570723B229BB414B00579000 /* SearchViewModel.swift in Sources */,
 				5707238F29B904CC00579000 /* BarbershopCard.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
+				570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
 				570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
@@ -818,6 +826,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dadalar/SwiftUI-CardStackView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -825,6 +841,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		570723CF29BCEB5900579000 /* CardStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */;
+			productName = CardStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
