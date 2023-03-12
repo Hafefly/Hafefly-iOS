@@ -48,16 +48,22 @@ struct ProfileView: View {
                         VStack(alignment: .leading){
                             HStack{
                                 Image("ic_phone")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
                                 Text(barber.phone)
                                     .font(.white, Font.HafeflyRubik.regular, 20)
                             }
                             HStack{
                                 Image("ic_instagram")
+                                    .resizable()
+                                    .frame(width: 22, height: 22)
                                 Text(barber.instagram)
                                     .font(.white, Font.HafeflyRubik.regular, 20)
                             }
                             HStack{
                                 Image("ic_checkmark")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
                                 Text("\(String(barber.haircutsDone)) \(barber.haircutsDone.whichString(single: "haircut_done", plural: "haircuts_done"))")
                                     .font(.white, Font.HafeflyRubik.regular, 20)
                             }
