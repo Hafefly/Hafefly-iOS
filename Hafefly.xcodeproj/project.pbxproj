@@ -65,6 +65,9 @@
 		570723D029BCEB5900579000 /* CardStack in Frameworks */ = {isa = PBXBuildFile; productRef = 570723CF29BCEB5900579000 /* CardStack */; };
 		570723D429BDC21000579000 /* BarberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723D329BDC21000579000 /* BarberView.swift */; };
 		570723D929BDD9D100579000 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723D829BDD9D100579000 /* BookView.swift */; };
+		570723DC29BE3C4000579000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723DB29BE3C3F00579000 /* User.swift */; };
+		570723DE29BE3EF600579000 /* HaircutsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723DD29BE3EF600579000 /* HaircutsHistory.swift */; };
+		570723E129BE438D00579000 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 570723E029BE438D00579000 /* SkeletonView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +134,8 @@
 		570723C929BC8A2000579000 /* BarbershopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopView.swift; sourceTree = "<group>"; };
 		570723D329BDC21000579000 /* BarberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberView.swift; sourceTree = "<group>"; };
 		570723D829BDD9D100579000 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		570723DB29BE3C3F00579000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		570723DD29BE3EF600579000 /* HaircutsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaircutsHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				570723C129BBD33200579000 /* PopupView in Frameworks */,
+				570723E129BE438D00579000 /* SkeletonView in Frameworks */,
 				570723D029BCEB5900579000 /* CardStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,12 +381,14 @@
 		5707237729B78DAD00579000 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				570723DB29BE3C3F00579000 /* User.swift */,
 				5707237529B78DA900579000 /* Province.swift */,
 				5707238429B8EE4900579000 /* Barbershop.swift */,
 				5707238C29B8F13200579000 /* Category.swift */,
 				5707239029B9141600579000 /* Barber.swift */,
 				5707239229B9158300579000 /* WorkingHours.swift */,
 				5707239429B9158F00579000 /* Pricing.swift */,
+				570723DD29BE3EF600579000 /* HaircutsHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -514,6 +522,7 @@
 			packageProductDependencies = (
 				570723C029BBD33200579000 /* PopupView */,
 				570723CF29BCEB5900579000 /* CardStack */,
+				570723E029BE438D00579000 /* SkeletonView */,
 			);
 			productName = Hafefly;
 			productReference = 18BC996729B48DD200AFA80A /* Hafefly.app */;
@@ -546,6 +555,7 @@
 			packageReferences = (
 				570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */,
 				570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */,
+				570723DF29BE438D00579000 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 18BC996829B48DD200AFA80A /* Products */;
 			projectDirPath = "";
@@ -606,6 +616,7 @@
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
+				570723DC29BE3C4000579000 /* User.swift in Sources */,
 				570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
 				570723C329BC787000579000 /* ProfileViewModel.swift in Sources */,
@@ -620,6 +631,7 @@
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
 				5707238529B8EE4900579000 /* Barbershop.swift in Sources */,
 				18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */,
+				570723DE29BE3EF600579000 /* HaircutsHistory.swift in Sources */,
 				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
 				570723C829BC81BA00579000 /* UInt.swift in Sources */,
@@ -866,6 +878,14 @@
 				minimumVersion = 0.0.6;
 			};
 		};
+		570723DF29BE438D00579000 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -878,6 +898,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */;
 			productName = CardStack;
+		};
+		570723E029BE438D00579000 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 570723DF29BE438D00579000 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
