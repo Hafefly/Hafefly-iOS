@@ -17,35 +17,39 @@ struct BarbershopOverlay: View {
     var body: some View {
         ZStack{
             VStack(alignment: .leading, spacing: 24){
-                HStack{
-                    VStack(alignment: .leading){
-                        HStack{
-                            if barbershop.vip {
-                                Image("ic_ticket")
-                                    .resizable()
-                                    .frame(width: 26, height: 22)
-                            }
-                            Text(barbershop.name)
-                                .font(.white, Font.HafeflyRubik.regular, 24)
-                        }
-                        
-                        HStack{
+                Button {
+                    NavigationCoordinator.pushScreen(.barbershop(barbershop))
+                } label: {
+                    HStack{
+                        VStack(alignment: .leading){
                             HStack{
-                                Image("ic_star")
-                                Text(barbershop.rating.rating())
-                                    .font(.white, Font.HafeflyRubik.bold, 22)
+                                if barbershop.vip {
+                                    Image("ic_ticket")
+                                        .resizable()
+                                        .frame(width: 26, height: 22)
+                                }
+                                Text(barbershop.name)
+                                    .font(.white, Font.HafeflyRubik.regular, 24)
                             }
-                            Text(barbershop.isOpen ? "opened".localized : "closed".localized)
-                                .font(barbershop.isOpen ? .green : .red, Font.HafeflyRubik.medium, 18)
-                                .padding(.horizontal, 8)
+                            
+                            HStack{
+                                HStack{
+                                    Image("ic_star")
+                                    Text(barbershop.rating.rating())
+                                        .font(.white, Font.HafeflyRubik.bold, 22)
+                                }
+                                Text(barbershop.isOpen ? "opened".localized : "closed".localized)
+                                    .font(barbershop.isOpen ? .green : .red, Font.HafeflyRubik.medium, 18)
+                                    .padding(.horizontal, 8)
+                            }
                         }
+                        Spacer()
+                        Image("ilu_mower")
                     }
-                    Spacer()
-                    Image("ilu_mower")
+                    .padding()
+                    .background(Color.favoriteBlue)
+                    .cornerRadius(22)
                 }
-                .padding()
-                .background(Color.favoriteBlue)
-                .cornerRadius(22)
                 
                 VStack(alignment: .leading){
                     HStack(spacing: 16){
