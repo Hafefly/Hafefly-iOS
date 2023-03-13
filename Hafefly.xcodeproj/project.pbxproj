@@ -67,7 +67,6 @@
 		570723D929BDD9D100579000 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723D829BDD9D100579000 /* BookView.swift */; };
 		570723DC29BE3C4000579000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723DB29BE3C3F00579000 /* User.swift */; };
 		570723DE29BE3EF600579000 /* HaircutsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723DD29BE3EF600579000 /* HaircutsHistory.swift */; };
-		570723E129BE438D00579000 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 570723E029BE438D00579000 /* SkeletonView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				570723C129BBD33200579000 /* PopupView in Frameworks */,
-				570723E129BE438D00579000 /* SkeletonView in Frameworks */,
 				570723D029BCEB5900579000 /* CardStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,7 +520,6 @@
 			packageProductDependencies = (
 				570723C029BBD33200579000 /* PopupView */,
 				570723CF29BCEB5900579000 /* CardStack */,
-				570723E029BE438D00579000 /* SkeletonView */,
 			);
 			productName = Hafefly;
 			productReference = 18BC996729B48DD200AFA80A /* Hafefly.app */;
@@ -555,7 +552,6 @@
 			packageReferences = (
 				570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */,
 				570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */,
-				570723DF29BE438D00579000 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 18BC996829B48DD200AFA80A /* Products */;
 			projectDirPath = "";
@@ -878,14 +874,6 @@
 				minimumVersion = 0.0.6;
 			};
 		};
-		570723DF29BE438D00579000 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.9.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -898,11 +886,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */;
 			productName = CardStack;
-		};
-		570723E029BE438D00579000 /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 570723DF29BE438D00579000 /* XCRemoteSwiftPackageReference "SkeletonView" */;
-			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

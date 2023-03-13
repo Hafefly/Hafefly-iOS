@@ -107,7 +107,7 @@ enum Haircut: String, CaseIterable {
         case .hairdryer:
             return pricing.hairdryer
         case .straightener:
-            return pricing.strightener
+            return pricing.straightener
         case .atHome:
             return pricing.atHome ?? 0
         }

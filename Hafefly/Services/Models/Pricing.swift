@@ -13,6 +13,6 @@ struct Pricing {
     let hairdryer: UInt
     let razor: UInt
     let scissors: UInt
-    let strightener: UInt
+    let straightener: UInt
     let atHome: UInt?
 }
