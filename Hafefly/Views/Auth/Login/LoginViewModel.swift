@@ -10,7 +10,12 @@ import Foundation
 extension LoginView {
     class Model: ObservableObject {
         func login(username: String, password: String) {
-            NavigationCoordinator.shared.switchStartPoint(.main(.home))
+            LoginRepo.login(username: username, password: password) { token in
+                KeychainHelper.standard.accessToken = token
+                NavigationCoordinator.shared.switchStartPoint(.main(.home))
+            } failure: { error in
+                #warning("show banner error")
+            }
         }
         
         func signup() {

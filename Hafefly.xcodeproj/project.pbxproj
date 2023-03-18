@@ -67,6 +67,12 @@
 		570723D929BDD9D100579000 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723D829BDD9D100579000 /* BookView.swift */; };
 		570723DC29BE3C4000579000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723DB29BE3C3F00579000 /* User.swift */; };
 		570723DE29BE3EF600579000 /* HaircutsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723DD29BE3EF600579000 /* HaircutsHistory.swift */; };
+		57D47C1029C35D9500A3DC1D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C0F29C35D9500A3DC1D /* NetworkService.swift */; };
+		57D47C1329C35E8E00A3DC1D /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1229C35E8E00A3DC1D /* Interceptor.swift */; };
+		57D47C1629C35EE900A3DC1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 57D47C1529C35EE900A3DC1D /* Alamofire */; };
+		57D47C1829C3601400A3DC1D /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1729C3601400A3DC1D /* KeychainManager.swift */; };
+		57D47C1D29C3610400A3DC1D /* LoginRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1C29C3610400A3DC1D /* LoginRepo.swift */; };
+		57D47C2029C3683900A3DC1D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1F29C3683900A3DC1D /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +141,11 @@
 		570723D829BDD9D100579000 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		570723DB29BE3C3F00579000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		570723DD29BE3EF600579000 /* HaircutsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaircutsHistory.swift; sourceTree = "<group>"; };
+		57D47C0F29C35D9500A3DC1D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		57D47C1229C35E8E00A3DC1D /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		57D47C1729C3601400A3DC1D /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		57D47C1C29C3610400A3DC1D /* LoginRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepo.swift; sourceTree = "<group>"; };
+		57D47C1F29C3683900A3DC1D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D47C1629C35EE900A3DC1D /* Alamofire in Frameworks */,
 				570723C129BBD33200579000 /* PopupView in Frameworks */,
 				570723D029BCEB5900579000 /* CardStack in Frameworks */,
 			);
@@ -177,6 +189,7 @@
 				18BC99A829B5E0E500AFA80A /* Views */,
 				18BC99AA29B5E11F00AFA80A /* main */,
 				18BC99C829B642C200AFA80A /* Services */,
+				57D47C1129C35D9B00A3DC1D /* HafeflyService */,
 				18BC996E29B48DD400AFA80A /* Assets.xcassets */,
 				18BC997029B48DD400AFA80A /* Hafefly.entitlements */,
 				18BC997129B48DD400AFA80A /* Preview Content */,
@@ -457,6 +470,8 @@
 			children = (
 				570723B829BB760C00579000 /* Location */,
 				570723C629BC791100579000 /* UiState */,
+				57D47C1929C3601800A3DC1D /* Keychain */,
+				57D47C1F29C3683900A3DC1D /* Logger.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -501,6 +516,32 @@
 			path = Book;
 			sourceTree = "<group>";
 		};
+		57D47C1129C35D9B00A3DC1D /* HafeflyService */ = {
+			isa = PBXGroup;
+			children = (
+				57D47C0F29C35D9500A3DC1D /* NetworkService.swift */,
+				57D47C1229C35E8E00A3DC1D /* Interceptor.swift */,
+				57D47C1E29C3610E00A3DC1D /* Repos */,
+			);
+			path = HafeflyService;
+			sourceTree = "<group>";
+		};
+		57D47C1929C3601800A3DC1D /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				57D47C1729C3601400A3DC1D /* KeychainManager.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		57D47C1E29C3610E00A3DC1D /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				57D47C1C29C3610400A3DC1D /* LoginRepo.swift */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -520,6 +561,7 @@
 			packageProductDependencies = (
 				570723C029BBD33200579000 /* PopupView */,
 				570723CF29BCEB5900579000 /* CardStack */,
+				57D47C1529C35EE900A3DC1D /* Alamofire */,
 			);
 			productName = Hafefly;
 			productReference = 18BC996729B48DD200AFA80A /* Hafefly.app */;
@@ -552,6 +594,7 @@
 			packageReferences = (
 				570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */,
 				570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */,
+				57D47C1429C35EE800A3DC1D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 18BC996829B48DD200AFA80A /* Products */;
 			projectDirPath = "";
@@ -593,6 +636,7 @@
 				18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */,
 				570723BA29BB76FB00579000 /* MapViewModel.swift in Sources */,
 				5707237D29B7D14400579000 /* SignUpInfoViewModel.swift in Sources */,
+				57D47C1829C3601400A3DC1D /* KeychainManager.swift in Sources */,
 				18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */,
 				5707237629B78DA900579000 /* Province.swift in Sources */,
 				5707237429B78B9600579000 /* View.swift in Sources */,
@@ -605,15 +649,18 @@
 				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
 				570723B029BB35F500579000 /* Date.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
+				57D47C1329C35E8E00A3DC1D /* Interceptor.swift in Sources */,
 				5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */,
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
 				570723B229BB414B00579000 /* SearchViewModel.swift in Sources */,
 				5707238F29B904CC00579000 /* BarbershopCard.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */,
+				57D47C1D29C3610400A3DC1D /* LoginRepo.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
 				570723DC29BE3C4000579000 /* User.swift in Sources */,
 				570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */,
+				57D47C1029C35D9500A3DC1D /* NetworkService.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
 				570723C329BC787000579000 /* ProfileViewModel.swift in Sources */,
 				570723A529B9F3CA00579000 /* UiImage.swift in Sources */,
@@ -631,6 +678,7 @@
 				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
 				570723C829BC81BA00579000 /* UInt.swift in Sources */,
+				57D47C2029C3683900A3DC1D /* Logger.swift in Sources */,
 				5707239329B9158300579000 /* WorkingHours.swift in Sources */,
 				5707238729B8F03E00579000 /* Double.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
@@ -874,6 +922,14 @@
 				minimumVersion = 0.0.6;
 			};
 		};
+		57D47C1429C35EE800A3DC1D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -886,6 +942,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */;
 			productName = CardStack;
+		};
+		57D47C1529C35EE900A3DC1D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57D47C1429C35EE800A3DC1D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

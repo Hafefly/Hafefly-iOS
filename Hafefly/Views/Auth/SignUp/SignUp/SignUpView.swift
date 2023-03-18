@@ -41,7 +41,7 @@ struct SignUpView: View {
                 }
                 Spacer()
                 HafeflyButton {
-                    model.signUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber, username: username, password: password)
+                    model.signUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber, username: username, password: password, rePassword: rePassword)
                 } label: {
                     Text("sign_up".localized)
                         .font(.white, Font.HafeflyRubik.semiBold, 18)

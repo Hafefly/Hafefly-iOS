@@ -39,7 +39,7 @@ struct LoginView: View {
                         }
                         Spacer()
                         Button {
-                            
+                            model.signup()
                         } label: {
                             Text("sign_up".localized)
                         }
