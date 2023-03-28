@@ -13,7 +13,7 @@ class LoginRepo: NetworkService {
         case signup = "/users/create"
     }
     
-    static func login(username: String, password: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+    static func login(username: String, password: String, success: @escaping (String) -> Void, failure: @escaping (ErrorResponse) -> Void) {
         let body: [String: String] = [
             "username": username,
             "password": password,
@@ -21,7 +21,7 @@ class LoginRepo: NetworkService {
         shared.post(endpoint: endpoints.login.rawValue, body: body, success: success, failure: failure)
     }
     
-    static func signUp(username: String, firstname: String, lastname: String, phone: String? = nil, email: String? = nil, province: String, password: String, confirmPassword: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void){
+    static func signUp(username: String, firstname: String, lastname: String, phone: String? = nil, email: String? = nil, province: String, password: String, confirmPassword: String, success: @escaping (String) -> Void, failure: @escaping (ErrorResponse) -> Void){
         let body: [String: String?] = [
             "username": username,
             "firstname": firstname,

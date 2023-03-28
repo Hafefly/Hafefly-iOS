@@ -150,7 +150,7 @@ struct ProfileView: View {
                         .font(.white, Font.HafeflyRubik.semiBold, 24)
 //                    Text(haircutHistory.barbershop.name)
 //                        .font(.white, Font.HafeflyRubik.regular, 20)
-                    Text("\(haircutHistory.time.opening.getFormattedDate()) - \(haircutHistory.time.opening.getFormattedDate())")
+                    Text("\(haircutHistory.time.openingDate.getFormattedDate()) - \(haircutHistory.time.openingDate.getFormattedDate())")
                         .font(.white, Font.HafeflyRubik.regular, 20)
                     Spacer()
                     HStack{

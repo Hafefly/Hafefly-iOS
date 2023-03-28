@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Barber: Identifiable {
+struct Barber: Identifiable, Codable {
     let id: UInt
     let barbershopID: UInt
     let barbershopName: String
@@ -27,7 +27,7 @@ struct Barber: Identifiable {
     let reviews: [Review]
 }
 
-struct Review: Identifiable {
+struct Review: Identifiable, Codable {
     let id: UInt
     let message: String
     let username: String

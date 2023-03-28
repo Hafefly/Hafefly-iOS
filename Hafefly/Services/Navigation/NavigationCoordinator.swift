@@ -14,7 +14,7 @@ protocol NavigationBackHandler {
 
 public class NavigationCoordinator {
     
-    static let shared = NavigationCoordinator(start: CoordinatorView.StartPoint.login)
+    static let shared = NavigationCoordinator(start: CoordinatorView.StartPoint.main(.home))
     
     enum Screens {
         case onBoarding

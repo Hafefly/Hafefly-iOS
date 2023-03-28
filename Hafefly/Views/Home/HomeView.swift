@@ -36,9 +36,30 @@ struct HomeView: View {
                 }
                 ScrollView(showsIndicators: false){
                     ZStack{
-                        LazyVStack(spacing: 16){
-                            ForEach(Barbershop.barbershops, id: \.id) { barbershop in
-                                BarbershopCard(barbershop: barbershop, isFavorite: Category.categories[0].barbershops.contains{$0.id == barbershop.id})
+                        switch model.barbershopsUiState {
+                        case .success(let barbershops):
+                            LazyVStack(spacing: 16){
+                                ForEach(barbershops, id: \.id) { barbershop in
+                                    BarbershopCard(barbershop: barbershop, isFavorite: Category.categories[0].barbershops.contains{$0.id == barbershop.id})
+                                }
+                            }
+                        case .idle, .loading:
+                            Spacer()
+                            ProgressView()
+                                .frame(width: 40, height: 40)
+                            Spacer()
+                        case .failed(let error):
+                            HStack{
+                                Spacer()
+                                VStack{
+                                    Spacer()
+                                    Image(systemName: "exclamationmark.triangle.fill")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .foregroundColor(.white)
+                                    Spacer()
+                                }
+                                Spacer()
                             }
                         }
                     }

@@ -77,7 +77,9 @@ struct BookView: View {
 
 struct BookView_Previews: PreviewProvider {
     static var previews: some View {
-        BookView(Barbershop.barbershops[0].pricing)
+        if let pricing = Barbershop.barbershops[0].pricing {
+            BookView(pricing)
+        }
     }
 }
 

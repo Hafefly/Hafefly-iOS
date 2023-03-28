@@ -48,7 +48,7 @@ struct BarberView: View {
             .background(Color.favoriteBlue.ignoresSafeArea())
             .cornerRadius(18, corners: [.bottomRight, .bottomLeft])
             VStack{
-                workingHoursPanel(open: barber.workingHours.opening.getFormattedDate(), close: barber.workingHours.opening.getFormattedDate())
+                workingHoursPanel(open: barber.workingHours.openingDate.getFormattedDate(), close: barber.workingHours.openingDate.getFormattedDate())
                     .shadow(radius: 4)
                 reviewCard(reviews: barber.reviews)
                 Spacer()
@@ -152,6 +152,8 @@ struct BarberView: View {
 struct BarberView_Previews: PreviewProvider {
     static var previews: some View {
         let barbershop = Barbershop.barbershops[0]
-        BarberView(barbershop.barbers[0], pricing: barbershop.pricing)
+        if let barber = barbershop.barbers?[0], let pricing = barbershop.pricing {
+            BarberView(barber, pricing: pricing)
+        }
     }
 }

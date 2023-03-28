@@ -51,26 +51,30 @@ struct BarbershopView: View {
                             }
                         }.padding()
                     }
-                    CardStack(direction: LeftRight.direction, data: barbershop.barbers) { _, _ in } content: { barber, _, _ in
-                        VStack{
-                            Spacer()
-                            HStack{
+                    if let barbers = barbershop.barbers {
+                        CardStack(direction: LeftRight.direction, data: barbers) { _, _ in } content: { barber, _, _ in
+                            VStack{
                                 Spacer()
-                                BarberCard(barber) {
-                                    NavigationCoordinator.pushScreen(.barber(barber, barbershop.pricing))
+                                HStack{
+                                    Spacer()
+                                    BarberCard(barber) {
+                                        if let pricing = barbershop.pricing {
+                                            NavigationCoordinator.pushScreen(.barber(barber, pricing))
+                                        }
+                                    }
+                                    Spacer()
                                 }
                                 Spacer()
                             }
-                            Spacer()
-                        }
-                    }.environment(\.cardStackConfiguration, CardStackConfiguration(
-                        maxVisibleCards: 3,
-                        swipeThreshold: 0.1,
-                        cardOffset: 40,
-                        cardScale: 0.2,
-                        animation: .linear
-                      ))
-                    Spacer()
+                        }.environment(\.cardStackConfiguration, CardStackConfiguration(
+                            maxVisibleCards: 3,
+                            swipeThreshold: 0.1,
+                            cardOffset: 40,
+                            cardScale: 0.2,
+                            animation: .linear
+                        ))
+                        Spacer()
+                    }
                 }
             }
             .padding(.top, edges.top)
@@ -142,7 +146,7 @@ struct BarberCard: View {
                 VStack(alignment: .leading){
                     Text("working_hours".localized)
                         .font(.white, Font.HafeflyRubik.medium, 24)
-                    Text("\(barber.workingHours.opening.getFormattedDate()) - \(barber.workingHours.opening.getFormattedDate())")
+                    Text("\(barber.workingHours.openingDate.getFormattedDate()) - \(barber.workingHours.openingDate.getFormattedDate())")
                         .font(.white.opacity(0.8), Font.HafeflyRubik.regular, 18)
                 }
                 Text(barber.bio)

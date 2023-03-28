@@ -7,7 +7,15 @@
 
 import Foundation
 
-struct WorkingHours {
-    let opening: Date
-    let closing: Date
+struct WorkingHours: Codable {
+    let opening: String
+    let closing: String
+    
+    var openingDate: Date {
+        return opening.parseDate ?? Date()
+    }
+    
+    var closingDate: Date {
+        return closing.parseDate ?? Date()
+    }
 }

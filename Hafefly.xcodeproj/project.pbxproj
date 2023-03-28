@@ -73,6 +73,8 @@
 		57D47C1829C3601400A3DC1D /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1729C3601400A3DC1D /* KeychainManager.swift */; };
 		57D47C1D29C3610400A3DC1D /* LoginRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1C29C3610400A3DC1D /* LoginRepo.swift */; };
 		57D47C2029C3683900A3DC1D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1F29C3683900A3DC1D /* Logger.swift */; };
+		57E80F1F29D2F2A600673E4E /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */; };
+		57E80F2129D3010F00673E4E /* BarbershopRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E80F2029D3010F00673E4E /* BarbershopRepo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +148,8 @@
 		57D47C1729C3601400A3DC1D /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		57D47C1C29C3610400A3DC1D /* LoginRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepo.swift; sourceTree = "<group>"; };
 		57D47C1F29C3683900A3DC1D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		57E80F2029D3010F00673E4E /* BarbershopRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopRepo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +404,7 @@
 				5707239229B9158300579000 /* WorkingHours.swift */,
 				5707239429B9158F00579000 /* Pricing.swift */,
 				570723DD29BE3EF600579000 /* HaircutsHistory.swift */,
+				57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				57D47C1C29C3610400A3DC1D /* LoginRepo.swift */,
+				57E80F2029D3010F00673E4E /* BarbershopRepo.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				570723BA29BB76FB00579000 /* MapViewModel.swift in Sources */,
 				5707237D29B7D14400579000 /* SignUpInfoViewModel.swift in Sources */,
 				57D47C1829C3601400A3DC1D /* KeychainManager.swift in Sources */,
+				57E80F1F29D2F2A600673E4E /* ErrorResponse.swift in Sources */,
 				18BC99E129B6459400AFA80A /* SignUpView.swift in Sources */,
 				5707237629B78DA900579000 /* Province.swift in Sources */,
 				5707237429B78B9600579000 /* View.swift in Sources */,
@@ -649,6 +656,7 @@
 				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
 				570723B029BB35F500579000 /* Date.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
+				57E80F2129D3010F00673E4E /* BarbershopRepo.swift in Sources */,
 				57D47C1329C35E8E00A3DC1D /* Interceptor.swift in Sources */,
 				5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */,
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,

@@ -11,7 +11,7 @@ import Alamofire
 class NetworkService {
     static let shared = NetworkService()
     
-    private let base = "http://127.0.0.1:8080"
+    private let base = "https://r6y84.wiremockapi.cloud"
     
     private let session = Session()
     var credential = JWTCredential(accessToken: KeychainHelper.standard.accessToken ?? "", expiration: Date(timeIntervalSinceNow: 60 * 60))
@@ -23,7 +23,7 @@ class NetworkService {
         return AuthenticationInterceptor(authenticator: authenticator, credential: credential)
     }
     
-    func get<T: Decodable>(endpoint: String, body: [String: Any]? = nil, success: @escaping (T) -> Void, failure: @escaping (String) -> Void){
+    func get<T: Decodable>(endpoint: String, body: [String: Any]? = nil, success: @escaping (T) -> Void, failure: @escaping (ErrorResponse) -> Void){
         MyLogger().info("http:url: \(base)\(endpoint)")
         
         let header: HTTPHeaders = [
@@ -37,7 +37,7 @@ class NetworkService {
             MyLogger().info("http:res: \(response.debugDescription)")
             
             guard let status = response.response?.statusCode else {
-                failure("somthing_went_wrong".localized)
+                failure(.responseError())
                 return
             }
             
@@ -47,15 +47,17 @@ class NetworkService {
                 case .success(let res):
                     success(res)
                 case .failure(let error):
-                    failure(error.errorDescription ?? "somthing_went_wrong".localized)
+                    failure(.decodingError())
                     MyLogger().error(error.errorDescription)
                 }
-            default: failure("somthing_went_wrong".localized)
+            case 400...499:
+                failure(.authenticationError())
+            default: failure(.unknownError)
             }
         }
     }
     
-    func post<T: Decodable>(endpoint: String, body: [String: Any], success: @escaping (T) -> Void, failure: @escaping (String) -> Void){
+    func post<T: Decodable>(endpoint: String, body: [String: Any], success: @escaping (T) -> Void, failure: @escaping (ErrorResponse) -> Void){
         MyLogger().info("http:url: \(base)\(endpoint)")
         MyLogger().info("http:body: \(body)")
         
@@ -68,10 +70,10 @@ class NetworkService {
             
         }.responseDecodable(of: T.self, emptyResponseCodes: [200]) { response in
             
-            print("http:res: \(response.debugDescription)")
+            MyLogger().info("http:res: \(response.debugDescription)")
             
             guard let status = response.response?.statusCode else {
-                failure("somthing_went_wrong".localized)
+                failure(.responseError())
                 return
             }
             
@@ -81,11 +83,41 @@ class NetworkService {
                 case .success(let res):
                     success(res)
                 case .failure(let error):
-                    failure(error.errorDescription ?? "somthing_went_wrong".localized)
+                    failure(.decodingError())
                     MyLogger().error(error.errorDescription)
                 }
-            default: failure("somthing_went_wrong".localized)
+            case 400...499:
+                failure(.authenticationError())
+            default: failure(.unknownError)
             }
         }
     }
+    
+    func put(endpoint: String, body: [String: Any], success: @escaping () -> Void, failure: @escaping (ErrorResponse) -> Void){
+        MyLogger().info("http:url: \(base)\(endpoint)")
+        MyLogger().info("http:body: \(body)")
+        let header: HTTPHeaders = [
+            .authorization("Bearer \(credential.accessToken)")
+        ]
+        session.request("\(base)\(endpoint)", method: .put, parameters: body, encoding: JSONEncoding.default, headers: header){ (urlRequest: inout URLRequest) in
+            urlRequest.timeoutInterval = self.timout
+        }.response(responseSerializer: .data) { response in
+            MyLogger().info("http:res: \(response.debugDescription)")
+            
+            guard let status = response.response?.statusCode else {
+                failure(.responseError())
+                return
+            }
+            
+            switch status {
+            case 200...299:
+                success()
+            case 400...499:
+                failure(.authenticationError())
+            default: failure(.unknownError)
+            }
+        }
+    }
+    
+    #warning("Implement DELETE methode")
 }

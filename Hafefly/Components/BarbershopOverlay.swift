@@ -66,7 +66,7 @@ struct BarbershopOverlay: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24)
-                        Text("\(barbershop.workingHours.opening.getFormattedDate())  -  \(barbershop.workingHours.closing.getFormattedDate())")
+                        Text("\(barbershop.workingHours.openingDate.getFormattedDate())  -  \(barbershop.workingHours.closingDate.getFormattedDate())")
                             .font(.white, Font.HafeflyRubik.medium, 22)
                     }
                     
@@ -75,8 +75,10 @@ struct BarbershopOverlay: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24)
-                        Text("\(barbershop.barbers.count) \(barbershop.barbers.count != 1 ? "barbers".localized : "barber".localized)")
-                            .font(.white, Font.HafeflyRubik.medium, 26)
+                        if let barbers = barbershop.barbers {
+                            Text("\(barbers.count) \(barbers.count != 1 ? "barbers".localized : "barber".localized)")
+                                .font(.white, Font.HafeflyRubik.medium, 26)
+                        }
                     }
                 }
             }

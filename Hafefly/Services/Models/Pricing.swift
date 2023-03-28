@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pricing {
+struct Pricing: Codable {
     let fade: UInt
     let beard: UInt
     let hairdryer: UInt
