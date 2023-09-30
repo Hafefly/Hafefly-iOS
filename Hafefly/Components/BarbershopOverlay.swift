@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HFNavigation
 
 struct BarbershopOverlay: View {
     let barbershop: Barbershop
@@ -18,7 +19,7 @@ struct BarbershopOverlay: View {
         ZStack{
             VStack(alignment: .leading, spacing: 24){
                 Button {
-                    NavigationCoordinator.pushScreen(.barbershop(barbershop))
+                    pushScreen(BarbershopView(barbershop))
                 } label: {
                     HStack{
                         VStack(alignment: .leading){

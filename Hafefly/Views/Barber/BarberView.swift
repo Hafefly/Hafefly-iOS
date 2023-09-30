@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HFNavigation
 
 struct BarberView: View {
     
@@ -54,7 +55,7 @@ struct BarberView: View {
                 Spacer()
                 
                 HafeflyButton(foregroundColor: .orange) {
-                    NavigationCoordinator.pushScreen(.book(pricing))
+                    pushScreen(BookView(pricing))
                 } label: {
                     Text("book".localized)
                         .font(.white, Font.HafeflyRubik.bold, 24)

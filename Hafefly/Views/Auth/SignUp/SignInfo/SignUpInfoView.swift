@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HFNavigation
 
 struct SignUpInfoView: View {
     
@@ -24,7 +25,6 @@ struct SignUpInfoView: View {
         } content: { edges in
             VStack(alignment: .center){
                 Spacer()
-                    .frame()
                 VStack{
                     Image("Logo")
                         .resizable()
@@ -32,7 +32,6 @@ struct SignUpInfoView: View {
                         .frame(width: 200)
                 }
                 Spacer()
-                    .frame()
                 VStack{
                     VStack{
                         HStack {
@@ -72,7 +71,6 @@ struct SignUpInfoView: View {
                     }.padding(.horizontal, 8)
                 }
                 Spacer()
-                    .frame()
                 HafeflyButton {
                     continueSignUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber)
                 } label: {
@@ -87,7 +85,7 @@ struct SignUpInfoView: View {
     private func continueSignUp(firstname: String, lastname: String, province: Province, phonenumber: String){
         model.verifyOtp(for: phonenumber, code: otpCode) { success in
             if success {
-                NavigationCoordinator.pushScreen(.signup(firstname, lastname, province, phonenumber))
+                NavigationCoordinator.pushScreen(SignUpView(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber))
             }
         }
     }

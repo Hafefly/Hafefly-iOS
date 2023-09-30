@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HFNavigation
 
 struct OnboardingView: View {
     
@@ -36,14 +37,12 @@ struct OnboardingView: View {
                 Text(title)
                     .font(.white, Font.HafeflyRubik.semiBold, 26)
                 Spacer()
-                    .frame()
                 Text(description)
                     .font(.white, Font.HafeflyRubik.regular, 22)
                     .multilineTextAlignment(TextAlignment.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal, 18)
                 Spacer()
-                    .frame()
                 OnboardingDots(step)
             }
         }
@@ -66,7 +65,7 @@ struct OnboardingView: View {
     private func OnboardingActions(_ step: Binding<UInt>) -> some View {
         if step.wrappedValue == 3 {
             HafeflyButton {
-                NavigationCoordinator.shared.switchStartPoint(.login)
+                NavigationCoordinator.shared.switchStartPoint(LoginView())
             } label: {
                 Text("Get started")
                     .font(.white, Font.HafeflyRubik.bold, 18)

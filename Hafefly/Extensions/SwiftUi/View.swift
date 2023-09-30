@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HFNavigation
 
 extension View {
     func setupDefaultBackHandler(home: Bool = false) -> some View {

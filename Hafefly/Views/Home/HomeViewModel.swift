@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import HFNavigation
 
 extension HomeView {
     class Model: ObservableObject {
         
-        @Published var barbershopsUiState: UiState<[Barbershop]> = .idle
+        @Published public private(set) var barbershopsUiState: UiState<[Barbershop]> = .idle
         
         init() {
             getBarbershops()
         }
         
         func openCategory(_ category: Category) {
-            NavigationCoordinator.pushScreen(.category(category))
+            NavigationCoordinator.pushScreen(CategoryView(category))
         }
         
         func getBarbershops() {

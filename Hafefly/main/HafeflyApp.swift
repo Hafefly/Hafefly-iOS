@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import HFNavigation
 
 @main
 struct HafeflyApp: App {
+    
+    private let coordinator = NavigationCoordinator.shared
     var body: some Scene {
         WindowGroup {
-            CoordinatorView()
+            StackTrigger(coordinator)
                 .onAppear {
                     LocationManager.shared.requestLocation()
                 }

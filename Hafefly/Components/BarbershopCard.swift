@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HFNavigation
 
 struct BarbershopCard: View {
     
@@ -20,7 +21,7 @@ struct BarbershopCard: View {
     
     var body: some View {
         Button {
-            NavigationCoordinator.pushScreen(.barbershop(barbershop))
+           pushScreen(BarbershopView(barbershop))
         } label: {
             ZStack(alignment: .trailing){
                 Image(barbershop.image)

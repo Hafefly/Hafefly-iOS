@@ -59,7 +59,7 @@ struct BarbershopView: View {
                                     Spacer()
                                     BarberCard(barber) {
                                         if let pricing = barbershop.pricing {
-                                            NavigationCoordinator.pushScreen(.barber(barber, pricing))
+                                            pushScreen(BarberView(barber, pricing: pricing))
                                         }
                                     }
                                     Spacer()

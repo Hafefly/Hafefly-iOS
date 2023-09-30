@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,9 +18,6 @@
 		18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99A529B5E0C700AFA80A /* HafeflyButton.swift */; };
 		18BC99AC29B5E12A00AFA80A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99AB29B5E12A00AFA80A /* AppDelegate.swift */; };
 		18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99AD29B5E13400AFA80A /* EventHandler.swift */; };
-		18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99C629B642B800AFA80A /* NavigationCoordinator.swift */; };
-		18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99CA29B6437B00AFA80A /* CoordinatorStack.swift */; };
-		18BC99CD29B6440A00AFA80A /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99CC29B6440A00AFA80A /* CoordinatorView.swift */; };
 		18BC99D129B6445C00AFA80A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99D029B6445C00AFA80A /* HomeView.swift */; };
 		18BC99D429B6446F00AFA80A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99D329B6446F00AFA80A /* HomeViewModel.swift */; };
 		18BC99D629B644DC00AFA80A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC99D529B644DC00AFA80A /* SplashView.swift */; };
@@ -75,6 +72,7 @@
 		57D47C2029C3683900A3DC1D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1F29C3683900A3DC1D /* Logger.swift */; };
 		57E80F1F29D2F2A600673E4E /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */; };
 		57E80F2129D3010F00673E4E /* BarbershopRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E80F2029D3010F00673E4E /* BarbershopRepo.swift */; };
+		99CA494A2AC855BE00F78111 /* HFNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 99CA49492AC855BE00F78111 /* HFNavigation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,9 +94,6 @@
 		18BC99C129B63CCA00AFA80A /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		18BC99C229B63CCB00AFA80A /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		18BC99C329B63CD300AFA80A /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
-		18BC99C629B642B800AFA80A /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
-		18BC99CA29B6437B00AFA80A /* CoordinatorStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStack.swift; sourceTree = "<group>"; };
-		18BC99CC29B6440A00AFA80A /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		18BC99D029B6445C00AFA80A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		18BC99D329B6446F00AFA80A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		18BC99D529B644DC00AFA80A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -159,6 +154,7 @@
 			files = (
 				57D47C1629C35EE900A3DC1D /* Alamofire in Frameworks */,
 				570723C129BBD33200579000 /* PopupView in Frameworks */,
+				99CA494A2AC855BE00F78111 /* HFNavigation in Frameworks */,
 				570723D029BCEB5900579000 /* CardStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,20 +320,9 @@
 		18BC99C829B642C200AFA80A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				18BC99C929B642CD00AFA80A /* Navigation */,
 				5707237729B78DAD00579000 /* Models */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		18BC99C929B642CD00AFA80A /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				18BC99C629B642B800AFA80A /* NavigationCoordinator.swift */,
-				18BC99CA29B6437B00AFA80A /* CoordinatorStack.swift */,
-				18BC99CC29B6440A00AFA80A /* CoordinatorView.swift */,
-			);
-			path = Navigation;
 			sourceTree = "<group>";
 		};
 		18BC99D229B6446000AFA80A /* Home */ = {
@@ -568,6 +553,7 @@
 				570723C029BBD33200579000 /* PopupView */,
 				570723CF29BCEB5900579000 /* CardStack */,
 				57D47C1529C35EE900A3DC1D /* Alamofire */,
+				99CA49492AC855BE00F78111 /* HFNavigation */,
 			);
 			productName = Hafefly;
 			productReference = 18BC996729B48DD200AFA80A /* Hafefly.app */;
@@ -581,7 +567,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					18BC996629B48DD200AFA80A = {
 						CreatedOnToolsVersion = 14.1;
@@ -601,6 +587,7 @@
 				570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */,
 				570723CE29BCEB5900579000 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */,
 				57D47C1429C35EE800A3DC1D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				99CA49482AC855BE00F78111 /* XCLocalSwiftPackageReference "../HFNavigation" */,
 			);
 			productRefGroup = 18BC996829B48DD200AFA80A /* Products */;
 			projectDirPath = "";
@@ -653,7 +640,6 @@
 				5707239B29B92F7F00579000 /* MapView.swift in Sources */,
 				570723B629BB75F900579000 /* LocationManager.swift in Sources */,
 				570723D429BDC21000579000 /* BarberView.swift in Sources */,
-				18BC99C729B642B800AFA80A /* NavigationCoordinator.swift in Sources */,
 				570723B029BB35F500579000 /* Date.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
 				57E80F2129D3010F00673E4E /* BarbershopRepo.swift in Sources */,
@@ -678,10 +664,8 @@
 				18BC99D929B644F000AFA80A /* SplashViewModel.swift in Sources */,
 				18BC997A29B491C200AFA80A /* OnboardingView.swift in Sources */,
 				5707238B29B8F10A00579000 /* CategoryCard.swift in Sources */,
-				18BC99CD29B6440A00AFA80A /* CoordinatorView.swift in Sources */,
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
 				5707238529B8EE4900579000 /* Barbershop.swift in Sources */,
-				18BC99CB29B6437B00AFA80A /* CoordinatorStack.swift in Sources */,
 				570723DE29BE3EF600579000 /* HaircutsHistory.swift in Sources */,
 				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
@@ -730,9 +714,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -788,9 +774,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -814,6 +802,7 @@
 				CODE_SIGN_ENTITLEMENTS = Hafefly/Hafefly.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hafefly/Preview Content\"";
 				DEVELOPMENT_TEAM = QH3T53K3KZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -856,6 +845,7 @@
 				CODE_SIGN_ENTITLEMENTS = Hafefly/Hafefly.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hafefly/Preview Content\"";
 				DEVELOPMENT_TEAM = QH3T53K3KZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -913,6 +903,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		99CA49482AC855BE00F78111 /* XCLocalSwiftPackageReference "../HFNavigation" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../HFNavigation;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		570723BF29BBD33200579000 /* XCRemoteSwiftPackageReference "PopupView" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -955,6 +952,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 57D47C1429C35EE800A3DC1D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		99CA49492AC855BE00F78111 /* HFNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HFNavigation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
