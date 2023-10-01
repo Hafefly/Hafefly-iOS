@@ -11,7 +11,7 @@ struct LoginView: View {
     
     @StateObject private var model = Model()
     
-    @State private var username: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
     
     var body: some View {
@@ -27,13 +27,18 @@ struct LoginView: View {
                 Spacer()
                 VStack{
                     VStack{
-                        TextField("username".localized, text: $username)
+                        TextField("email".localized, text: $email)
                         SecureField("password".localized, text: $password)
                     }
                     .textFieldStyle(HafeflyTextFieldStyle())
                     HStack{
                         Button {
-                            //
+                            guard !email.isEmpty else {
+                                #warning("show banner for empty email")
+                                return
+                            }
+                            
+                            model.resetPassword(email: email)
                         } label: {
                             Text("forgot_password".localized)
                         }
@@ -49,7 +54,7 @@ struct LoginView: View {
                 }
                 Spacer()
                 HafeflyButton {
-                    model.login(username: username, password: password)
+                    model.login(email: email, password: password)
                 } label: {
                     Text("sign_in".localized)
                         .font(.white, Font.HafeflyRubik.semiBold, 18)

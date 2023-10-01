@@ -10,13 +10,16 @@ import Foundation
 extension SearchView {
     class Model: ObservableObject {
         
-        @Published var searchedBarbershops = [Barbershop]()
+        @Published public private(set) var searchUiState: UiState<[Barbershop]> = .idle
+        
+        @Published var searchText: String = ""
         
         func search(for text: String) {
-            
-            // assign new barbershops here
-            DispatchQueue.main.async {
-                // self.searchedBarbershops =
+            self.searchUiState = .loading
+            BarbershopRepo.shared.listBarbershops { barbershops in
+                self.searchUiState = .success(barbershops)
+            } failure: { error in
+                self.searchUiState = .failed(error)
             }
         }
     }

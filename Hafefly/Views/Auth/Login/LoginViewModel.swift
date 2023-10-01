@@ -10,12 +10,28 @@ import HFNavigation
 
 extension LoginView {
     class Model: ObservableObject {
-        func login(username: String, password: String) {
-            LoginRepo.login(username: username, password: password) { token in
-                KeychainHelper.standard.accessToken = token
-                NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
-            } failure: { error in
-                #warning("show banner error")
+        
+        func login(email: String, password: String) {
+            
+            Task {
+                do {
+                    UserDefaults.standard.userData = try await FirebaseAuth.shared.signIn(email: email, password: password)
+                    
+                    NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
+                    
+                } catch {
+                    #warning("show banner for error")
+                }
+            }
+        }
+        
+        func resetPassword(email: String) {
+            Task {
+                do {
+                    try await FirebaseAuth.shared.resetPassword(email: email)
+                } catch {
+                    #warning("show banner for error")
+                }
             }
         }
         

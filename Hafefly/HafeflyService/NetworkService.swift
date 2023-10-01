@@ -14,7 +14,8 @@ class NetworkService {
     private let base = "https://r6y84.wiremockapi.cloud"
     
     private let session = Session()
-    var credential = JWTCredential(accessToken: KeychainHelper.standard.accessToken ?? "", expiration: Date(timeIntervalSinceNow: 60 * 60))
+    #warning("change value to user access token")
+    var credential = JWTCredential(accessToken: "", expiration: Date(timeIntervalSinceNow: 60 * 60))
     private let authenticator = JWTAuthenticator()
     
     private let timout: Double = 30

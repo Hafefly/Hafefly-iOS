@@ -7,17 +7,24 @@
 
 import SwiftUI
 import HFNavigation
+import FirebaseCore
 
 @main
 struct HafeflyApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     private let coordinator = NavigationCoordinator.shared
+    
     var body: some Scene {
         WindowGroup {
-            StackTrigger(coordinator)
-                .onAppear {
-                    LocationManager.shared.requestLocation()
-                }
+            ZStack{
+                StackTrigger(coordinator)
+                    .onAppear {
+                        coordinator.setStartPoint(SplashView())
+                        LocationManager.shared.requestLocation()
+                    }
+            }
         }
     }
 }

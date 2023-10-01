@@ -14,9 +14,19 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            HafeflyMap(showUserLocation: true, barbershops: Barbershop.barbershops)
-                .cornerRadius(16)
-                .padding(.bottom, 16)
+            switch model.mapUiState {
+            case .idle:
+                EmptyView()
+            case .loading:
+                #warning("implement loading view")
+            case .success(let barbershops):
+                HafeflyMap(barbershops: barbershops)
+                    .cornerRadius(16)
+                    .padding(.bottom, 16)
+            case .failed(let string):
+                #warning("implement fail view")
+            }
+            
         }
     }
 }

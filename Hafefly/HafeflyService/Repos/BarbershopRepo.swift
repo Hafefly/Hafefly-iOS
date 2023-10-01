@@ -2,20 +2,24 @@
 //  BarbershopRepo.swift
 //  Hafefly
 //
-//  Created by Samy Mehdid on 28/3/2023.
+//  Created by Samy Mehdid on 1/10/2023.
 //
 
 import Foundation
 
-class BarbershopRepo: NetworkService {
-    private enum endpoints: String {
-        case listBarbershops = "/barbershops/"
-        case listVIPs = "/barbershops/vip/"
-        case listFavorites = "/barbershops/favorites/"
-        case getBarbershop = "/barbershops/{id}/"
+class BarbershopRepo: FirebaseFirestore {
+    
+    static let shared = BarbershopRepo(.barbershops)
+    
+    func listBarbershops(_ barbershops: @escaping ([Barbershop]) -> Void, failure: @escaping (String) -> Void) {
+        self.readDocuments(success: barbershops, failure: failure)
     }
     
-    static func listBarbershops(success: @escaping ([Barbershop]) -> Void, failure: @escaping (ErrorResponse) -> Void) {
-        shared.get(endpoint: endpoints.listBarbershops.rawValue, body: [:], success: success, failure: failure)
+    func listVipBarbershops(_ barbershops: @escaping ([Barbershop]) -> Void, failure: @escaping (String) -> Void) {
+        self.queryDocuments(query: ("vip", true), success: barbershops, failure: failure)
+    }
+    
+    func getBarbershop(barbershopID: String, success: @escaping (Barbershop) -> Void, failure: @escaping (String) -> Void) {
+        self.readDocument(documentID: barbershopID, success: success, failure: failure)
     }
 }

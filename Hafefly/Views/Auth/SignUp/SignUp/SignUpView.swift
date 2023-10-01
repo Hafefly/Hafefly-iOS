@@ -16,9 +16,18 @@ struct SignUpView: View {
     
     @StateObject private var model = Model()
     
-    @State private var username: String = ""
+    @State private var isPasswordMatch: Bool?
+    @State private var email: String = ""
     @State private var password: String = ""
-    @State private var rePassword: String = ""
+    @State private var rePassword: String = "" {
+        didSet {
+            if password == rePassword {
+                isPasswordMatch = true
+            } else {
+                isPasswordMatch = false
+            }
+        }
+    }
     
     var body: some View {
         ViewLayout {
@@ -33,7 +42,7 @@ struct SignUpView: View {
                 Spacer()
                 VStack{
                     VStack{
-                        TextField("username".localized, text: $username)
+                        TextField("email".localized, text: $email)
                         SecureField("password".localized, text: $password)
                         SecureField("re_enter_password".localized, text: $rePassword)
                     }
@@ -41,7 +50,9 @@ struct SignUpView: View {
                 }
                 Spacer()
                 HafeflyButton {
-                    model.signUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber, username: username, password: password, rePassword: rePassword)
+                    if let isPasswordMatch = isPasswordMatch, isPasswordMatch {
+                        model.signUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber, email: email, password: password)
+                    }
                 } label: {
                     Text("sign_up".localized)
                         .font(.white, Font.HafeflyRubik.semiBold, 18)

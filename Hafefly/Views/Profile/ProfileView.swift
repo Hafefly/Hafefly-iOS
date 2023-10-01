@@ -16,7 +16,7 @@ struct ProfileView: View {
     var body: some View {
         VStack{
             profilePanel()
-            switch model.haircutsHistory {
+            switch model.historyUiState {
             case .idle: EmptyView()
             case .loading: ZStack{HStack{Spacer();VStack{Spacer();}}}
             case .success(let haircutsHistory):
@@ -99,6 +99,11 @@ struct ProfileView: View {
                                         .frame(width: 18, height: 18)
                                     Text("\(String(user.haircutsDone)) \(user.haircutsDone.whichString(single: "haircut_done", plural: "haircuts_done"))")
                                         .font(.white, Font.HafeflyRubik.regular, 18)
+                                    Spacer()
+                                    HafeflyButton(action: model.loggout) {
+                                        Text("sign out")
+                                            .foregroundColor(.white)
+                                    }
                                 }
                             }
                         } else {

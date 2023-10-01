@@ -23,13 +23,13 @@ extension HomeView {
         
         func getBarbershops() {
             barbershopsUiState = .loading
-            BarbershopRepo.listBarbershops { barbershops in
-                self.barbershopsUiState = .success(barbershops)
+            BarbershopRepo.shared.listBarbershops { barbershops in
+                let vipBarbershops = barbershops.filter{ $0.vip }
+                self.barbershopsUiState = .success(vipBarbershops)
             } failure: { error in
                 self.barbershopsUiState = .failed("something_went_wrong".localized)
                 #warning("show error banner")
             }
-
         }
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyD5WZtaQmjDzFcihJTSsG3Up1gnauWY43M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>581118858705</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.raynmore.Hafefly</string>
+	<key>PROJECT_ID</key>
+	<string>hafefly-android</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hafefly-android.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:581118858705:ios:6257f63ad13c47e952fcf0</string>
+	<key>DATABASE_URL</key>
+	<string>https://hafefly-android-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

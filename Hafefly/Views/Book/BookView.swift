@@ -83,7 +83,7 @@ struct BookView_Previews: PreviewProvider {
     }
 }
 
-enum Haircut: String, CaseIterable {
+enum Haircut: String, CaseIterable, Codable {
     case fade
     case razor
     case scissors

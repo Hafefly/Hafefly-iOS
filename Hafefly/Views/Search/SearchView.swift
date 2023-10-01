@@ -11,24 +11,35 @@ struct SearchView: View {
     
     @StateObject private var model = Model()
     
-    @State private var searchText: String = ""
-    
     var body: some View {
         VStack{
-            TextField("search".localized, text: $searchText)
+            TextField("search".localized, text: $model.searchText)
                 .foregroundColor(.hafeflyLightBlue)
                 .padding()
                 .background(Color.favoriteBlue)
                 .cornerRadius(.infinity)
                 .shadow(color: .favoriteBlue, radius: 10)
-            ScrollView(showsIndicators: false) {
-                VStack{
-                    ForEach(model.searchedBarbershops, id: \.id){
-                        BarbershopCard(barbershop: $0)
+            
+            switch model.searchUiState {
+            case .idle:
+                EmptyView()
+            case .loading:
+                #warning("implement loading view")
+                EmptyView()
+            case .success(let barbershops):
+                ScrollView(showsIndicators: false) {
+                    VStack{
+                        ForEach(barbershops, id: \.id){
+                            BarbershopCard(barbershop: $0)
+                        }
                     }
                 }
+            case .failed(let string):
+                #warning("implement fail view")
+                EmptyView()
             }
         }
+        .onReceive(model.$searchText, perform: model.search)
     }
 }
 

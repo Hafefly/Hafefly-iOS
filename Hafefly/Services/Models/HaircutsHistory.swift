@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HaircutHistory: Identifiable {
+struct HaircutHistory: Identifiable, Codable {
     
     typealias Interval = WorkingHours
     

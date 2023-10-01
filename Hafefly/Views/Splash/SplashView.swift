@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct SplashView: View {
+    
+    @StateObject private var model = Model()
+    @StateObject private var locationManager = LocationManager.shared
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ViewLayout {
+            //
+        } content: { insets in
+            switch model.uiState {
+            case .loading:
+                ZStack {
+                    Image("Logo")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal, 60)
+                }
+            default: EmptyView()
+            }
+        }
+        .onReceive(locationManager.$status){ status in
+            if let status = status {
+                model.getMe(status: status)
+            }
+        }
     }
 }
 

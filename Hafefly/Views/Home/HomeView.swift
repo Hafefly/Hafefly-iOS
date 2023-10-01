@@ -48,7 +48,7 @@ struct HomeView: View {
                             ProgressView()
                                 .frame(width: 40, height: 40)
                             Spacer()
-                        case .failed(let error):
+                        case .failed:
                             HStack{
                                 Spacer()
                                 VStack{
