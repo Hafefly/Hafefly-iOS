@@ -49,11 +49,6 @@ extension UserDefaults: ObjectSaveable {
         }
     }
     
-    dynamic var userData: HFUser? {
-        get { getObject(forKey: "user_data") }
-        set { setObject(newValue, forKey: "user_data") }
-    }
-    
     public func clearSession() {
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()

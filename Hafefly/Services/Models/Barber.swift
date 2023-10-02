@@ -6,25 +6,27 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Barber: Identifiable, Codable {
-    let id: UInt
-    let barbershopID: UInt
-    let barbershopName: String
-    let profileImage: String?
-    let name: String
-    let bio: String
-    let age: UInt
-    let experience: UInt
-    let haircutsDone: UInt
-    let instagram: String
-    let isAvailableHome: Bool
-    let phone: String
-    let province: String
-    let rating: Double
-    let verified: Bool
-    let workingHours: WorkingHours
-    let reviews: [Review]
+struct Barber: CodeIdentifiable {
+    
+    @DocumentID var id: String?
+    var barbershopID: UInt
+    var barbershopName: String
+    var profileImage: String?
+    var name: String
+    var bio: String
+    var age: UInt
+    var experience: UInt
+    var haircutsDone: UInt
+    var instagram: String
+    var isAvailableHome: Bool
+    var phone: String
+    var province: String
+    var rating: Double
+    var verified: Bool
+    var workingHours: WorkingHours
+    var reviews: [Review]?
 }
 
 struct Review: Identifiable, Codable {

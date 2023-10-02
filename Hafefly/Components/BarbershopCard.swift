@@ -24,7 +24,7 @@ struct BarbershopCard: View {
            pushScreen(BarbershopView(barbershop))
         } label: {
             ZStack(alignment: .trailing){
-                Image(barbershop.image)
+                Image(barbershop.name)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 100)
@@ -86,8 +86,8 @@ struct BarbershopCard: View {
     }
 }
 
-struct BarbershopCard_Previews: PreviewProvider {
-    static var previews: some View {
-        BarbershopCard(barbershop: Barbershop.barbershops[0], isFavorite: true)
-    }
-}
+//struct BarbershopCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BarbershopCard(barbershop: Barbershop.barbershops[0], isFavorite: true)
+//    }
+//}

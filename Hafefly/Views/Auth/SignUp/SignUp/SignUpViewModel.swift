@@ -17,9 +17,7 @@ extension SignUpView {
                 do {
                     let user = try await FirebaseAuth.shared.createUser(email: email, password: password)
                     
-                    UserRepo.shared.createUser(user: user) { userID in
-                        UserDefaults.standard.userData = user
-                        
+                    UserRepo.shared.createUser(user) { userID in
                         NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
                     } failure: { error in
                         #warning("show banner for error")

@@ -23,7 +23,7 @@ struct BarbershopView: View {
             ZStack(alignment: .top){
                 VStack(alignment: .center){
                     ZStack(alignment: .bottom){
-                        Image(barbershop.image)
+                        Image(barbershop.name)
                             .resizable()
                             .scaledToFit()
                             .frame(width: UIScreen.main.bounds.width)
@@ -96,11 +96,11 @@ struct BarbershopView: View {
     }
 }
 
-struct BarbershopView_Previews: PreviewProvider {
-    static var previews: some View {
-        BarbershopView(Barbershop.barbershops[0])
-    }
-}
+//struct BarbershopView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BarbershopView(Barbershop.barbershops[0])
+//    }
+//}
 
 struct BarberCard: View {
     

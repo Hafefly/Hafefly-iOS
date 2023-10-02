@@ -14,15 +14,10 @@ extension String {
     
     var parseDate: Date? {
         var date: Date?
-        let dateFormats = ["yyyy-MM-dd'T'HH:mm:ss'Z'", "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"]
+        let dateFormat = "HH:mm'Z'"
         let dateFormatter = DateFormatter()
-        for dateFormat in dateFormats {
-            dateFormatter.dateFormat = dateFormat
-            date = dateFormatter.date(from: self)
-            if date != nil {
-                break
-            }
-        }
+        dateFormatter.dateFormat = dateFormat
+        date = dateFormatter.date(from: self)
         return date
     }
 }

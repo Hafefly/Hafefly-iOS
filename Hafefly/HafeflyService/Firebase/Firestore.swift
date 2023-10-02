@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 enum HFCollection: String {
     case users
@@ -16,103 +17,102 @@ enum HFCollection: String {
     case reviews
 }
 
+protocol CodeIdentifiable: Codable, Identifiable {
+    var id: String? { get }
+}
+
 class FirebaseFirestore {
+    private let db = Firestore.firestore()
     
-    public let db = Firestore.firestore()
+    let collection: String
     
-    private let collection: CollectionReference
-    
-    init(_ collection: CollectionReference) {
-        self.collection = collection
+    init(_ collection: HFCollection) {
+        self.collection = collection.rawValue
     }
     
-    func addDocument(data: [String: Any], success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        var ref: DocumentReference? = nil
-        
-        ref = collection.addDocument(data: data) { error in
-            if let error = error {
+    func addDocument<T: CodeIdentifiable>(_ data: T, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        let ref: CollectionReference = db.collection(collection)
+        do {
+            success(try ref.addDocument(from: data).documentID)
+        } catch {
+            failure(error.localizedDescription)
+        }
+    }
+    
+    func updateDocument<T: CodeIdentifiable>(_ data: T, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        if let docId = data.id {
+            let ref: DocumentReference = db.collection(collection).document(docId)
+            do {
+                try ref.setData(from: data)
+                
+                success(docId)
+            } catch {
                 failure(error.localizedDescription)
-            } else if let ref = ref {
-                success(ref.documentID)
             }
         }
     }
     
-    func readDocuments<T: Codable>(success: @escaping ([T]) -> Void, failure: @escaping (String) -> Void) {
-        db.collection.getDocuments { query, error in
+    func readDocuments<T: CodeIdentifiable>(success: @escaping ([T]) -> Void, failure: @escaping (String) -> Void) {
+        db.collection(collection).getDocuments { query, error in
             guard error == nil else {
                 failure(error!.localizedDescription)
                 return
             }
-            
-            var documents = [T]()
             
             guard let query = query else {
                 failure("No Document found")
                 return
             }
             
+            var documents = [T]()
+            
             for document in query.documents {
                 do {
-                    let jsonData = try JSONSerialization.data(withJSONObject: document.data(), options: [])
-                    let model = try JSONDecoder().decode(T.self, from: jsonData)
-                    documents.append(model)
+                    documents.append(try document.data(as: T.self))
                 } catch {
-                    failure("Error decoding document: \(error.localizedDescription)")
-                    return
+                    debugPrint(document.data())
+                    // Handle any decoding errors
+                    print("Error decoding document with ID: \(document.documentID), Error: \(error.localizedDescription)")
                 }
             }
-            
-            success(documents)
         }
     }
     
-    func readDocument<T: Codable>(documentID: String, success: @escaping (T) -> Void, failure: @escaping (String) -> Void) {
-        db.collection.document(documentID).getDocument { doc, error in
-            guard error == nil else {
-                failure(error!.localizedDescription)
-                return
-            }
-            
-            guard let doc = doc, doc.exists else {
-                failure("No Document found")
-                return
-            }
-            
-            do {
-                let jsonData = try JSONSerialization.data(withJSONObject: doc.data(), options: [])
-                let document = try JSONDecoder().decode(T.self, from: jsonData)
-                success(document)
-            } catch {
-                failure("Error decoding document: \(error.localizedDescription)")
-                return
+    func readDocument<T: CodeIdentifiable>(documentID: String, success: @escaping (T) -> Void, failure: @escaping (String) -> Void) {
+        debugPrint(documentID)
+        db.collection(collection).document(documentID).getDocument(as: T.self) { result in
+            switch result {
+            case .success(let doc):
+                success(doc)
+            case .failure(let error):
+                debugPrint(result)
+                failure(error.localizedDescription)
             }
         }
     }
     
-    func queryDocuments<T: Codable>(query: (String, Any), success: @escaping([T]) -> Void, failure: @escaping (String) -> Void) {
-        db.collection.whereField(query.0, isEqualTo: query.1)
+    func queryDocuments<T: CodeIdentifiable>(query: (String, Any), success: @escaping([T]) -> Void, failure: @escaping (String) -> Void) {
+        db.collection(collection).whereField(query.0, isEqualTo: query.1)
             .getDocuments { query, error in
                 guard error == nil else {
                     failure(error!.localizedDescription)
                     return
                 }
                 
-                var documents = [T]()
-                
                 guard let query = query else {
                     failure("No Document found")
                     return
                 }
                 
+                var documents = [T]()
+                
                 for document in query.documents {
                     do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: document.data(), options: [])
-                        let model = try JSONDecoder().decode(T.self, from: jsonData)
-                        documents.append(model)
+                        documents.append(try document.data(as: T.self))
                     } catch {
-                        failure("Error decoding document: \(error.localizedDescription)")
-                        return
+                        debugPrint(document.data())
+                        // Handle any decoding errors
+                        print("Error decoding document with ID: \(document.documentID), Error: \(error.localizedDescription)")
                     }
                 }
                 

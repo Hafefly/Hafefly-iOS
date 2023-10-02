@@ -26,4 +26,8 @@ class MyLogger {
     func info(_ message: String){
         logger.info("\(message)")
     }
+    
+    func warning(_ message: String?) {
+        logger.warning("warning \(message ?? "something went wrong")")
+    }
 }

@@ -7,22 +7,23 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestoreSwift
 
-struct HFUser: Identifiable, Codable {
-    let id: String
-    let firstname: String
-    let lastname: String
-    let profileImage: String?
-    let phone: String?
-    let email: String?
-    let instagram: String?
-    let province: String
-    let haircutsDone: UInt
-    let age: UInt
-    let vip: Bool
+struct HFUser: CodeIdentifiable {
     
-    init(id: String, firstname: String, lastname: String, profileImage: String?, phone: String?, email: String?, instagram: String?, province: String, haircutsDone: UInt, age: UInt, vip: Bool) {
-        self.id = id
+    @DocumentID var id: String?
+    var firstname: String
+    var lastname: String
+    var profileImage: String?
+    var phone: String?
+    var email: String?
+    var instagram: String?
+    var province: String
+    var haircutsDone: UInt
+    var age: UInt
+    var vip: Bool
+    
+    init(firstname: String, lastname: String, profileImage: String?, phone: String?, email: String?, instagram: String?, province: String, haircutsDone: UInt, age: UInt, vip: Bool) {
         self.firstname = firstname
         self.lastname = lastname
         self.profileImage = profileImage
@@ -36,7 +37,6 @@ struct HFUser: Identifiable, Codable {
     }
     
     init(user: User) {
-        self.id = user.uid
         self.firstname = user.displayName ?? ""
         self.lastname = user.displayName ?? ""
         self.email = user.email
@@ -47,18 +47,5 @@ struct HFUser: Identifiable, Codable {
         self.haircutsDone = 0
         self.age = 18
         self.vip = false
-    }
-    
-    static let user = HFUser(id: "0", firstname: "samy", lastname: "mehdid", profileImage: nil, phone: "+213540408051", email: "samy.mhd16@gmail.com", instagram: "@samyinavoid", province: "Algiers", haircutsDone: 5, age: 21, vip: true)
-    
-    func toDictionary() -> [String: Any] {
-        let mirror = Mirror(reflecting: self)
-        var dictionary = [String: Any]()
-        
-        for case let (label?, value) in mirror.children {
-            dictionary[label] = value
-        }
-        
-        return dictionary
     }
 }

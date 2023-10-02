@@ -138,7 +138,7 @@ struct ProfileView: View {
     @ViewBuilder
     private func haircutHistoryPanel(haircutHistory: HaircutHistory) -> some View {
         ZStack(alignment: .trailing){
-            Image(haircutHistory.barbershop.image)
+            Image(haircutHistory.barbershop.name)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)

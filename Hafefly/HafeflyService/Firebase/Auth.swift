@@ -13,6 +13,10 @@ final class FirebaseAuth {
     
     private init() { }
     
+    public func getUserId() -> String? {
+        return Auth.auth().currentUser?.uid
+    }
+    
     public func getUser() throws -> HFUser {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badURL)
@@ -21,6 +25,7 @@ final class FirebaseAuth {
         return HFUser(user: user)
     }
     
+    @discardableResult
     public func signIn(email: String, password: String) async throws -> HFUser {
         let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
         
@@ -30,6 +35,7 @@ final class FirebaseAuth {
     @discardableResult
     public func createUser(email: String, password: String) async throws -> HFUser {
         let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        
         return HFUser(user: authResult.user)
     }
     

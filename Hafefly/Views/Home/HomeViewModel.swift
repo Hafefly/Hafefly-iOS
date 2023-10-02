@@ -14,20 +14,20 @@ extension HomeView {
         @Published public private(set) var barbershopsUiState: UiState<[Barbershop]> = .idle
         
         init() {
-            getBarbershops()
+            getVipBarbershops()
         }
         
         func openCategory(_ category: Category) {
             NavigationCoordinator.pushScreen(CategoryView(category))
         }
         
-        func getBarbershops() {
+        func getVipBarbershops() {
             barbershopsUiState = .loading
-            BarbershopRepo.shared.listBarbershops { barbershops in
-                let vipBarbershops = barbershops.filter{ $0.vip }
-                self.barbershopsUiState = .success(vipBarbershops)
+            BarbershopRepo.shared.listVipBarbershops { barbershops in
+                self.barbershopsUiState = .success(barbershops)
             } failure: { error in
                 self.barbershopsUiState = .failed("something_went_wrong".localized)
+                debugPrint(error)
                 #warning("show error banner")
             }
         }

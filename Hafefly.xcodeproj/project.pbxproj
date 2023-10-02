@@ -69,6 +69,7 @@
 		57D47C1629C35EE900A3DC1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 57D47C1529C35EE900A3DC1D /* Alamofire */; };
 		57D47C2029C3683900A3DC1D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D47C1F29C3683900A3DC1D /* Logger.swift */; };
 		57E80F1F29D2F2A600673E4E /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */; };
+		9924A2F62ACABA1D00011F6A /* BarbershopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9924A2F52ACABA1D00011F6A /* BarbershopViewModel.swift */; };
 		99CA494A2AC855BE00F78111 /* HFNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 99CA49492AC855BE00F78111 /* HFNavigation */; };
 		99CA494D2AC860D200F78111 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99CA494C2AC860D200F78111 /* FirebaseAuth */; };
 		99CA494F2AC860D200F78111 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99CA494E2AC860D200F78111 /* FirebaseFirestoreSwift */; };
@@ -150,6 +151,7 @@
 		57D47C1229C35E8E00A3DC1D /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		57D47C1F29C3683900A3DC1D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		9924A2F52ACABA1D00011F6A /* BarbershopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopViewModel.swift; sourceTree = "<group>"; };
 		99CA49522AC8632800F78111 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		99CA49542AC8710500F78111 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		99CA49562AC87C5300F78111 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				570723C929BC8A2000579000 /* BarbershopView.swift */,
+				9924A2F52ACABA1D00011F6A /* BarbershopViewModel.swift */,
 			);
 			path = Barbershop;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				18BC99D629B644DC00AFA80A /* SplashView.swift in Sources */,
 				18BC99A629B5E0C700AFA80A /* HafeflyButton.swift in Sources */,
 				5707238D29B8F13200579000 /* Category.swift in Sources */,
+				9924A2F62ACABA1D00011F6A /* BarbershopViewModel.swift in Sources */,
 				99CA49552AC8710500F78111 /* UserDefaults.swift in Sources */,
 				18BC99E429B645A900AFA80A /* SignUpViewModel.swift in Sources */,
 				18BC99D129B6445C00AFA80A /* HomeView.swift in Sources */,

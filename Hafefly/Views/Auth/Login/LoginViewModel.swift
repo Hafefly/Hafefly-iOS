@@ -15,7 +15,8 @@ extension LoginView {
             
             Task {
                 do {
-                    UserDefaults.standard.userData = try await FirebaseAuth.shared.signIn(email: email, password: password)
+                    
+                    try await FirebaseAuth.shared.signIn(email: email, password: password)
                     
                     NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
                     

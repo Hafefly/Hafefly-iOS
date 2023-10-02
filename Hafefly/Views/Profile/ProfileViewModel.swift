@@ -14,11 +14,16 @@ extension ProfileView {
         @Published public private(set) var profileUiState: UiState<HFUser> = .idle
         @Published public private(set) var historyUiState: UiState<[HaircutHistory]> = .idle
         
+        init() {
+            self.getUser()
+            self.getHaircutHistory()
+        }
+        
         func getUser() {
             self.profileUiState = .loading
             
-            guard let id = UserDefaults.standard.userData?.id else {
-                self.profileUiState = .failed("could not find user")
+            guard let id = FirebaseAuth.shared.getUserId() else {
+                self.profileUiState = .failed("could not find logged-in user")
                 return
             }
             
@@ -32,16 +37,16 @@ extension ProfileView {
         func getHaircutHistory() {
             self.historyUiState = .loading
             
-            guard let id = UserDefaults.standard.userData?.id else {
+            guard let id = FirebaseAuth.shared.getUserId() else {
                 self.historyUiState = .failed("could not find user")
                 return
             }
             
-            HistoryRepo.shared.getUserHaircutHistory(userID: id) { haircutsHistory in
-                self.historyUiState = .success(haircutsHistory)
-            } failure: { error in
-                self.historyUiState = .failed(error)
-            }
+//            HistoryRepo.shared.getUserHaircutHistory(userID: id) { haircutsHistory in
+//                self.historyUiState = .success(haircutsHistory)
+//            } failure: { error in
+//                self.historyUiState = .failed(error)
+//            }
 
         }
         

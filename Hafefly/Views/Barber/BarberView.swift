@@ -51,7 +51,9 @@ struct BarberView: View {
             VStack{
                 workingHoursPanel(open: barber.workingHours.openingDate.getFormattedDate(), close: barber.workingHours.openingDate.getFormattedDate())
                     .shadow(radius: 4)
-                reviewCard(reviews: barber.reviews)
+                if let reviews = barber.reviews {
+                    reviewCard(reviews: reviews)
+                }
                 Spacer()
                 
                 HafeflyButton(foregroundColor: .orange) {
@@ -150,11 +152,11 @@ struct BarberView: View {
     }
 }
 
-struct BarberView_Previews: PreviewProvider {
-    static var previews: some View {
-        let barbershop = Barbershop.barbershops[0]
-        if let barber = barbershop.barbers?[0], let pricing = barbershop.pricing {
-            BarberView(barber, pricing: pricing)
-        }
-    }
-}
+//struct BarberView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let barbershop = Barbershop.barbershops[0]
+//        if let barber = barbershop.barbers?[0], let pricing = barbershop.pricing {
+//            BarberView(barber, pricing: pricing)
+//        }
+//    }
+//}

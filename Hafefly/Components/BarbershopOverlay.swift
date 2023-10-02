@@ -90,8 +90,8 @@ struct BarbershopOverlay: View {
     }
 }
 
-struct BarbershopOverlay_Previews: PreviewProvider {
-    static var previews: some View {
-        BarbershopOverlay(Barbershop.barbershops[1])
-    }
-}
+//struct BarbershopOverlay_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BarbershopOverlay(Barbershop.barbershops[1])
+//    }
+//}
