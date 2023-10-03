@@ -34,18 +34,23 @@ struct SignUpView: View {
                 VStack{
                     VStack{
                         TextField("email".localized, text: $email)
-                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.emailUiState))
+                            .textFieldStyle(getHFTextFieldStye(model.emailUiState))
+                            .onChange(of: email) { newValue in
+                                model.validateEmail(newValue)
+                            }
+                        
                         SecureField("password".localized, text: $password)
-                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.passwordUiState))
+                            .textFieldStyle(getHFTextFieldStye(model.passwordUiState))
+                            .onChange(of: password) { newValue in
+                                model.validatePassword(newValue)
+                                model.passwordsCheck(password: newValue, rePassword: rePassword)
+                            }
+                        
                         SecureField("re_enter_password".localized, text: $rePassword)
-                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.rePasswordUiState))
-                    }
-                    .onChange(of: password) { newValue in
-                        model.validatePassword(newValue)
-                        model.passwordsCheck(password: newValue, rePassword: rePassword)
-                    }
-                    .onChange(of: rePassword) { newValue in
-                        model.passwordsCheck(password: password, rePassword: rePassword)
+                            .textFieldStyle(getHFTextFieldStye(model.rePasswordUiState))
+                            .onChange(of: rePassword) { newValue in
+                                model.passwordsCheck(password: password, rePassword: rePassword)
+                            }
                     }
                 }
                 Spacer()

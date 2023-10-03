@@ -28,9 +28,9 @@ struct LoginView: View {
                 VStack{
                     VStack{
                         TextField("email".localized, text: $email)
-                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.emailUiState))
+                            .textFieldStyle(getHFTextFieldStye(model.emailUiState))
                         SecureField("password".localized, text: $password)
-                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.passwordUiState))
+                            .textFieldStyle(getHFTextFieldStye(model.passwordUiState))
                     }
                     
                     HStack{

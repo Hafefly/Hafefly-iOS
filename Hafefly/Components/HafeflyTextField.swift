@@ -9,28 +9,16 @@ import SwiftUI
 
 struct HafeflyTextFieldStyle: TextFieldStyle {
     
-    @State var uiState: UiState<String> = .idle
+    let color: Color
+    var message: String?
     
-    init(uiState: UiState<String>) {
-        self.uiState = uiState
+    init(color: Color, message: String? = nil) {
+        self.color = color
+        self.message = message
     }
     
     func _body(configuration: TextField<Self._Label>) -> some View {
-        switch uiState {
-        case .idle:
-            configBuilder(configuration: configuration, color: .hafeflyLightBlue)
-        case .loading:
-            configBuilder(configuration: configuration, color: .hafeflyLightBlue)
-        case .success(let message):
-            configBuilder(configuration: configuration, message: message, color: .green)
-        case .failed(let error):
-            configBuilder(configuration: configuration, message: error, color: .red)
-        }
-    }
-    
-    @ViewBuilder
-    private func configBuilder(configuration: TextField<Self._Label>, message: String? = nil, color: Color) -> some View {
-        VStack{
+        VStack(alignment: .leading){
             configuration
                 .autocorrectionDisabled()
                 .autocapitalization(.none)
@@ -42,10 +30,10 @@ struct HafeflyTextFieldStyle: TextFieldStyle {
                 )
                 .cornerRadius(8)
                 .shadow(color: color, radius: 10)
-            
             if let message = message {
                 Text(message)
                     .font(color, .medium, 14)
+                    .padding(.horizontal, 6)
             }
         }
     }

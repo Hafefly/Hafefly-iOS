@@ -5,14 +5,14 @@
 //  Created by Samy Mehdid on 6/3/2023.
 //
 
-import Foundation
+import SwiftUI
 import HFNavigation
 
 extension LoginView {
     class Model: ObservableObject {
         
-        @Published public private(set) var emailUiState: UiState<String> = .idle
-        @Published public private(set) var passwordUiState: UiState<String> = .idle
+        @Published public var emailUiState: UiState<String> = .idle
+        @Published public var passwordUiState: UiState<String> = .idle
         
         func login(email: String, password: String) {
             Task {

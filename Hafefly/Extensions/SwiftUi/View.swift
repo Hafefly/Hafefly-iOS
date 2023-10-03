@@ -33,6 +33,19 @@ struct RoundedCorner: Shape {
     }
 }
 
+extension View {
+    func getHFTextFieldStye(_ uiState: UiState<String>) -> HafeflyTextFieldStyle {
+        switch uiState {
+        case .idle, .loading:
+            return .init(color: .hafeflyLightBlue)
+        case .success(let message):
+            return .init(color: .green, message: message)
+        case .failed(let error):
+            return .init(color: .red, message: error)
+        }
+    }
+}
+
 //MARK: - Back hadling (due to swipe)
 private struct BackHandlerModifier: ViewModifier, NavigationBackHandler {
     let popToHome: Bool
@@ -42,12 +55,12 @@ private struct BackHandlerModifier: ViewModifier, NavigationBackHandler {
         NavigationCoordinator.popBack(home: popToHome)
     }
     
-//    @EnvironmentObject private var screenInfo: NavigationCoordinator.ScreenInfo
+    @EnvironmentObject private var screenInfo: ScreenInfo
     
     func body(content: Content) -> some View {
        content
-//            .onAppear {
-//                screenInfo.backHandler = handler ?? self
-//            }
+            .onAppear {
+                screenInfo.backHandler = handler ?? self
+            }
     }
 }
