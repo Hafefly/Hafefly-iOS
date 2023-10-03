@@ -11,17 +11,18 @@ import HFNavigation
 extension LoginView {
     class Model: ObservableObject {
         
+        @Published public private(set) var emailUiState: UiState<String> = .idle
+        @Published public private(set) var passwordUiState: UiState<String> = .idle
+        
         func login(email: String, password: String) {
-            
             Task {
                 do {
-                    
                     try await FirebaseAuth.shared.signIn(email: email, password: password)
-                    
                     NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
                     
                 } catch {
-                    #warning("show banner for error")
+                    self.emailUiState = .failed(error.localizedDescription)
+                    self.passwordUiState = .failed(error.localizedDescription)
                 }
             }
         }
@@ -31,7 +32,7 @@ extension LoginView {
                 do {
                     try await FirebaseAuth.shared.resetPassword(email: email)
                 } catch {
-                    #warning("show banner for error")
+                    self.emailUiState = .failed(error.localizedDescription)
                 }
             }
         }

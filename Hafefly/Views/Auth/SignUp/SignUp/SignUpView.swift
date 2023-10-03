@@ -16,18 +16,9 @@ struct SignUpView: View {
     
     @StateObject private var model = Model()
     
-    @State private var isPasswordMatch: Bool?
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var rePassword: String = "" {
-        didSet {
-            if password == rePassword {
-                isPasswordMatch = true
-            } else {
-                isPasswordMatch = false
-            }
-        }
-    }
+    @State private var rePassword: String = ""
     
     var body: some View {
         ViewLayout {
@@ -43,20 +34,28 @@ struct SignUpView: View {
                 VStack{
                     VStack{
                         TextField("email".localized, text: $email)
+                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.emailUiState))
                         SecureField("password".localized, text: $password)
+                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.passwordUiState))
                         SecureField("re_enter_password".localized, text: $rePassword)
+                            .textFieldStyle(HafeflyTextFieldStyle(uiState: model.rePasswordUiState))
                     }
-                    .textFieldStyle(HafeflyTextFieldStyle())
+                    .onChange(of: password) { newValue in
+                        model.validatePassword(newValue)
+                        model.passwordsCheck(password: newValue, rePassword: rePassword)
+                    }
+                    .onChange(of: rePassword) { newValue in
+                        model.passwordsCheck(password: password, rePassword: rePassword)
+                    }
                 }
                 Spacer()
                 HafeflyButton {
-                    if let isPasswordMatch = isPasswordMatch, isPasswordMatch {
-                        model.signUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber, email: email, password: password)
-                    }
+                    model.validateEnteries(firstname: firstname, lastname: lastname, province: province, phoneNumber: phonenumber, email: email, password: password, rePassword: rePassword)
                 } label: {
                     Text("sign_up".localized)
                         .font(.white, Font.HafeflyRubik.semiBold, 18)
-                }.padding(.bottom, 24)
+                }
+                .padding(.bottom, 24)
             }
             .padding(24)
         }

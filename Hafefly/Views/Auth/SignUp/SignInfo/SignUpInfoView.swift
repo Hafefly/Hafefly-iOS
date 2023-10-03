@@ -36,8 +36,17 @@ struct SignUpInfoView: View {
                     VStack{
                         HStack {
                             TextField("firstname".localized, text: $firstname)
+                                .textFieldStyle(HafeflyTextFieldStyle(uiState: model.firstnameUiState))
+                                .onChange(of: lastname) { newValue in
+                                    model.setFirstnameUiState(model.validateName(newValue))
+                                }
                             TextField("lastname".localized, text: $lastname)
+                                .textFieldStyle(HafeflyTextFieldStyle(uiState: model.lastnameUiState))
+                                .onChange(of: lastname) { newValue in
+                                    model.setLastnameUiState(model.validateName(newValue))
+                                }
                         }
+                        
                         Picker("province".localized, selection: $province) {
                             ForEach(Province.allCases, id: \.hashValue) {
                                 Text($0.rawValue)
@@ -53,17 +62,24 @@ struct SignUpInfoView: View {
                         )
                         .cornerRadius(8)
                         .shadow(color: .hafeflyLightBlue, radius: 10)
+                        
                         HStack{
                             TextField("phonenumber".localized, text: $phonenumber)
+                                .textFieldStyle(HafeflyTextFieldStyle(uiState: model.phoneNumberUiState))
+                                .onChange(of: phonenumber) { newValue in
+                                    model.validatePhoneFormat(newValue)
+                                }
+                            
                             HafeflyButton(disabled: model.otpButtonDisabled) {
                                 model.sendOtp(phonenumber: phonenumber)
                             } label: {
                                 Text(model.otpButtonText)
                                     .font(.white, Font.HafeflyRubik.regular, 16)
-                            }.frame(width: 100, height: 56)
+                            }
+                            .frame(width: 100, height: 56)
                         }
-                        
-                    }.textFieldStyle(HafeflyTextFieldStyle())
+                    }
+                    
                     HStack{
                         Text("forgot_password".localized)
                             .font(.white, Font.HafeflyRubik.medium, 18)
@@ -72,21 +88,13 @@ struct SignUpInfoView: View {
                 }
                 Spacer()
                 HafeflyButton {
-                    continueSignUp(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber)
+                    model.checkInfo(firstname: firstname, lastname: lastname, province: province, phoneNumber: phonenumber, otpCode: otpCode)
                 } label: {
                     Text("continue".localized)
                         .font(.white, Font.HafeflyRubik.semiBold, 18)
                 }.padding(.bottom, 24)
             }
             .padding()
-        }
-    }
-    
-    private func continueSignUp(firstname: String, lastname: String, province: Province, phonenumber: String){
-        model.verifyOtp(for: phonenumber, code: otpCode) { success in
-            if success {
-                NavigationCoordinator.pushScreen(SignUpView(firstname: firstname, lastname: lastname, province: province, phonenumber: phonenumber))
-            }
         }
     }
 }
