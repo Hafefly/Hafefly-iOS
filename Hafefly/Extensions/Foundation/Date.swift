@@ -8,7 +8,13 @@
 import Foundation
 
 extension Date {
-    func getFormattedDate(format: String = "HH:mm") -> String {
+    func getFormattedHour(format: String = "HH:mm") -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
+    }
+    
+    func getFormattedDate(format: String = "dd/MM/yyyy") -> String {
         let dateformat = DateFormatter()
         dateformat.dateFormat = format
         return dateformat.string(from: self)

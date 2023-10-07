@@ -82,6 +82,7 @@
 		99CA49602AC9360500F78111 /* BarberRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA495F2AC9360500F78111 /* BarberRepo.swift */; };
 		99D7FDE42AD18C220096BD59 /* RumRaisin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */; };
 		99D7FDE72AD1A13C0096BD59 /* DocReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDE62AD1A13C0096BD59 /* DocReference.swift */; };
+		99D7FDE92AD1C9780096BD59 /* BarberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDE82AD1C9780096BD59 /* BarberViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 		99CA495F2AC9360500F78111 /* BarberRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberRepo.swift; sourceTree = "<group>"; };
 		99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RumRaisin-Regular.ttf"; sourceTree = "<group>"; };
 		99D7FDE62AD1A13C0096BD59 /* DocReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocReference.swift; sourceTree = "<group>"; };
+		99D7FDE82AD1C9780096BD59 /* BarberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -517,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				570723D329BDC21000579000 /* BarberView.swift */,
+				99D7FDE82AD1C9780096BD59 /* BarberViewModel.swift */,
 			);
 			path = Barber;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				18BC997A29B491C200AFA80A /* OnboardingView.swift in Sources */,
 				5707238B29B8F10A00579000 /* CategoryCard.swift in Sources */,
 				18BC996B29B48DD200AFA80A /* HafeflyApp.swift in Sources */,
+				99D7FDE92AD1C9780096BD59 /* BarberViewModel.swift in Sources */,
 				5707238529B8EE4900579000 /* Barbershop.swift in Sources */,
 				570723DE29BE3EF600579000 /* HaircutsHistory.swift in Sources */,
 				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
