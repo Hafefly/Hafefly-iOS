@@ -163,7 +163,7 @@ struct ProfileView: View {
                     .background(Color.white)
                     .cornerRadius(16)
                 VStack(alignment: .leading){
-                    Text(haircutHistory.barber.name)
+                    Text(haircutHistory.barber.firstname)
                         .font(.white, Font.HafeflyRubik.semiBold, 24)
 //                    Text(haircutHistory.barbershop.name)
 //                        .font(.white, Font.HafeflyRubik.regular, 20)

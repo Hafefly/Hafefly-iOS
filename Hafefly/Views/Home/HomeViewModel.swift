@@ -71,6 +71,7 @@ extension HomeView {
                 Task {
                     do {
                         self.barbershopsUiState = .success(try await BarbershopRepo.shared.listVipBarbershops())
+                        debugPrint(self.barbershopsUiState.data)
                     } catch {
                         self.barbershopsUiState = .failed(error.localizedDescription)
                     }

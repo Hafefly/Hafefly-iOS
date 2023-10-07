@@ -14,27 +14,58 @@ class BarbershopRepo {
     
     let barbershopsCollection = Firestore.firestore().collection(HFCollection.barbershops.rawValue)
     
+    func barbershopDocument(_ id: String) -> DocumentReference {
+        return barbershopsCollection.document(id)
+    }
+    
     func listBarbershops() async throws -> [Barbershop] {
-        return try self.decodeDocuments(try await barbershopsCollection.getDocuments(), as: Barbershop.self)
+        var barbershops = try self.decodeDocuments(try await barbershopsCollection.getDocuments(), as: Barbershop.self)
+        
+        for index in 0..<barbershops.count {
+            barbershops[index].barbers = try await self.getBarbershopBarbers(barbershops[index].id!)
+        }
+        
+        return barbershops
     }
     
     func listBarbershops(withIds ids: [String]) async throws -> [Barbershop] {
         guard !ids.isEmpty else {
             return []
         }
-        return try self.decodeDocuments(try await barbershopsCollection.whereField(FieldPath.documentID(), in: ids).getDocuments(), as: Barbershop.self)
+        
+        var barbershops = try self.decodeDocuments(try await barbershopsCollection.whereField(FieldPath.documentID(), in: ids).getDocuments(), as: Barbershop.self)
+        
+        for index in 0..<barbershops.count {
+            barbershops[index].barbers = try await self.getBarbershopBarbers(barbershops[index].id!)
+        }
+        
+        return barbershops
     }
     
     func listVipBarbershops() async throws -> [Barbershop] {
-        return try self.decodeDocuments(try await barbershopsCollection.whereField("vip", isEqualTo: true).getDocuments(), as: Barbershop.self)
+        var barbershops = try self.decodeDocuments(try await barbershopsCollection.whereField("vip", isEqualTo: true).getDocuments(), as: Barbershop.self)
+        
+        for index in 0..<barbershops.count {
+            barbershops[index].barbers = try await self.getBarbershopBarbers(barbershops[index].id!)
+        }
+        
+        return barbershops
     }
     
 //    func queryBarbershops(for text: String) async throws -> [Barbershop] {
 //        return try self.decodeDocuments(try await barbershopsCollection.where.getDocuments(), as: Barbershop.self)
 //    }
     
-    func getBarbershop(barbershopID: String) async throws -> Barbershop {
-        return try await barbershopsCollection.document(barbershopID).getDocument(as: Barbershop.self)
+    func getBarbershopBarbers(_ id: String) async throws -> [Barber] {
+        let docIds = try self.decodeDocuments(try await self.barbershopDocument(id).collection(HFCollection.barbers.rawValue).getDocuments(), as: DocReference.self).map { $0.docId }
+        
+        return try await BarberRepo.shared.getBarbersForBarbershop(withIds: docIds)
+    }
+    
+    func getBarbershop(_ id: String) async throws -> Barbershop {
+        var barbershop = try await barbershopsCollection.document(id).getDocument(as: Barbershop.self)
+        barbershop.barbers = try await self.getBarbershopBarbers(id)
+        return barbershop
     }
     
     func decodeDocuments<T: Decodable>(_ snapshots: QuerySnapshot, as type: T.Type) throws -> [T] {

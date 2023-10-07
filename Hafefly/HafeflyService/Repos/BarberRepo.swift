@@ -8,19 +8,37 @@
 import Foundation
 import FirebaseFirestore
 
-class BarberRepo: FirebaseFirestore {
+class BarberRepo {
     
-    static var collectionRef: CollectionReference = Firestore.firestore().collection(HFCollection.barbers.rawValue)
+    static let shared = BarberRepo()
     
-    static func getBarber(barberID id: String, success: @escaping (Barber) -> Void, failure: @escaping (String) -> Void) {
-        BarberRepo(collectionRef).readDocument(documentID: id, success: success, failure: failure)
+    private let barbersCollection = Firestore.firestore().collection(HFCollection.barbers.rawValue)
+    
+    func getBarber(_ id: String) async throws -> Barber {
+        return try await barbersCollection.document(id).getDocument(as: Barber.self)
     }
     
-    static func getBarbers(success: @escaping ([Barber]) -> Void, failure: @escaping (String) -> Void) {
-        BarberRepo(collectionRef).readDocuments(success: success, failure: failure)
+    func getBarbers() async throws -> [Barber] {
+        return try self.decodeDocuments(try await barbersCollection.getDocuments(), as: Barber.self)
     }
     
-    static func getBarbersForBarbershop(barbershopID id: String, success: @escaping ([Barber]) -> Void, failure: @escaping (String) -> Void) {
-        BarberRepo(collectionRef).queryDocuments(query: ("barbershopUID", id), success: success, failure: failure)
+    func getBarbersForBarbershop(withIds ids: [String]) async throws -> [Barber] {
+        guard !ids.isEmpty else {
+            return []
+        }
+        
+        return try self.decodeDocuments(try await barbersCollection.whereField(FieldPath.documentID(), in: ids).getDocuments(), as: Barber.self)
+    }
+    
+    func decodeDocuments<T: Decodable>(_ snapshots: QuerySnapshot, as type: T.Type) throws -> [T] {
+        var decodedData = [T]()
+                
+        for document in snapshots.documents {
+            if let data = try? document.data(as: type) {
+                decodedData.append(data)
+            }
+        }
+                
+        return decodedData
     }
 }

@@ -9,12 +9,12 @@ import SwiftUI
 import HFNavigation
 
 extension View {
-    func setupDefaultBackHandler(home: Bool = false) -> some View {
-        self.modifier(BackHandlerModifier(popToHome: home, handler: nil))
+    func setupDefaultBackHandler() -> some View {
+        self.modifier(BackHandlerModifier())
     }
     
     func setupBackHandler(_ handler: NavigationBackHandler) -> some View {
-        self.modifier(BackHandlerModifier(popToHome: false, handler: handler))
+        self.modifier(BackHandlerModifier(handler))
     }
     
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
@@ -59,11 +59,14 @@ extension View {
 
 //MARK: - Back hadling (due to swipe)
 private struct BackHandlerModifier: ViewModifier, NavigationBackHandler {
-    let popToHome: Bool
     let handler: NavigationBackHandler?
     
+    init(_ handler: NavigationBackHandler? = nil) {
+        self.handler = handler
+    }
+    
     func popScreenDueToSwipe() {
-        NavigationCoordinator.popBack(home: popToHome)
+        NavigationCoordinator.popBack()
     }
     
     @EnvironmentObject private var screenInfo: ScreenInfo

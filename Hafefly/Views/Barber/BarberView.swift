@@ -24,7 +24,7 @@ struct BarberView: View {
                     .background(Color.white)
                     .cornerRadius(24)
                 VStack(alignment: .leading){
-                    Text(barber.name)
+                    Text(barber.firstname)
                         .font(.white, Font.HafeflyRubik.semiBold, 22)
                     HStack{
                         Image("ic_clock")
