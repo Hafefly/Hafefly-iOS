@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 struct Barber: CodeIdentifiable {
     
     @DocumentID var id: String?
-    var barbershopUID: UInt
+    var barbershopUID: String
     var barbershopName: String
     var profileImage: String?
     var firstname: String

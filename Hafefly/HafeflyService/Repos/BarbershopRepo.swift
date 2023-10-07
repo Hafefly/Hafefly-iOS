@@ -52,6 +52,12 @@ class BarbershopRepo {
         return barbershops
     }
     
+    func getBarbershop(_ id: String) async throws -> Barbershop {
+        var barbershop = try await barbershopsCollection.document(id).getDocument(as: Barbershop.self)
+        barbershop.barbers = try await self.getBarbershopBarbers(id)
+        return barbershop
+    }
+    
 //    func queryBarbershops(for text: String) async throws -> [Barbershop] {
 //        return try self.decodeDocuments(try await barbershopsCollection.where.getDocuments(), as: Barbershop.self)
 //    }
@@ -59,13 +65,9 @@ class BarbershopRepo {
     func getBarbershopBarbers(_ id: String) async throws -> [Barber] {
         let docIds = try self.decodeDocuments(try await self.barbershopDocument(id).collection(HFCollection.barbers.rawValue).getDocuments(), as: DocReference.self).map { $0.docId }
         
+        debugPrint(docIds)
+        
         return try await BarberRepo.shared.getBarbersForBarbershop(withIds: docIds)
-    }
-    
-    func getBarbershop(_ id: String) async throws -> Barbershop {
-        var barbershop = try await barbershopsCollection.document(id).getDocument(as: Barbershop.self)
-        barbershop.barbers = try await self.getBarbershopBarbers(id)
-        return barbershop
     }
     
     func decodeDocuments<T: Decodable>(_ snapshots: QuerySnapshot, as type: T.Type) throws -> [T] {
