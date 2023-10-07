@@ -31,13 +31,9 @@ extension SignUpView {
                     user.instagram = nil
                     user.profileImage = nil
                     
-                    UserRepo.shared.createUser(user) { userID in
-                        NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
-                    } failure: { error in
-                        self.emailUiState = .failed(error)
-                        self.passwordUiState = .failed(error)
-                        self.rePasswordUiState = .failed(error)
-                    }
+                    try UserRepo.shared.createUser(user)
+                    
+                    NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
                 } catch {
                     self.emailUiState = .failed(error.localizedDescription)
                     self.passwordUiState = .failed(error.localizedDescription)

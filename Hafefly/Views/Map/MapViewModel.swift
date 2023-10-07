@@ -19,10 +19,12 @@ extension MapView {
         
         func getBarbershop() {
             self.mapUiState = .loading
-            BarbershopRepo.shared.listBarbershops { barbershops in
-                self.mapUiState = .success(barbershops)
-            } failure: { error in
-                self.mapUiState = .failed(error)
+            Task {
+                do {
+                    self.mapUiState = .success(try await BarbershopRepo.shared.listBarbershops())
+                } catch {
+                    self.mapUiState = .failed(error.localizedDescription)
+                }
             }
         }
     }

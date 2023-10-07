@@ -29,7 +29,6 @@ struct ViewLayout<Header: View, Content: View>: View {
                         trailing: proxy.safeAreaInsets.trailing))
                 .background(LinearGradient(colors: [.hafeflyBlue, .hafeflyDarkBlue], startPoint: .bottom, endPoint: .top).ignoresSafeArea())
                 .setupDefaultBackHandler()
-                .ignoresSafeArea()
                 header
             }
         }

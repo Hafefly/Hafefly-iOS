@@ -20,7 +20,7 @@ extension SplashView {
                 NavigationCoordinator.shared.switchStartPoint(OnboardingView())
             default:
                 
-                if let user = try? FirebaseAuth.shared.getUser() {
+                if nil != FirebaseAuth.shared.getUserId() {
                     NavigationCoordinator.shared.switchStartPoint(MainView())
                 } else {
                     NavigationCoordinator.shared.switchStartPoint(LoginView())

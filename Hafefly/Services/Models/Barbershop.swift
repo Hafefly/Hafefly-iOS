@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct Barbershop: Equatable, CodeIdentifiable {
     static func == (lhs: Barbershop, rhs: Barbershop) -> Bool {
@@ -39,4 +40,11 @@ struct Barbershop: Equatable, CodeIdentifiable {
 struct Coordinate: Codable {
     let latitude: Double
     let longitude: Double
+}
+
+struct DocReference: CodeIdentifiable {
+    @DocumentID var id: String?
+    var docId: String
+    var createdAt: Timestamp
+    var deletedAt: Timestamp?
 }

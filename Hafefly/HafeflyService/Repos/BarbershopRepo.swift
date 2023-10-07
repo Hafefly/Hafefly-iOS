@@ -6,20 +6,43 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-class BarbershopRepo: FirebaseFirestore {
+class BarbershopRepo {
     
-    static let shared = BarbershopRepo(.barbershops)
+    static let shared = BarbershopRepo()
     
-    func listBarbershops(_ barbershops: @escaping ([Barbershop]) -> Void, failure: @escaping (String) -> Void) {
-        self.readDocuments(success: barbershops, failure: failure)
+    let barbershopsCollection = Firestore.firestore().collection(HFCollection.users.rawValue)
+    
+    func listBarbershops() async throws -> [Barbershop] {
+        return try self.decodeDocuments(try await barbershopsCollection.getDocuments(), as: Barbershop.self)
     }
     
-    func listVipBarbershops(_ barbershops: @escaping ([Barbershop]) -> Void, failure: @escaping (String) -> Void) {
-        self.queryDocuments(query: ("vip", true), success: barbershops, failure: failure)
+    func listBarbershops(withIds ids: [String]) async throws -> [Barbershop] {
+        return try self.decodeDocuments(try await barbershopsCollection.whereField(FieldPath.documentID(), in: ids).getDocuments(), as: Barbershop.self)
     }
     
-    func getBarbershop(barbershopID: String, success: @escaping (Barbershop) -> Void, failure: @escaping (String) -> Void) {
-        self.readDocument(documentID: barbershopID, success: success, failure: failure)
+    func listVipBarbershops() async throws -> [Barbershop] {
+        return try self.decodeDocuments(try await barbershopsCollection.whereField("vip", isEqualTo: true).getDocuments(), as: Barbershop.self)
+    }
+    
+//    func queryBarbershops(for text: String) async throws -> [Barbershop] {
+//        return try self.decodeDocuments(try await barbershopsCollection.where.getDocuments(), as: Barbershop.self)
+//    }
+    
+    func getBarbershop(barbershopID: String) async throws -> Barbershop {
+        return try await barbershopsCollection.document(barbershopID).getDocument(as: Barbershop.self)
+    }
+    
+    func decodeDocuments<T: Decodable>(_ snapshots: QuerySnapshot, as type: T.Type) throws -> [T] {
+        var decodedData = [T]()
+                
+        for document in snapshots.documents {
+            if let data = try? document.data(as: type) {
+                decodedData.append(data)
+            }
+        }
+                
+        return decodedData
     }
 }

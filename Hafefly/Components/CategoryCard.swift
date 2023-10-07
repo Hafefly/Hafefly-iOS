@@ -9,25 +9,38 @@ import SwiftUI
 
 struct CategoryCard: View {
     
-    let category: Category
+    private let category: Category
     
-    init(_ category: Category) {
+    @State private var uiState: UiState<[Barbershop]>
+    
+    init(_ category: Category, uiState: UiState<[Barbershop]>) {
         self.category = category
+        self.uiState = uiState
     }
     
     var body: some View {
         ZStack{
             VStack{
                 VStack(alignment: .leading){
-                    Text(category.name)
+                    Text(category.rawValue)
                         .font(.white, Font.HafeflyRubik.semiBold, 22)
                         .multilineTextAlignment(.leading)
-                    if category.barbershops.isEmpty {
-                        Text("empty")
-                            .font(.white, Font.HafeflyRubik.regular, 18)
-                    } else {
-                        Text("\(category.itemsCount) barbershop")
-                            .font(.white, Font.HafeflyRubik.regular, 18)
+                    switch uiState {
+                    case .idle:
+                        EmptyView()
+                    case .loading:
+                        LoadingView()
+                            .frame(width: 18, height: 18)
+                    case .success(let barbershops):
+                        if barbershops.isEmpty {
+                            Text("empty")
+                                .font(.white, Font.HafeflyRubik.regular, 18)
+                        } else {
+                            Text("\(barbershops.count) barbershop")
+                                .font(.white, Font.HafeflyRubik.regular, 18)
+                        }
+                    case .failed:
+                        Text("error")
                     }
                 }
                 .frame(width: 100, alignment: .leading)
@@ -52,8 +65,8 @@ struct CategoryCard: View {
     }
 }
 
-struct CategoryCard_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryCard(Category.categories[1])
-    }
-}
+//struct CategoryCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryCard(Category.categories[1])
+//    }
+//}

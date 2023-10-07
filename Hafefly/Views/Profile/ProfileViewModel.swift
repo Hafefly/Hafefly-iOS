@@ -27,11 +27,14 @@ extension ProfileView {
                 return
             }
             
-            UserRepo.shared.getUser(UserID: id) { user in
-                self.profileUiState = .success(user)
-            } failure: { error in
-                self.profileUiState = .failed(error)
+            Task {
+                do {
+                    self.profileUiState = .success(try await UserRepo.shared.getUser(UserID: id))
+                } catch {
+                    self.profileUiState = .failed(error.localizedDescription)
+                }
             }
+            
         }
         
         func getHaircutHistory() {

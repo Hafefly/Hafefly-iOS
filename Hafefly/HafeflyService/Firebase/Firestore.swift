@@ -15,23 +15,28 @@ enum HFCollection: String {
     case barbershops
     case history
     case reviews
+    case favorites
 }
 
 protocol CodeIdentifiable: Codable, Identifiable {
     var id: String? { get }
 }
 
+protocol ReferenceIdentifiable: CodeIdentifiable {
+    var id: String? { get }
+    var docId: String { get }
+    var createdAt: Timestamp { get }
+    var deletedAt: Timestamp? { get }
+}
+
 class FirebaseFirestore {
-    private let db = Firestore.firestore()
+    let ref: CollectionReference
     
-    let collection: String
-    
-    init(_ collection: HFCollection) {
-        self.collection = collection.rawValue
+    init(_ collection: CollectionReference) {
+            self.ref = collection
     }
     
     func addDocument<T: CodeIdentifiable>(_ data: T, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        let ref: CollectionReference = db.collection(collection)
         do {
             success(try ref.addDocument(from: data).documentID)
         } catch {
@@ -39,11 +44,14 @@ class FirebaseFirestore {
         }
     }
     
+    func addDocReference<T: ReferenceIdentifiable>(_ doc: T, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        
+    }
+    
     func updateDocument<T: CodeIdentifiable>(_ data: T, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         if let docId = data.id {
-            let ref: DocumentReference = db.collection(collection).document(docId)
             do {
-                try ref.setData(from: data)
+                try ref.document(docId).setData(from: data)
                 
                 success(docId)
             } catch {
@@ -53,7 +61,7 @@ class FirebaseFirestore {
     }
     
     func readDocuments<T: CodeIdentifiable>(success: @escaping ([T]) -> Void, failure: @escaping (String) -> Void) {
-        db.collection(collection).getDocuments { query, error in
+        ref.getDocuments { query, error in
             guard error == nil else {
                 failure(error!.localizedDescription)
                 return
@@ -79,8 +87,8 @@ class FirebaseFirestore {
     }
     
     func readDocument<T: CodeIdentifiable>(documentID: String, success: @escaping (T) -> Void, failure: @escaping (String) -> Void) {
-        debugPrint(documentID)
-        db.collection(collection).document(documentID).getDocument(as: T.self) { result in
+        
+        ref.document(documentID).getDocument(as: T.self) { result in
             switch result {
             case .success(let doc):
                 success(doc)
@@ -92,7 +100,7 @@ class FirebaseFirestore {
     }
     
     func queryDocuments<T: CodeIdentifiable>(query: (String, Any), success: @escaping([T]) -> Void, failure: @escaping (String) -> Void) {
-        db.collection(collection).whereField(query.0, isEqualTo: query.1)
+        ref.whereField(query.0, isEqualTo: query.1)
             .getDocuments { query, error in
                 guard error == nil else {
                     failure(error!.localizedDescription)

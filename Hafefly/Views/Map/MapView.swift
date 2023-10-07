@@ -16,15 +16,16 @@ struct MapView: View {
         ZStack {
             switch model.mapUiState {
             case .idle:
-                EmptyView()
+                HafeflyMap()
             case .loading:
-                #warning("implement loading view")
+                LoadingView()
+                    .frame(width: 24, height: 24)
             case .success(let barbershops):
                 HafeflyMap(barbershops: barbershops)
                     .cornerRadius(16)
                     .padding(.bottom, 16)
-            case .failed(let string):
-                #warning("implement fail view")
+            case .failed(let error):
+                FailView(errorMess: error)
             }
             
         }

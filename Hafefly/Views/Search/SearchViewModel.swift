@@ -16,10 +16,17 @@ extension SearchView {
         
         func search(for text: String) {
             self.searchUiState = .loading
-            BarbershopRepo.shared.listBarbershops { barbershops in
-                self.searchUiState = .success(barbershops)
-            } failure: { error in
-                self.searchUiState = .failed(error)
+            
+            Task {
+                do {
+                    if text.isEmpty {
+                        self.searchUiState = .success(try await BarbershopRepo.shared.listBarbershops())
+                    } else {
+                        #warning("implement query barbershops")
+                    }
+                } catch {
+                    self.searchUiState = .failed(error.localizedDescription)
+                }
             }
         }
     }

@@ -6,20 +6,21 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class BarberRepo: FirebaseFirestore {
     
-    static let shared = BarberRepo(.barbers)
+    static var collectionRef: CollectionReference = Firestore.firestore().collection(HFCollection.barbers.rawValue)
     
-    func getBarber(barberID id: String, success: @escaping (Barber) -> Void, failure: @escaping (String) -> Void) {
-        self.readDocument(documentID: id, success: success, failure: failure)
+    static func getBarber(barberID id: String, success: @escaping (Barber) -> Void, failure: @escaping (String) -> Void) {
+        BarberRepo(collectionRef).readDocument(documentID: id, success: success, failure: failure)
     }
     
-    func getBarbers(success: @escaping ([Barber]) -> Void, failure: @escaping (String) -> Void) {
-        self.readDocuments(success: success, failure: failure)
+    static func getBarbers(success: @escaping ([Barber]) -> Void, failure: @escaping (String) -> Void) {
+        BarberRepo(collectionRef).readDocuments(success: success, failure: failure)
     }
     
-    func getBarbersForBarbershop(barbershopID id: String, success: @escaping ([Barber]) -> Void, failure: @escaping (String) -> Void) {
-        self.queryDocuments(query: ("barbershopUID", id), success: success, failure: failure)
+    static func getBarbersForBarbershop(barbershopID id: String, success: @escaping ([Barber]) -> Void, failure: @escaping (String) -> Void) {
+        BarberRepo(collectionRef).queryDocuments(query: ("barbershopUID", id), success: success, failure: failure)
     }
 }

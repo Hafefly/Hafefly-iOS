@@ -13,22 +13,63 @@ extension HomeView {
         
         @Published public private(set) var barbershopsUiState: UiState<[Barbershop]> = .idle
         
+        @Published public private(set) var favoritesBarbershopsUiState: UiState<[Barbershop]> = .idle
+        @Published public private(set) var highestRatingBarbershopsUiState: UiState<[Barbershop]> = .idle
+        @Published public private(set) var nearbyBarbershopsUiState: UiState<[Barbershop]> = .idle
+        
         init() {
-            getVipBarbershops()
+            self.getVipBarbershops()
+            
+            guard let userId = FirebaseAuth.shared.getUserId() else {
+                return
+            }
+            
+            self.getFavoriteBarbershops(userId)
+            self.getHighestRatingsBarbershops(userId)
+            self.getNearbyBarbershops(userId)
         }
         
-        func openCategory(_ category: Category) {
-            NavigationCoordinator.pushScreen(CategoryView(category))
+        func getFavoriteBarbershops(_ id: String) {
+            Task {
+                do {
+                    self.favoritesBarbershopsUiState = .success(try await UserRepo.shared.getUserFavoriteBarbershops(id))
+                } catch {
+                    self.favoritesBarbershopsUiState = .failed("error")
+                }
+            }
+        }
+        
+        func getUiState(_ category: Category) -> UiState<[Barbershop]> {
+            switch category {
+            case .favorites:
+                return favoritesBarbershopsUiState
+            case .highestRatings:
+                return highestRatingBarbershopsUiState
+            case .nearby:
+                return nearbyBarbershopsUiState
+            }
+        }
+        
+        func getHighestRatingsBarbershops(_ id: String) {
+            
+        }
+        
+        func getNearbyBarbershops(_ id: String) {
+            
+        }
+        
+        func openCategory(_ category: Category, barbershops: [Barbershop]) {
+            NavigationCoordinator.pushScreen(CategoryView(category, barbershops: barbershops))
         }
         
         func getVipBarbershops() {
-            barbershopsUiState = .loading
-            BarbershopRepo.shared.listVipBarbershops { barbershops in
-                self.barbershopsUiState = .success(barbershops)
-            } failure: { error in
-                self.barbershopsUiState = .failed("something_went_wrong".localized)
-                debugPrint(error)
-                #warning("show error banner")
+            self.barbershopsUiState = .loading
+            Task {
+                do {
+                    self.barbershopsUiState = .success(try await BarbershopRepo.shared.listVipBarbershops())
+                } catch {
+                    self.barbershopsUiState = .failed(error.localizedDescription)
+                }
             }
         }
     }

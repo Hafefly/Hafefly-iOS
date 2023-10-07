@@ -15,11 +15,16 @@ struct HomeView: View {
         VStack(alignment: .leading, spacing: 28){
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16){
-                    ForEach(Category.categories, id: \.uuid) { category in
+                    ForEach(Category.allCases) { category in
                         Button {
-                            model.openCategory(category)
+                            switch model.getUiState(category) {
+                            case .success(let barbershops):
+                                model.openCategory(category, barbershops: barbershops)
+                            default:
+                                break
+                            }
                         } label: {
-                            CategoryCard(category)
+                            CategoryCard(category, uiState: model.favoritesBarbershopsUiState)
                         }
                     }
                     .padding(.vertical)
@@ -38,29 +43,21 @@ struct HomeView: View {
                     ZStack{
                         switch model.barbershopsUiState {
                         case .success(let barbershops):
-                            LazyVStack(spacing: 16){
-                                ForEach(barbershops, id: \.id) { barbershop in
-                                    BarbershopCard(barbershop: barbershop, isFavorite: Category.categories[0].barbershops.contains{$0.id == barbershop.id})
+                            switch model.favoritesBarbershopsUiState {
+                            case .success(let favorite):
+                                LazyVStack(spacing: 16){
+                                    ForEach(barbershops, id: \.id) { barbershop in
+                                        BarbershopCard(barbershop: barbershop, isFavorite: favorite.contains{$0.id == barbershop.id})
+                                    }
                                 }
+                            default:
+                                EmptyView()
                             }
                         case .idle, .loading:
-                            Spacer()
-                            ProgressView()
-                                .frame(width: 40, height: 40)
-                            Spacer()
-                        case .failed:
-                            HStack{
-                                Spacer()
-                                VStack{
-                                    Spacer()
-                                    Image(systemName: "exclamationmark.triangle.fill")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .foregroundColor(.white)
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
+                            LoadingView()
+                                .frame(width: 24, height: 24)
+                        case .failed(let error):
+                            FailView(errorMess: error)
                         }
                     }
                 }

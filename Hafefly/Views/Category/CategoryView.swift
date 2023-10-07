@@ -9,15 +9,17 @@ import SwiftUI
 
 struct CategoryView: View {
     
-    let category: Category
+    private let category: Category
+    private let barbershops: [Barbershop]
     
-    init(_ category: Category) {
+    init(_ category: Category, barbershops: [Barbershop]) {
         self.category = category
+        self.barbershops = barbershops
     }
     
     var body: some View {
         ViewLayout {
-            HeaderView(title: category.name)
+            HeaderView(title: category.rawValue)
         } content: { edges in
             ZStack(alignment: .topLeading){
                 ZStack(alignment: .top){
@@ -25,7 +27,7 @@ struct CategoryView: View {
                         Spacer()
                         ScrollView(showsIndicators: false){
                             LazyVStack {
-                                ForEach(category.barbershops, id: \.id){
+                                ForEach(barbershops, id: \.id){
                                     BarbershopCard(barbershop: $0)
                                 }
                             }
@@ -59,8 +61,8 @@ struct CategoryView: View {
     }
 }
 
-struct CategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryView(Category.categories[0])
-    }
-}
+//struct CategoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryView(Category.categories[0])
+//    }
+//}

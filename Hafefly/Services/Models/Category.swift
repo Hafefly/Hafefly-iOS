@@ -7,20 +7,32 @@
 
 import SwiftUI
 
-struct Category {
-    let uuid = UUID()
-    let icon: String
-    let name: String
-    let color: Color
-    let barbershops: [Barbershop]
+enum Category: String, CaseIterable, Identifiable {
+    case favorites
+    case highestRatings
+    case nearby
     
-    var itemsCount: Int {
-        return barbershops.count
+    var id: UUID { UUID() }
+    
+    var icon: String {
+        switch self {
+        case .favorites:
+            return "ic_heart"
+        case .highestRatings:
+            return "ic_star"
+        case .nearby:
+            return "ic_nearby"
+        }
     }
     
-    static let categories = [
-//        Category(icon: "ic_heart", name: "Favorites", color: .red, barbershops: Barbershop.barbershops),
-        Category(icon: "ic_star", name: "Highest Rating", color: .yellow, barbershops: []),
-        Category(icon: "ic_nearby", name: "Nearby", color: .blue, barbershops: [])
-    ]
+    var color: Color {
+        switch self {
+        case .favorites:
+            return .red
+        case .highestRatings:
+            return .yellow
+        case .nearby:
+            return .blue
+        }
+    }
 }

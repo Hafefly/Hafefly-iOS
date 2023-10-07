@@ -22,10 +22,10 @@ struct SearchView: View {
             
             switch model.searchUiState {
             case .idle:
-                EmptyView()
+                Spacer()
             case .loading:
-                #warning("implement loading view")
-                EmptyView()
+                LoadingView()
+                    .frame(width: 24, height: 24)
             case .success(let barbershops):
                 ScrollView(showsIndicators: false) {
                     VStack{
@@ -33,11 +33,12 @@ struct SearchView: View {
                             BarbershopCard(barbershop: $0)
                         }
                     }
+                    Spacer()
                 }
-            case .failed(let string):
-                #warning("implement fail view")
-                EmptyView()
+            case .failed(let error):
+                FailView(errorMess: error)
             }
+            Spacer()
         }
         .onReceive(model.$searchText, perform: model.search)
     }
