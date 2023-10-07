@@ -18,7 +18,9 @@ struct ProfileView: View {
             profilePanel()
             switch model.historyUiState {
             case .idle: EmptyView()
-            case .loading: ZStack{HStack{Spacer();VStack{Spacer();}}}
+            case .loading:
+                LoadingView()
+                    .frame(width: 24, height: 24)
             case .success(let haircutsHistory):
                 ScrollView(showsIndicators: false) {
                     VStack{
@@ -65,53 +67,51 @@ struct ProfileView: View {
                         Spacer()
                     }
                 }
-                VStack{
-                    HStack(spacing: 16){
-                        Image(user.profileImage ?? "avatar")
-                            .resizable()
-                            .frame(width: 90, height: 90)
-                            .cornerRadius(.infinity)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: .infinity)
-                                    .stroke(Color.white, lineWidth: 4)
-                            )
-                        if !isEditingProfile {
-                            VStack(alignment: .leading){
-                                Text("\(user.lastname) \(user.firstname)")
-                                    .font(.white, Font.HafeflyRubik.semiBold, 22)
-                                HStack{
-                                    Image("ic_phone")
-                                        .resizable()
-                                        .frame(width: 18, height: 18)
-                                    Text(user.phone ?? "none".localized)
-                                        .font(.white, Font.HafeflyRubik.regular, 18)
-                                }
+                HStack(spacing: 16){
+                    Image(user.profileImage ?? "avatar")
+                        .resizable()
+                        .frame(width: 90, height: 90)
+                        .cornerRadius(.infinity)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: .infinity)
+                                .stroke(Color.white, lineWidth: 4)
+                        )
+                    if !isEditingProfile {
+                        VStack(alignment: .leading, spacing: 12){
+                            Text("\(user.lastname) \(user.firstname)")
+                                .font(.white, Font.HafeflyRubik.semiBold, 22)
+                            HStack{
+                                Image("ic_phone")
+                                    .resizable()
+                                    .frame(width: 18, height: 18)
+                                Text(user.phone ?? "none".localized)
+                                    .font(.white, Font.HafeflyRubik.regular, 18)
+                            }
+                            if let instagram = user.instagram {
                                 HStack{
                                     Image("ic_instagram")
                                         .resizable()
                                         .frame(width: 16, height: 16)
-                                    Text(user.instagram ?? "none".localized)
+                                    Text(instagram.localized)
                                         .font(.white, Font.HafeflyRubik.regular, 18)
-                                }
-                                HStack{
-                                    Image("ic_checkmark")
-                                        .resizable()
-                                        .frame(width: 18, height: 18)
-                                    Text("\(String(user.haircutsDone)) \(user.haircutsDone.whichString(single: "haircut_done", plural: "haircuts_done"))")
-                                        .font(.white, Font.HafeflyRubik.regular, 18)
-                                    Spacer()
-                                    HafeflyButton(action: model.loggout) {
-                                        Text("sign out")
-                                            .foregroundColor(.white)
-                                    }
                                 }
                             }
-                        } else {
-                            Spacer()
+                            HStack{
+                                Image("ic_checkmark")
+                                    .resizable()
+                                    .frame(width: 18, height: 18)
+                                Text("\(String(user.haircutsDone)) \(user.haircutsDone.whichString(single: "haircut", plural: "haircuts"))")
+                                    .font(.white, Font.HafeflyRubik.regular, 18)
+                            }
+                            HafeflyButton(action: model.loggout) {
+                                Text("sign out")
+                                    .foregroundColor(.white)
+                            }
+                            
                         }
-                    }
-                    if self.isEditingProfile {
+                    } else {
                         #warning("implement editing profile")
+                        Spacer()
                     }
                 }
             case .failed(let error):

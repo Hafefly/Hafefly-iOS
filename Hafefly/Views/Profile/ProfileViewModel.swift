@@ -26,6 +26,7 @@ extension ProfileView {
                 self.profileUiState = .failed("could not find logged-in user")
                 return
             }
+            
             DispatchQueue.main.async {
                 Task {
                     do {
@@ -44,6 +45,8 @@ extension ProfileView {
                 self.historyUiState = .failed("could not find user")
                 return
             }
+            
+            self.historyUiState = .success([])
             
 //            HistoryRepo.shared.getUserHaircutHistory(userID: id) { haircutsHistory in
 //                self.historyUiState = .success(haircutsHistory)
