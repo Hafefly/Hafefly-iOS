@@ -22,7 +22,7 @@ struct HafeflyTextFieldStyle: TextFieldStyle {
             configuration
                 .autocorrectionDisabled()
                 .autocapitalization(.none)
-                .foregroundColor(.hafeflyLightBlue)
+                .foregroundColor(.white)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)

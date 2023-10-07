@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ViewLayout<Header: View, Content: View>: View {
     private var header: Header
-    private let headerHeight: CGFloat
     private let content: (EdgeInsets) -> Content
     
-    init(headerHeight: CGFloat? = nil, @ViewBuilder header: () -> Header, @ViewBuilder content: @escaping (EdgeInsets) -> Content) {
+    init(@ViewBuilder header: () -> Header, @ViewBuilder content: @escaping (EdgeInsets) -> Content) {
         self.header = header()
         self.content = content
-        self.headerHeight = headerHeight ?? HeaderView.headerHeight
     }
     
     var body: some View {
@@ -23,7 +21,7 @@ struct ViewLayout<Header: View, Content: View>: View {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
                 content(
                     EdgeInsets(
-                        top: proxy.safeAreaInsets.top + headerHeight,
+                        top: proxy.safeAreaInsets.top,
                         leading: proxy.safeAreaInsets.leading,
                         bottom: proxy.safeAreaInsets.bottom,
                         trailing: proxy.safeAreaInsets.trailing))
@@ -36,7 +34,7 @@ struct ViewLayout<Header: View, Content: View>: View {
 }
 
 struct HeaderView: View {
-    static let headerHeight: CGFloat = 65
+    static let headerHeight: CGFloat = 50
     
     let title: String
     

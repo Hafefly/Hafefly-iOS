@@ -28,8 +28,16 @@ struct LoginView: View {
                 VStack{
                     VStack{
                         TextField("email".localized, text: $email)
+                            .placeholder(when: email.isEmpty) {
+                                    Text("search")
+                                        .foregroundColor(.white.opacity(0.7))
+                            }
                             .textFieldStyle(getHFTextFieldStye(model.emailUiState))
                         SecureField("password".localized, text: $password)
+                            .placeholder(when: password.isEmpty) {
+                                    Text("search")
+                                        .foregroundColor(.white.opacity(0.7))
+                            }
                             .textFieldStyle(getHFTextFieldStye(model.passwordUiState))
                     }
                     

@@ -36,11 +36,19 @@ struct SignUpInfoView: View {
                     VStack{
                         HStack {
                             TextField("firstname".localized, text: $firstname)
+                                .placeholder(when: firstname.isEmpty) {
+                                        Text("firstname")
+                                            .foregroundColor(.white.opacity(0.7))
+                                }
                                 .textFieldStyle(getHFTextFieldStye(model.firstnameUiState))
                                 .onChange(of: lastname) { newValue in
                                     model.setFirstnameUiState(model.validateName(newValue))
                                 }
                             TextField("lastname".localized, text: $lastname)
+                                .placeholder(when: lastname.isEmpty) {
+                                        Text("lastname")
+                                            .foregroundColor(.white.opacity(0.7))
+                                }
                                 .textFieldStyle(getHFTextFieldStye(model.lastnameUiState))
                                 .onChange(of: lastname) { newValue in
                                     model.setLastnameUiState(model.validateName(newValue))
@@ -65,6 +73,10 @@ struct SignUpInfoView: View {
                         
                         HStack{
                             TextField("phonenumber".localized, text: $phonenumber)
+                                .placeholder(when: phonenumber.isEmpty) {
+                                        Text("phone number")
+                                            .foregroundColor(.white.opacity(0.7))
+                                }
                                 .textFieldStyle(getHFTextFieldStye(model.phoneNumberUiState))
                                 .onChange(of: phonenumber) { newValue in
                                     model.validatePhoneFormat(newValue)

@@ -46,7 +46,6 @@
 		5707239B29B92F7F00579000 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239A29B92F7F00579000 /* MapView.swift */; };
 		5707239D29B92F8800579000 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707239C29B92F8800579000 /* ProfileView.swift */; };
 		570723A529B9F3CA00579000 /* UiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723A429B9F3CA00579000 /* UiImage.swift */; };
-		570723A729B9FCC600579000 /* Rum_Raisin in Resources */ = {isa = PBXBuildFile; fileRef = 570723A629B9FCC600579000 /* Rum_Raisin */; };
 		570723AB29BA560E00579000 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AA29BA560E00579000 /* CategoryView.swift */; };
 		570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AD29BAA2A600579000 /* BarbershopOverlay.swift */; };
 		570723B029BB35F500579000 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570723AF29BB35F500579000 /* Date.swift */; };
@@ -81,6 +80,7 @@
 		99CA495C2AC8C78400F78111 /* UserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA495B2AC8C78400F78111 /* UserRepo.swift */; };
 		99CA495E2AC933FF00F78111 /* BarbershopRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA495D2AC933FF00F78111 /* BarbershopRepo.swift */; };
 		99CA49602AC9360500F78111 /* BarberRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA495F2AC9360500F78111 /* BarberRepo.swift */; };
+		99D7FDE42AD18C220096BD59 /* RumRaisin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,7 +130,6 @@
 		5707239A29B92F7F00579000 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5707239C29B92F8800579000 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		570723A429B9F3CA00579000 /* UiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiImage.swift; sourceTree = "<group>"; };
-		570723A629B9FCC600579000 /* Rum_Raisin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Rum_Raisin; sourceTree = "<group>"; };
 		570723AA29BA560E00579000 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		570723AD29BAA2A600579000 /* BarbershopOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopOverlay.swift; sourceTree = "<group>"; };
 		570723AF29BB35F500579000 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -158,6 +157,7 @@
 		99CA495B2AC8C78400F78111 /* UserRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepo.swift; sourceTree = "<group>"; };
 		99CA495D2AC933FF00F78111 /* BarbershopRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbershopRepo.swift; sourceTree = "<group>"; };
 		99CA495F2AC9360500F78111 /* BarberRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberRepo.swift; sourceTree = "<group>"; };
+		99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RumRaisin-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,7 +331,7 @@
 		18BC99C529B63CE500AFA80A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				570723A629B9FCC600579000 /* Rum_Raisin */,
+				99D7FDE52AD18C270096BD59 /* Rum_Raisin */,
 				18BC99C429B63CDD00AFA80A /* Rubik */,
 			);
 			path = Fonts;
@@ -554,6 +554,14 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		99D7FDE52AD18C270096BD59 /* Rum_Raisin */ = {
+			isa = PBXGroup;
+			children = (
+				99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */,
+			);
+			path = Rum_Raisin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -628,9 +636,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				570723A729B9FCC600579000 /* Rum_Raisin in Resources */,
 				99CA49572AC87C5300F78111 /* GoogleService-Info.plist in Resources */,
 				18BC997329B48DD400AFA80A /* Preview Assets.xcassets in Resources */,
+				99D7FDE42AD18C220096BD59 /* RumRaisin-Regular.ttf in Resources */,
 				18BC996F29B48DD400AFA80A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,6 +858,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -893,6 +902,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

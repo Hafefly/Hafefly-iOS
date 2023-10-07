@@ -12,13 +12,17 @@ struct SearchView: View {
     @StateObject private var model = Model()
     
     var body: some View {
-        VStack{
+        VStack(spacing: 24){
             TextField("search".localized, text: $model.searchText)
-                .foregroundColor(.hafeflyLightBlue)
+                .placeholder(when: model.searchText.isEmpty) {
+                        Text("search")
+                            .foregroundColor(.white.opacity(0.7))
+                }
+                .foregroundColor(.white)
                 .padding()
                 .background(Color.favoriteBlue)
-                .cornerRadius(.infinity)
-                .shadow(color: .favoriteBlue, radius: 10)
+                .cornerRadius(10)
+            
             
             switch model.searchUiState {
             case .idle:
@@ -28,7 +32,7 @@ struct SearchView: View {
                     .frame(width: 24, height: 24)
             case .success(let barbershops):
                 ScrollView(showsIndicators: false) {
-                    VStack{
+                    VStack(spacing: 12){
                         ForEach(barbershops, id: \.id){
                             BarbershopCard(barbershop: $0)
                         }

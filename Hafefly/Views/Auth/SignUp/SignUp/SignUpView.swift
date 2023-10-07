@@ -34,12 +34,20 @@ struct SignUpView: View {
                 VStack{
                     VStack{
                         TextField("email".localized, text: $email)
+                            .placeholder(when: email.isEmpty) {
+                                    Text("email")
+                                        .foregroundColor(.white.opacity(0.7))
+                            }
                             .textFieldStyle(getHFTextFieldStye(model.emailUiState))
                             .onChange(of: email) { newValue in
                                 model.validateEmail(newValue)
                             }
                         
                         SecureField("password".localized, text: $password)
+                            .placeholder(when: password.isEmpty) {
+                                    Text("password")
+                                        .foregroundColor(.white.opacity(0.7))
+                            }
                             .textFieldStyle(getHFTextFieldStye(model.passwordUiState))
                             .onChange(of: password) { newValue in
                                 model.validatePassword(newValue)
@@ -47,6 +55,10 @@ struct SignUpView: View {
                             }
                         
                         SecureField("re_enter_password".localized, text: $rePassword)
+                            .placeholder(when: rePassword.isEmpty) {
+                                    Text("re_enter_password".localized)
+                                        .foregroundColor(.white.opacity(0.7))
+                            }
                             .textFieldStyle(getHFTextFieldStye(model.rePasswordUiState))
                             .onChange(of: rePassword) { newValue in
                                 model.passwordsCheck(password: password, rePassword: rePassword)
