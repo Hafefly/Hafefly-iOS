@@ -30,8 +30,6 @@ class UserRepo {
     }
     
     func getUser(_ id: String) async throws -> HFUser {
-        debugPrint(id)
-        debugPrint(try await self.userDocument(id).getDocument().data())
         return try await self.userDocument(id).getDocument(as: HFUser.self)
     }
     

@@ -27,12 +27,4 @@ struct Barber: CodeIdentifiable {
     var rating: Double
     var verified: Bool
     var workingHours: WorkingHours
-    var reviews: [Review]?
-}
-
-struct Review: Identifiable, Codable {
-    let id: UInt
-    let message: String
-    let username: String
-    let rating: Double?
 }

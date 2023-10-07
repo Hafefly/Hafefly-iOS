@@ -10,6 +10,8 @@ import HFNavigation
 
 struct BarberView: View {
     
+    @StateObject private var model = Model()
+    
     let barber: Barber
     let pricing: Pricing
     
@@ -57,9 +59,18 @@ struct BarberView: View {
             VStack{
                 workingHoursPanel(open: barber.workingHours.openingDate.getFormattedHour(), close: barber.workingHours.closingDate.getFormattedHour())
                     .shadow(radius: 4)
-                if let reviews = barber.reviews {
+                switch model.reviewsUiState {
+                case .idle:
+                    EmptyView()
+                case .loading:
+                    LoadingView()
+                        .frame(width: 24, height: 24)
+                case .success(let reviews):
                     reviewCard(reviews: reviews)
+                case .failed(let error):
+                    FailView(errorMess: error)
                 }
+                    
                 Spacer()
                 
                 HafeflyButton(foregroundColor: .orange) {
@@ -72,6 +83,9 @@ struct BarberView: View {
             .padding()
         }
         .background(LinearGradient(colors: [.hafeflyBlue, .hafeflyDarkBlue], startPoint: .bottom, endPoint: .top).ignoresSafeArea())
+        .onAppear {
+            model.getReviews(for: barber.id)
+        }
     }
     
     @ViewBuilder
@@ -139,20 +153,19 @@ struct BarberView: View {
                 .resizable()
                 .frame(width: 24, height: 24)
             VStack(alignment: .leading){
-                Text(review.username)
+                Text(review.user?.firstname ?? "anonymos")
                     .font(.white, Font.HafeflyRubik.medium, 22)
-                Text(review.message)
+                Text(review.message ?? "hidden")
                     .font(.white, Font.HafeflyRubik.regular, 18)
             }
             Spacer()
-            if let rating = review.rating?.rating() {
-                HStack{
-                    Image("ic_star")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                    Text(rating)
-                        .font(.white, Font.HafeflyRubik.semiBold, 22)
-                }
+            
+            HStack{
+                Image("ic_star")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                Text("\(review.rating)")
+                    .font(.white, Font.HafeflyRubik.semiBold, 22)
             }
         }
     }

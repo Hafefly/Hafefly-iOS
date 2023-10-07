@@ -83,6 +83,8 @@
 		99D7FDE42AD18C220096BD59 /* RumRaisin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */; };
 		99D7FDE72AD1A13C0096BD59 /* DocReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDE62AD1A13C0096BD59 /* DocReference.swift */; };
 		99D7FDE92AD1C9780096BD59 /* BarberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDE82AD1C9780096BD59 /* BarberViewModel.swift */; };
+		99D7FDEB2AD2037C0096BD59 /* ReviewRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDEA2AD2037C0096BD59 /* ReviewRepo.swift */; };
+		99D7FDED2AD207FD0096BD59 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDEC2AD207FD0096BD59 /* Review.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +164,8 @@
 		99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RumRaisin-Regular.ttf"; sourceTree = "<group>"; };
 		99D7FDE62AD1A13C0096BD59 /* DocReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocReference.swift; sourceTree = "<group>"; };
 		99D7FDE82AD1C9780096BD59 /* BarberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberViewModel.swift; sourceTree = "<group>"; };
+		99D7FDEA2AD2037C0096BD59 /* ReviewRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepo.swift; sourceTree = "<group>"; };
+		99D7FDEC2AD207FD0096BD59 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +419,7 @@
 				570723DD29BE3EF600579000 /* HaircutsHistory.swift */,
 				57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */,
 				99D7FDE62AD1A13C0096BD59 /* DocReference.swift */,
+				99D7FDEC2AD207FD0096BD59 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,6 +552,7 @@
 				99CA495B2AC8C78400F78111 /* UserRepo.swift */,
 				99CA495D2AC933FF00F78111 /* BarbershopRepo.swift */,
 				99CA495F2AC9360500F78111 /* BarberRepo.swift */,
+				99D7FDEA2AD2037C0096BD59 /* ReviewRepo.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -704,6 +710,7 @@
 				99CA495E2AC933FF00F78111 /* BarbershopRepo.swift in Sources */,
 				997688EB2ACC65DB00318EFE /* LoadingView.swift in Sources */,
 				570723AE29BAA2A600579000 /* BarbershopOverlay.swift in Sources */,
+				99D7FDED2AD207FD0096BD59 /* Review.swift in Sources */,
 				5707239929B92F7800579000 /* SearchView.swift in Sources */,
 				5707239129B9141600579000 /* Barber.swift in Sources */,
 				18BC99D929B644F000AFA80A /* SplashViewModel.swift in Sources */,
@@ -717,6 +724,7 @@
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
 				570723C829BC81BA00579000 /* UInt.swift in Sources */,
 				57D47C2029C3683900A3DC1D /* Logger.swift in Sources */,
+				99D7FDEB2AD2037C0096BD59 /* ReviewRepo.swift in Sources */,
 				5707239329B9158300579000 /* WorkingHours.swift in Sources */,
 				5707238729B8F03E00579000 /* Double.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,

@@ -12,10 +12,14 @@ class BarbershopRepo {
     
     static let shared = BarbershopRepo()
     
-    let barbershopsCollection = Firestore.firestore().collection(HFCollection.barbershops.rawValue)
+    private let barbershopsCollection = Firestore.firestore().collection(HFCollection.barbershops.rawValue)
     
-    func barbershopDocument(_ id: String) -> DocumentReference {
+    private func barbershopDocument(_ id: String) -> DocumentReference {
         return barbershopsCollection.document(id)
+    }
+    
+    private func barbersCollection(_ id: String) -> CollectionReference {
+        return barbershopDocument(id).collection(HFCollection.barbers.rawValue)
     }
     
     func listBarbershops() async throws -> [Barbershop] {
@@ -63,9 +67,7 @@ class BarbershopRepo {
 //    }
     
     func getBarbershopBarbers(_ id: String) async throws -> [Barber] {
-        let docIds = try self.decodeDocuments(try await self.barbershopDocument(id).collection(HFCollection.barbers.rawValue).getDocuments(), as: DocReference.self).map { $0.docId }
-        
-        debugPrint(docIds)
+        let docIds = try self.decodeDocuments(try await self.barbersCollection(id).getDocuments(), as: DocReference.self).map { $0.docId }
         
         return try await BarberRepo.shared.getBarbersForBarbershop(withIds: docIds)
     }
