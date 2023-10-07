@@ -20,6 +20,14 @@ extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners) )
     }
+    
+    @ViewBuilder
+    func safeAreaInsetTop<V>(alignment: HorizontalAlignment = .center, spacing: CGFloat? = nil, @ViewBuilder content: () -> V) -> some View where V : View {
+        if #available(iOS 15, *) {
+            self
+                .safeAreaInset(edge: .top, content: content)
+        }
+    }
 }
 
 struct RoundedCorner: Shape {

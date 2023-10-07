@@ -17,17 +17,22 @@ struct BarberView: View {
         self.barber = barber
         self.pricing = pricing
     }
+    
     var body: some View {
         VStack{
             HStack(spacing: 16){
                 Image(barber.profileImage ?? "BarberAvatar")
+                    .scaleEffect(1.3)
                     .background(Color.white)
-                    .cornerRadius(24)
+                    .cornerRadius(14)
+                
                 VStack(alignment: .leading){
-                    Text(barber.firstname)
+                    Text(barber.firstname + " " + barber.lastname)
                         .font(.white, Font.HafeflyRubik.semiBold, 22)
                     HStack{
                         Image("ic_clock")
+                            .resizable()
+                            .frame(width: 24, height: 24)
                         Text("\(barber.experience.toString) \(barber.experience.whichString(single: "year", plural: "years")) exp")
                             .font(.white, Font.HafeflyRubik.medium, 18)
                     }
@@ -43,13 +48,14 @@ struct BarberView: View {
                     }
                 }
             }
-            .padding()
-            .padding(.top, 38)
+            .padding(.top, 65)
+            .padding(.bottom)
             .padding(.horizontal)
-            .background(Color.favoriteBlue.ignoresSafeArea())
+            .background(Color.favoriteBlue)
             .cornerRadius(18, corners: [.bottomRight, .bottomLeft])
+            .ignoresSafeArea()
             VStack{
-                workingHoursPanel(open: barber.workingHours.openingDate.getFormattedDate(), close: barber.workingHours.openingDate.getFormattedDate())
+                workingHoursPanel(open: barber.workingHours.openingDate.getFormattedHour(), close: barber.workingHours.closingDate.getFormattedHour())
                     .shadow(radius: 4)
                 if let reviews = barber.reviews {
                     reviewCard(reviews: reviews)
@@ -66,8 +72,6 @@ struct BarberView: View {
             .padding()
         }
         .background(LinearGradient(colors: [.hafeflyBlue, .hafeflyDarkBlue], startPoint: .bottom, endPoint: .top).ignoresSafeArea())
-        .padding(.bottom, 16)
-        .ignoresSafeArea()
     }
     
     @ViewBuilder
@@ -76,12 +80,14 @@ struct BarberView: View {
             VStack(alignment: .leading){
                 Text("Working hours")
                     .font(.white, Font.HafeflyRubik.semiBold, 22)
+                Spacer()
                 Text("\(open) - \(close)")
                     .font(.white.opacity(0.8), Font.HafeflyRubik.regular, 18)
             }
             Spacer()
             Image("ilu_mower")
         }
+        .fixedSize(horizontal: false, vertical: true)
         .padding(12)
         .background(Color.favoriteBlue)
         .cornerRadius(18)
@@ -152,11 +158,11 @@ struct BarberView: View {
     }
 }
 
-//struct BarberView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let barbershop = Barbershop.barbershops[0]
-//        if let barber = barbershop.barbers?[0], let pricing = barbershop.pricing {
-//            BarberView(barber, pricing: pricing)
-//        }
-//    }
-//}
+struct BarberView_Previews: PreviewProvider {
+    static var previews: some View {
+        let barbershop = Barbershop(id: "", name: "fasta", imageUrl: nil, town: "", rating: 0.0, workingHours: WorkingHours(opening: "", closing: ""), pricing: Pricing(fade: 0, beard: 0, hairdryer: 0, razor: 0, scissors: 0, straightener: 0, atHome: 0), coordinate: Coordinate(latitude: 0.0, longitude: 0.0), vip: true, barbers: [Barber(barbershopUID: "", barbershopName: "", firstname: "Kamel", lastname: "Mat", bio: "bio", age: 20, experience: 5, haircutsDone: 5, instagram: "", isAvailableToHome: true, phoneNumber: "", province: "", rating: 4.4, verified: true, workingHours: WorkingHours(opening: "08:00Z", closing: "18:00Z"))])
+        if let barber = barbershop.barbers?[0], let pricing = barbershop.pricing {
+            BarberView(barber, pricing: pricing)
+        }
+    }
+}

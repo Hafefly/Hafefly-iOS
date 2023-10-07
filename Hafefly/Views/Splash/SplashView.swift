@@ -17,12 +17,20 @@ struct SplashView: View {
             //
         } content: { insets in
             switch model.uiState {
-            case .loading:
+            case .idle, .loading:
                 ZStack {
-                    Image("Logo")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal, 60)
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            Image("Logo")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(.horizontal, 60)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                 }
             default: EmptyView()
             }

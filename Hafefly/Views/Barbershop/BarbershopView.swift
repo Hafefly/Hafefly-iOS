@@ -52,12 +52,12 @@ struct BarbershopView: View {
                         }.padding()
                     }
                     VStack{
-                        if let barbers = barbershop.barbers {
+                        if let barbers = barbershop.barbers, let pricing = barbershop.pricing {
                             ScrollView {
                                 ForEach(barbers) {
                                     Spacer()
                                         .frame(height: 28)
-                                    BarberCard($0)
+                                    BarberCard($0, pricing: pricing)
                                 }
                             }
                         }
@@ -91,56 +91,62 @@ struct BarbershopView: View {
 //}
 
 struct BarberCard: View {
-    let barber: Barber
+    private let barber: Barber
+    private let pricing: Pricing
     
-    init(_ barber: Barber) {
+    init(_ barber: Barber, pricing: Pricing) {
         self.barber = barber
+        self.pricing = pricing
     }
     
     var body: some View {
-        HStack(spacing: 18){
-            Image(barber.profileImage ?? "BarberAvatar")
-                .resizable()
-                .frame(width: 92, height: 158)
-                .background(Color.white)
-                .cornerRadius(14)
-                .offset(y: -24)
-            
-            HStack(alignment: .top){
-                VStack(alignment: .leading, spacing: 24){
-                    VStack(alignment: .leading){
-                        Text(barber.firstname + barber.lastname)
-                            .font(.white, .medium, 20)
-                        HStack{
-                            Image("ic_clock")
-                                .frame(width: 18, height: 18)
-                            Text("\(barber.experience) years exp")
-                                .font(.white, Font.HafeflyRubik.regular, 14)
+        Button {
+            pushScreen(BarberView(barber, pricing: pricing))
+        } label: {
+            HStack(spacing: 18){
+                Image(barber.profileImage ?? "BarberAvatar")
+                    .resizable()
+                    .frame(width: 92, height: 158)
+                    .background(Color.white)
+                    .cornerRadius(14)
+                    .offset(y: -24)
+                
+                HStack(alignment: .top){
+                    VStack(alignment: .leading, spacing: 24){
+                        VStack(alignment: .leading){
+                            Text(barber.firstname + barber.lastname)
+                                .font(.white, .medium, 20)
+                            HStack{
+                                Image("ic_clock")
+                                    .frame(width: 18, height: 18)
+                                Text("\(barber.experience) years exp")
+                                    .font(.white, Font.HafeflyRubik.regular, 14)
+                            }
+                            .opacity(0.7)
                         }
-                        .opacity(0.7)
+                        VStack(alignment: .leading, spacing: 8){
+                            Text("Working hours")
+                                .font(.white, .medium, 16)
+                            Text(
+                                barber.workingHours.openingDate.getFormattedHour()
+                                + "->"
+                                + barber.workingHours.closingDate.getFormattedHour()
+                            )
+                            .font(.white, Font.HafeflyRubik.medium, 14)
+                        }
                     }
-                    VStack(alignment: .leading, spacing: 8){
-                        Text("Working hours")
-                            .font(.white, .medium, 16)
-                        Text(
-                            barber.workingHours.openingDate.getFormattedHour()
-                            + "->"
-                            + barber.workingHours.closingDate.getFormattedHour()
-                        )
-                        .font(.white, Font.HafeflyRubik.medium, 14)
+                    Spacer()
+                    HStack{
+                        Image("ic_star")
+                            .frame(width: 24, height: 24)
+                        Text("\(barber.rating.rating())")
+                            .font(.white, Font.HafeflyRubik.regular, 22)
                     }
-                }
-                Spacer()
-                HStack{
-                    Image("ic_star")
-                        .frame(width: 24, height: 24)
-                    Text("\(barber.rating.rating())")
-                        .font(.white, Font.HafeflyRubik.regular, 22)
                 }
             }
+            .frame(maxHeight: 120)
+            .padding()
+            .background(Color.favoriteBlue.cornerRadius(20).shadow(color: .black.opacity(0.32), radius: 5, x: 0, y: 4))
         }
-        .frame(maxHeight: 120)
-        .padding()
-        .background(Color.favoriteBlue.cornerRadius(20).shadow(color: .black.opacity(0.32), radius: 5, x: 0, y: 4))
     }
 }
