@@ -26,15 +26,15 @@ extension ProfileView {
                 self.profileUiState = .failed("could not find logged-in user")
                 return
             }
-            
-            Task {
-                do {
-                    self.profileUiState = .success(try await UserRepo.shared.getUser(UserID: id))
-                } catch {
-                    self.profileUiState = .failed(error.localizedDescription)
+            DispatchQueue.main.async {
+                Task {
+                    do {
+                        self.profileUiState = .success(try await UserRepo.shared.getUser(id))
+                    } catch {
+                        self.profileUiState = .failed(error.localizedDescription)
+                    }
                 }
             }
-            
         }
         
         func getHaircutHistory() {

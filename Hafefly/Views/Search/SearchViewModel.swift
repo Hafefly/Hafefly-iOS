@@ -16,16 +16,17 @@ extension SearchView {
         
         func search(for text: String) {
             self.searchUiState = .loading
-            
-            Task {
-                do {
-                    if text.isEmpty {
-                        self.searchUiState = .success(try await BarbershopRepo.shared.listBarbershops())
-                    } else {
-                        #warning("implement query barbershops")
+            DispatchQueue.main.async {
+                Task {
+                    do {
+                        if text.isEmpty {
+                            self.searchUiState = .success(try await BarbershopRepo.shared.listBarbershops())
+                        } else {
+                            #warning("implement query barbershops")
+                        }
+                    } catch {
+                        self.searchUiState = .failed(error.localizedDescription)
                     }
-                } catch {
-                    self.searchUiState = .failed(error.localizedDescription)
                 }
             }
         }

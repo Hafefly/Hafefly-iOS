@@ -79,12 +79,6 @@ struct SignUpInfoView: View {
                             .frame(width: 100, height: 56)
                         }
                     }
-                    
-                    HStack{
-                        Text("forgot_password".localized)
-                            .font(.white, Font.HafeflyRubik.medium, 18)
-                        Spacer()
-                    }.padding(.horizontal, 8)
                 }
                 Spacer()
                 HafeflyButton {

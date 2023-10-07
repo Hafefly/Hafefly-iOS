@@ -120,8 +120,10 @@ struct ProfileView: View {
                         Spacer()
                         HStack{
                             Spacer()
-                            Text(error ?? "something_went_wrong".localized)
-                                .font(.white, Font.HafeflyRubik.medium, 18)
+                            Button(action: model.loggout) {
+                                Text("loggout")
+                                    .font(.white, .medium, 18)
+                            }
                             Spacer()
                         }
                         Spacer()

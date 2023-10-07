@@ -17,27 +17,29 @@ extension SignUpView {
         
         func signUp(firstname: String, lastname: String, province: Province, phonenumber: String, email: String, password: String) {
             
-            Task {
-                do {
-                    var user = try await FirebaseAuth.shared.createUser(email: email, password: password)
-                    
-                    user.firstname = firstname
-                    user.lastname = lastname
-                    user.province = province.rawValue
-                    user.phone = phonenumber
-                    user.email = email
-                    user.haircutsDone = 0
-                    user.vip = false
-                    user.instagram = nil
-                    user.profileImage = nil
-                    
-                    try UserRepo.shared.createUser(user)
-                    
-                    NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
-                } catch {
-                    self.emailUiState = .failed(error.localizedDescription)
-                    self.passwordUiState = .failed(error.localizedDescription)
-                    self.rePasswordUiState = .failed(error.localizedDescription)
+            DispatchQueue.main.async {
+                Task {
+                    do {
+                        var user = try await FirebaseAuth.shared.createUser(email: email, password: password)
+                        
+                        user.firstname = firstname
+                        user.lastname = lastname
+                        user.province = province.rawValue
+                        user.phone = phonenumber
+                        user.email = email
+                        user.haircutsDone = 0
+                        user.vip = false
+                        user.instagram = nil
+                        user.profileImage = nil
+                        
+                        try UserRepo.shared.createUser(user)
+                        
+                        NavigationCoordinator.shared.switchStartPoint(MainView(tab: .home))
+                    } catch {
+                        self.emailUiState = .failed(error.localizedDescription)
+                        self.passwordUiState = .failed(error.localizedDescription)
+                        self.rePasswordUiState = .failed(error.localizedDescription)
+                    }
                 }
             }
         }

@@ -30,11 +30,14 @@ extension HomeView {
         }
         
         func getFavoriteBarbershops(_ id: String) {
-            Task {
-                do {
-                    self.favoritesBarbershopsUiState = .success(try await UserRepo.shared.getUserFavoriteBarbershops(id))
-                } catch {
-                    self.favoritesBarbershopsUiState = .failed("error")
+            DispatchQueue.main.async {
+                Task {
+                    do {
+                        
+                        self.favoritesBarbershopsUiState = .success(try await UserRepo.shared.getUserFavoriteBarbershops(id))
+                    } catch {
+                        self.favoritesBarbershopsUiState = .failed("error")
+                    }
                 }
             }
         }
@@ -64,11 +67,13 @@ extension HomeView {
         
         func getVipBarbershops() {
             self.barbershopsUiState = .loading
-            Task {
-                do {
-                    self.barbershopsUiState = .success(try await BarbershopRepo.shared.listVipBarbershops())
-                } catch {
-                    self.barbershopsUiState = .failed(error.localizedDescription)
+            DispatchQueue.main.async {
+                Task {
+                    do {
+                        self.barbershopsUiState = .success(try await BarbershopRepo.shared.listVipBarbershops())
+                    } catch {
+                        self.barbershopsUiState = .failed(error.localizedDescription)
+                    }
                 }
             }
         }

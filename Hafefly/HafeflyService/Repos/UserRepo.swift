@@ -29,8 +29,10 @@ class UserRepo {
         try self.createUser(user)
     }
     
-    func getUser(UserID: String) async throws -> HFUser {
-        return try await self.userDocument(UserID).getDocument(as: HFUser.self)
+    func getUser(_ id: String) async throws -> HFUser {
+        debugPrint(id)
+        debugPrint(try await self.userDocument(id).getDocument().data())
+        return try await self.userDocument(id).getDocument(as: HFUser.self)
     }
     
     func setFavoriteBarbershop(_ id: String, barbershopID: String) throws {
@@ -47,9 +49,11 @@ class UserRepo {
         return try await BarbershopRepo.shared.listBarbershops(withIds: docIds)
     }
     
-//    func createHaircut(_ id: String) throws {
-//        let haircut = DocReference(docId: <#T##String#>, createdAt: <#T##Timestamp#>)
-//    }
+    func createHaircut(_ id: String, haircutID: String) throws {
+        let haircut = DocReference(docId: haircutID, createdAt: Timestamp())
+        
+        try self.userDocument(id).collection(HFCollection.history.rawValue).addDocument(from: haircut)
+    }
     
     func decodeDocuments<T: Decodable>(_ snapshots: QuerySnapshot, as type: T.Type) throws -> [T] {
         var decodedData = [T]()
@@ -63,7 +67,3 @@ class UserRepo {
         return decodedData
     }
 }
-    
-//    func getFavoriteBarbershops(_ id: String) async throws -> [Barbershop] {
-//        return try self.decodeDocuments(try await self.userFavoriteCollection(userId: id).getDocuments(), as: Barbershop.self)
-//    }

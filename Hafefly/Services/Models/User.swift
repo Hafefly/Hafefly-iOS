@@ -37,6 +37,7 @@ struct HFUser: CodeIdentifiable {
     }
     
     init(user: User) {
+        self.id = user.uid
         self.firstname = user.displayName ?? ""
         self.lastname = user.displayName ?? ""
         self.email = user.email

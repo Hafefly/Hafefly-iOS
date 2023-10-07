@@ -12,13 +12,16 @@ class BarbershopRepo {
     
     static let shared = BarbershopRepo()
     
-    let barbershopsCollection = Firestore.firestore().collection(HFCollection.users.rawValue)
+    let barbershopsCollection = Firestore.firestore().collection(HFCollection.barbershops.rawValue)
     
     func listBarbershops() async throws -> [Barbershop] {
         return try self.decodeDocuments(try await barbershopsCollection.getDocuments(), as: Barbershop.self)
     }
     
     func listBarbershops(withIds ids: [String]) async throws -> [Barbershop] {
+        guard !ids.isEmpty else {
+            return []
+        }
         return try self.decodeDocuments(try await barbershopsCollection.whereField(FieldPath.documentID(), in: ids).getDocuments(), as: Barbershop.self)
     }
     
