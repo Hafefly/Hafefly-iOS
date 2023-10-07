@@ -11,7 +11,7 @@ enum UiState<Model> {
     case idle
     case loading
     case success(Model)
-    case failed(String?)
+    case failed(String)
 
     public var data: Model? {
         if case let .success(a) = self {

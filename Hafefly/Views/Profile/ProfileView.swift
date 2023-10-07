@@ -80,13 +80,17 @@ struct ProfileView: View {
                         VStack(alignment: .leading, spacing: 12){
                             Text("\(user.lastname) \(user.firstname)")
                                 .font(.white, Font.HafeflyRubik.semiBold, 22)
-                            HStack{
-                                Image("ic_phone")
-                                    .resizable()
-                                    .frame(width: 18, height: 18)
-                                Text(user.phone ?? "none".localized)
-                                    .font(.white, Font.HafeflyRubik.regular, 18)
+                            
+                            if let phone = user.phone {
+                                HStack{
+                                    Image("ic_phone")
+                                        .resizable()
+                                        .frame(width: 18, height: 18)
+                                    Text(phone)
+                                        .font(.white, Font.HafeflyRubik.regular, 18)
+                                }
                             }
+                            
                             if let instagram = user.instagram {
                                 HStack{
                                     Image("ic_instagram")
@@ -96,6 +100,7 @@ struct ProfileView: View {
                                         .font(.white, Font.HafeflyRubik.regular, 18)
                                 }
                             }
+                            
                             HStack{
                                 Image("ic_checkmark")
                                     .resizable()
@@ -105,7 +110,8 @@ struct ProfileView: View {
                             }
                             HafeflyButton(action: model.loggout) {
                                 Text("sign out")
-                                    .foregroundColor(.white)
+                                    .font(.white, .medium, 18)
+                                    .padding(.vertical, 4)
                             }
                             
                         }
@@ -120,9 +126,13 @@ struct ProfileView: View {
                         Spacer()
                         HStack{
                             Spacer()
-                            Button(action: model.loggout) {
-                                Text("loggout")
+                            VStack{
+                                Text(error)
                                     .font(.white, .medium, 18)
+                                Button(action: model.loggout) {
+                                    Text("loggout")
+                                        .font(.white, .medium, 18)
+                                }
                             }
                             Spacer()
                         }
@@ -132,7 +142,7 @@ struct ProfileView: View {
             }
         }
         .padding()
-        .frame(maxHeight: 150)
+        .frame(maxHeight: 160)
         .background(Color.favoriteBlue)
         .cornerRadius(16)
     }
