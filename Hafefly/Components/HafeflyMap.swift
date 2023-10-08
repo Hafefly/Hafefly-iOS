@@ -11,7 +11,7 @@ import PopupView
 
 struct HafeflyMap: View {
     
-    @State private var barbershopSelected: Barbershop? = nil
+    @State var barbershopSelected: Barbershop? = nil
     
     var showUserLocation: Bool = true
     
@@ -60,5 +60,11 @@ struct HafeflyMap: View {
 struct HafeflyMap_Previews: PreviewProvider {
     static var previews: some View {
         HafeflyMap()
+    }
+}
+
+struct MapCart: View {
+    var body: some View {
+        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
     }
 }

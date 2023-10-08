@@ -10,8 +10,7 @@ import HFNavigation
 
 extension BookView {
     class Model: ObservableObject {
-        
-        func createOrder(barberId: String?, haircuts: [String: Any], totalPrice: UInt) {
+        func createOrder(barbershop: Barbershop, barberId: String?, haircuts: [String: Any], totalPrice: UInt) {
             guard
                 let userId = FirebaseAuth.shared.getUserId(),
                 let barberId = barberId
@@ -33,7 +32,7 @@ extension BookView {
             do {
                 try OrderRepo.shared.createOrderReference(order: order)
                 
-                NavigationCoordinator.pushScreen(AppointementView())
+                NavigationCoordinator.pushScreen(AppointementView(barbershop: barbershop))
             } catch {
                 #warning("show failure banner")
             }

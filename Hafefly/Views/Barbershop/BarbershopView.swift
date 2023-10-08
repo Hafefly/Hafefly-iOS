@@ -52,12 +52,12 @@ struct BarbershopView: View {
                         }.padding()
                     }
                     VStack{
-                        if let barbers = barbershop.barbers, let pricing = barbershop.pricing {
+                        if let barbers = barbershop.barbers {
                             ScrollView {
                                 ForEach(barbers) {
                                     Spacer()
                                         .frame(height: 28)
-                                    BarberCard($0, pricing: pricing)
+                                    BarberCard($0, barbershop: barbershop)
                                 }
                             }
                         }
@@ -65,8 +65,8 @@ struct BarbershopView: View {
                     .padding(.horizontal, 16)
                 }
             }
-            .setupDefaultBackHandler()
         }
+        .setupDefaultBackHandler()
     }
     
     @ViewBuilder
@@ -91,16 +91,16 @@ struct BarbershopView: View {
 
 struct BarberCard: View {
     private let barber: Barber
-    private let pricing: Pricing
+    private let barbershop: Barbershop
     
-    init(_ barber: Barber, pricing: Pricing) {
+    init(_ barber: Barber, barbershop: Barbershop) {
         self.barber = barber
-        self.pricing = pricing
+        self.barbershop = barbershop
     }
     
     var body: some View {
         Button {
-            pushScreen(BarberView(barber, pricing: pricing))
+            pushScreen(BarberView(barber, barbershop: barbershop))
         } label: {
             HStack(spacing: 18){
                 Image(barber.profileImage ?? "BarberAvatar")

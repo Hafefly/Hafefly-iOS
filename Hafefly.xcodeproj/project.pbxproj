@@ -89,6 +89,7 @@
 		99D7FDF12AD2A6650096BD59 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDF02AD2A6650096BD59 /* Order.swift */; };
 		99D7FDF32AD2AC980096BD59 /* OrderRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDF22AD2AC980096BD59 /* OrderRepo.swift */; };
 		99D7FDF52AD2B4E90096BD59 /* AppointementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDF42AD2B4E90096BD59 /* AppointementView.swift */; };
+		99D7FDF82AD32E550096BD59 /* HaircutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDF72AD32E540096BD59 /* HaircutCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +175,7 @@
 		99D7FDF02AD2A6650096BD59 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		99D7FDF22AD2AC980096BD59 /* OrderRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepo.swift; sourceTree = "<group>"; };
 		99D7FDF42AD2B4E90096BD59 /* AppointementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementView.swift; sourceTree = "<group>"; };
+		99D7FDF72AD32E540096BD59 /* HaircutCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaircutCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +294,7 @@
 				570723BB29BB786C00579000 /* HafeflyMap.swift */,
 				997688E82ACC647700318EFE /* FailView.swift */,
 				997688EA2ACC65DB00318EFE /* LoadingView.swift */,
+				99D7FDF72AD32E540096BD59 /* HaircutCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
 				570723B229BB414B00579000 /* SearchViewModel.swift in Sources */,
 				5707238F29B904CC00579000 /* BarbershopCard.swift in Sources */,
+				99D7FDF82AD32E550096BD59 /* HaircutCard.swift in Sources */,
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,

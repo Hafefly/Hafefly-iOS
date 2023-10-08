@@ -13,11 +13,11 @@ struct BarberView: View {
     @StateObject private var model = Model()
     
     let barber: Barber
-    let pricing: Pricing
+    let barbershop: Barbershop
     
-    init(_ barber: Barber, pricing: Pricing) {
+    init(_ barber: Barber, barbershop: Barbershop) {
         self.barber = barber
-        self.pricing = pricing
+        self.barbershop = barbershop
     }
     
     var body: some View {
@@ -41,7 +41,7 @@ struct BarberView: View {
                 }
                 
                 HafeflyButton(radius: 18, foregroundColor: .orange) {
-                    pushScreen(BookView(pricing, barber: barber))
+                    pushScreen(BookView(barbershop, barber: barber))
                 } label: {
                     Text("book".localized)
                         .font(.white, Font.HafeflyRubik.bold, 24)
@@ -170,15 +170,6 @@ struct BarberView: View {
                 Text(review.rating.rating())
                     .font(.white, Font.HafeflyRubik.semiBold, 22)
             }
-        }
-    }
-}
-
-struct BarberView_Previews: PreviewProvider {
-    static var previews: some View {
-        let barbershop = Barbershop(id: "", name: "fasta", imageUrl: nil, town: "", rating: 0.0, workingHours: WorkingHours(opening: "", closing: ""), pricing: Pricing(fade: 0, beard: 0, hairdryer: 0, razor: 0, scissors: 0, straightener: 0, atHome: 0), coordinate: Coordinate(latitude: 0.0, longitude: 0.0), vip: true, barbers: [Barber(barbershopUID: "", barbershopName: "", firstname: "Kamel", lastname: "Mat", bio: "bio", age: 20, experience: 5, haircutsDone: 5, instagram: "", isAvailableToHome: true, phoneNumber: "", province: "", rating: 4.4, verified: true, workingHours: WorkingHours(opening: "08:00Z", closing: "18:00Z"))])
-        if let barber = barbershop.barbers?[0], let pricing = barbershop.pricing {
-            BarberView(barber, pricing: pricing)
         }
     }
 }
