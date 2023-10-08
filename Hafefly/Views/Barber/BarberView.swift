@@ -132,12 +132,11 @@ struct BarberView: View {
                     .font(.white, Font.HafeflyRubik.regular, 20)
                     .padding(.vertical)
             } else {
-                ScrollView(showsIndicators: false) {
-                    VStack{
-                        ForEach(reviews) {
-                            reviewPanel(review: $0)
-                        }
+                VStack{
+                    ForEach(reviews) {
+                        reviewPanel(review: $0)
                     }
+                    Spacer()
                 }
             }
         }
@@ -151,12 +150,12 @@ struct BarberView: View {
         HStack{
             Image("ic_profile")
                 .resizable()
-                .frame(width: 24, height: 24)
+                .frame(width: 38, height: 38)
             VStack(alignment: .leading){
                 Text(review.user?.firstname ?? "anonymos")
-                    .font(.white, Font.HafeflyRubik.medium, 22)
+                    .font(.white, Font.HafeflyRubik.medium, 24)
                 Text(review.message ?? "hidden")
-                    .font(.white, Font.HafeflyRubik.regular, 18)
+                    .font(.white.opacity(0.8), Font.HafeflyRubik.regular, 16)
             }
             Spacer()
             
@@ -164,7 +163,7 @@ struct BarberView: View {
                 Image("ic_star")
                     .resizable()
                     .frame(width: 24, height: 24)
-                Text("\(review.rating)")
+                Text(review.rating.rating())
                     .font(.white, Font.HafeflyRubik.semiBold, 22)
             }
         }

@@ -75,13 +75,13 @@ struct BookView: View {
     }
 }
 
-//struct BookView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        if let pricing = Barbershop.barbershops[0].pricing {
-//            BookView(pricing)
-//        }
-//    }
-//}
+struct BookView_Previews: PreviewProvider {
+    static var previews: some View {
+        if let pricing = Barbershop.barbershops[0].pricing {
+            BookView(pricing)
+        }
+    }
+}
 
 enum Haircut: String, CaseIterable, Codable {
     case fade
