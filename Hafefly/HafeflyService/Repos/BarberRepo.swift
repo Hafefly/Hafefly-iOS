@@ -18,6 +18,10 @@ class BarberRepo {
         return barbersCollection.document(id).collection(HFCollection.reviews.rawValue)
     }
     
+    private func ordersCollection(_ id: String) -> CollectionReference {
+        return barbersCollection.document(id).collection(HFCollection.orders.rawValue)
+    }
+    
     func getBarber(_ id: String) async throws -> Barber {
         return try await barbersCollection.document(id).getDocument(as: Barber.self)
     }
@@ -40,6 +44,10 @@ class BarberRepo {
         }
         
         return try await ReviewRepo.shared.getReviews(withIds: docIds)
+    }
+    
+    func createOrderReference(ref: OrderReference, referenceId: String) throws {
+        try ordersCollection(ref.barberId).document(referenceId).setData(from: ref)
     }
     
     func decodeDocuments<T: Decodable>(_ snapshots: QuerySnapshot, as type: T.Type) throws -> [T] {

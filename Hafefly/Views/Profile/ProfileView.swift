@@ -21,11 +21,11 @@ struct ProfileView: View {
             case .loading:
                 LoadingView()
                     .frame(width: 24, height: 24)
-            case .success(let haircutsHistory):
+            case .success(let ordersHistory):
                 ScrollView(showsIndicators: false) {
                     VStack{
-                        ForEach(haircutsHistory) {
-                            haircutHistoryPanel(haircutHistory: $0)
+                        ForEach(ordersHistory, id: \.0.id) { order in
+                            haircutHistoryPanel(orderHistory: order.0, barber: order.1, barbershop: order.2)
                         }
                     }
                 }
@@ -35,7 +35,7 @@ struct ProfileView: View {
                         Spacer()
                         HStack{
                             Spacer()
-                            Text(error ?? "something_went_wrong".localized)
+                            Text(error)
                                 .font(.white, Font.HafeflyRubik.medium, 18)
                             Spacer()
                         }
@@ -148,40 +148,40 @@ struct ProfileView: View {
     }
     
     @ViewBuilder
-    private func haircutHistoryPanel(haircutHistory: HaircutHistory) -> some View {
+    private func haircutHistoryPanel(orderHistory: Order, barber: Barber, barbershop: Barbershop) -> some View {
         ZStack(alignment: .trailing){
-            Image(haircutHistory.barbershop.name)
+            Image(barbershop.name)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
                 .overlay(LinearGradient(colors: [.favoriteBlue, .clear], startPoint: .leading, endPoint: .trailing))
             LinearGradient(colors: [.black.opacity(0.3), .clear], startPoint: .bottom, endPoint: .top)
             HStack{
-                Image(haircutHistory.barber.profileImage ?? "BarberAvatar")
+                Image(barber.profileImage ?? "BarberAvatar")
                     .resizable()
                     .frame(width: 63, height: 103)
                     .background(Color.white)
                     .cornerRadius(16)
                 VStack(alignment: .leading){
-                    Text(haircutHistory.barber.firstname)
+                    Text(barber.firstname)
                         .font(.white, Font.HafeflyRubik.semiBold, 24)
 //                    Text(haircutHistory.barbershop.name)
 //                        .font(.white, Font.HafeflyRubik.regular, 20)
-                    Text("\(haircutHistory.time.openingDate.getFormattedDate()) - \(haircutHistory.time.openingDate.getFormattedDate())")
+                    Text(orderHistory.confirmedInterval?.timeString ?? "time missed")
                         .font(.white, Font.HafeflyRubik.regular, 20)
                     Spacer()
                     HStack{
                         Image("ic_gps")
                             .resizable()
                             .frame(width: 24, height: 24)
-                        Text(haircutHistory.barbershop.town)
+                        Text(barbershop.town)
                             .font(.white, Font.HafeflyRubik.regular, 20)
                     }
                 }
                 .padding(.vertical, 6)
                 Spacer()
                 VStack(alignment: .trailing){
-                    Text("\(haircutHistory.price.toString) DA")
+                    Text("\(orderHistory.totalPrice.toString) DA")
                         .font(.white, Font.HafeflyRubik.regular, 20)
                         .padding(4)
                         .padding(.horizontal, 8)

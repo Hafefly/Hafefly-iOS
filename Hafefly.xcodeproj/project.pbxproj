@@ -85,6 +85,10 @@
 		99D7FDE92AD1C9780096BD59 /* BarberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDE82AD1C9780096BD59 /* BarberViewModel.swift */; };
 		99D7FDEB2AD2037C0096BD59 /* ReviewRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDEA2AD2037C0096BD59 /* ReviewRepo.swift */; };
 		99D7FDED2AD207FD0096BD59 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDEC2AD207FD0096BD59 /* Review.swift */; };
+		99D7FDEF2AD2A4590096BD59 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDEE2AD2A4590096BD59 /* BookViewModel.swift */; };
+		99D7FDF12AD2A6650096BD59 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDF02AD2A6650096BD59 /* Order.swift */; };
+		99D7FDF32AD2AC980096BD59 /* OrderRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDF22AD2AC980096BD59 /* OrderRepo.swift */; };
+		99D7FDF52AD2B4E90096BD59 /* AppointementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7FDF42AD2B4E90096BD59 /* AppointementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +170,10 @@
 		99D7FDE82AD1C9780096BD59 /* BarberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarberViewModel.swift; sourceTree = "<group>"; };
 		99D7FDEA2AD2037C0096BD59 /* ReviewRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepo.swift; sourceTree = "<group>"; };
 		99D7FDEC2AD207FD0096BD59 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		99D7FDEE2AD2A4590096BD59 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		99D7FDF02AD2A6650096BD59 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		99D7FDF22AD2AC980096BD59 /* OrderRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepo.swift; sourceTree = "<group>"; };
+		99D7FDF42AD2B4E90096BD59 /* AppointementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +311,7 @@
 				570723D229BDC1EB00579000 /* Barbershop */,
 				570723D529BDC21400579000 /* Barber */,
 				570723DA29BDD9D500579000 /* Book */,
+				99D7FDF62AD2B50C0096BD59 /* Appointement */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 				57E80F1E29D2F2A600673E4E /* ErrorResponse.swift */,
 				99D7FDE62AD1A13C0096BD59 /* DocReference.swift */,
 				99D7FDEC2AD207FD0096BD59 /* Review.swift */,
+				99D7FDF02AD2A6650096BD59 /* Order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -533,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				570723D829BDD9D100579000 /* BookView.swift */,
+				99D7FDEE2AD2A4590096BD59 /* BookViewModel.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -553,6 +564,7 @@
 				99CA495D2AC933FF00F78111 /* BarbershopRepo.swift */,
 				99CA495F2AC9360500F78111 /* BarberRepo.swift */,
 				99D7FDEA2AD2037C0096BD59 /* ReviewRepo.swift */,
+				99D7FDF22AD2AC980096BD59 /* OrderRepo.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -572,6 +584,14 @@
 				99D7FDE32AD18C220096BD59 /* RumRaisin-Regular.ttf */,
 			);
 			path = Rum_Raisin;
+			sourceTree = "<group>";
+		};
+		99D7FDF62AD2B50C0096BD59 /* Appointement */ = {
+			isa = PBXGroup;
+			children = (
+				99D7FDF42AD2B4E90096BD59 /* AppointementView.swift */,
+			);
+			path = Appointement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,6 +715,7 @@
 				570723D429BDC21000579000 /* BarberView.swift in Sources */,
 				570723B029BB35F500579000 /* Date.swift in Sources */,
 				18BC998229B49A6600AFA80A /* Font.swift in Sources */,
+				99D7FDF52AD2B4E90096BD59 /* AppointementView.swift in Sources */,
 				5707237229B75EA000579000 /* HafeflyTextField.swift in Sources */,
 				18BC99DE29B6458000AFA80A /* LoginViewModel.swift in Sources */,
 				570723B229BB414B00579000 /* SearchViewModel.swift in Sources */,
@@ -702,6 +723,7 @@
 				18BC997C29B4982600AFA80A /* Color.swift in Sources */,
 				570723CA29BC8A2000579000 /* BarbershopView.swift in Sources */,
 				18BC998429B4A38F00AFA80A /* String.swift in Sources */,
+				99D7FDF32AD2AC980096BD59 /* OrderRepo.swift in Sources */,
 				570723DC29BE3C4000579000 /* User.swift in Sources */,
 				570723BC29BB786C00579000 /* HafeflyMap.swift in Sources */,
 				18BC99DB29B6456500AFA80A /* LoginView.swift in Sources */,
@@ -723,10 +745,12 @@
 				5707237929B7929500579000 /* SignUpInfoView.swift in Sources */,
 				18BC99E629B6464900AFA80A /* Observe.swift in Sources */,
 				570723C829BC81BA00579000 /* UInt.swift in Sources */,
+				99D7FDEF2AD2A4590096BD59 /* BookViewModel.swift in Sources */,
 				57D47C2029C3683900A3DC1D /* Logger.swift in Sources */,
 				99D7FDEB2AD2037C0096BD59 /* ReviewRepo.swift in Sources */,
 				5707239329B9158300579000 /* WorkingHours.swift in Sources */,
 				5707238729B8F03E00579000 /* Double.swift in Sources */,
+				99D7FDF12AD2A6650096BD59 /* Order.swift in Sources */,
 				18BC99AE29B5E13400AFA80A /* EventHandler.swift in Sources */,
 				570723AB29BA560E00579000 /* CategoryView.swift in Sources */,
 			);

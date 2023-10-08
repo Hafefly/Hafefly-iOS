@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct BookView: View {
-    let pricing: Pricing
+    
+    @StateObject private var model = Model()
+    
+    private let pricing: Pricing
+    private let barber: Barber
     
     @State private var haircuts = [Haircut]() {
         willSet {
@@ -18,8 +22,9 @@ struct BookView: View {
     
     @State private var totalPrice: UInt = 0
     
-    init(_ pricing: Pricing) {
+    init(_ pricing: Pricing, barber: Barber) {
         self.pricing = pricing
+        self.barber = barber
     }
     
     let gridItems = [
@@ -47,8 +52,9 @@ struct BookView: View {
                         }
                     }
                 }
+                
                 HafeflyButton(disabled: totalPrice == 0, foregroundColor: .orange) {
-                    //
+                    model.createOrder(barberId: barber.id, haircuts: haircutsToOrder(haircuts: haircuts), totalPrice: totalPrice)
                 } label: {
                     if totalPrice != 0 {
                         Text("\("book_for".localized): \(totalPrice.toString)")
@@ -73,15 +79,25 @@ struct BookView: View {
         
         return price
     }
-}
-
-struct BookView_Previews: PreviewProvider {
-    static var previews: some View {
-        if let pricing = Barbershop.barbershops[0].pricing {
-            BookView(pricing)
+    
+    private func haircutsToOrder(haircuts: [Haircut]) -> [String: Any] {
+        var dict: [String: Any] = [:]
+        for haircut in haircuts {
+            dict[haircut.rawValue] = haircut.pricing(pricing)
         }
+        return dict
     }
 }
+
+//struct BookView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let barbershop = Barbershop(id: "", name: "fasta", imageUrl: nil, town: "", rating: 0.0, workingHours: WorkingHours(opening: "", closing: ""), pricing: Pricing(fade: 0, beard: 0, hairdryer: 0, razor: 0, scissors: 0, straightener: 0, atHome: 0), coordinate: Coordinate(latitude: 0.0, longitude: 0.0), vip: true, barbers: [Barber(barbershopUID: "", barbershopName: "", firstname: "Kamel", lastname: "Mat", bio: "bio", age: 20, experience: 5, haircutsDone: 5, instagram: "", isAvailableToHome: true, phoneNumber: "", province: "", rating: 4.4, verified: true, workingHours: WorkingHours(opening: "08:00Z", closing: "18:00Z"))])
+//        
+//        if let pricing = barbershop.pricing, let barber = barbershop.barbers?[0] {
+//            BookView(pricing, barber: barber)
+//        }
+//    }
+//}
 
 enum Haircut: String, CaseIterable, Codable {
     case fade

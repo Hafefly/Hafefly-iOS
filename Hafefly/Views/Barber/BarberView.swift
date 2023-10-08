@@ -74,7 +74,7 @@ struct BarberView: View {
                 Spacer()
                 
                 HafeflyButton(foregroundColor: .orange) {
-                    pushScreen(BookView(pricing))
+                    pushScreen(BookView(pricing, barber: barber))
                 } label: {
                     Text("book".localized)
                         .font(.white, Font.HafeflyRubik.bold, 24)

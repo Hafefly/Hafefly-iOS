@@ -13,6 +13,8 @@ struct Review: CodeIdentifiable {
     @DocumentID var id: String?
     var message: String?
     var rating: Double
+    var userId: String
+    var barberId: String
     
     var user: HFUser?
     var barber: Barber?

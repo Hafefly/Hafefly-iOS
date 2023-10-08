@@ -16,6 +16,7 @@ enum HFCollection: String {
     case history
     case reviews
     case favorites
+    case orders
 }
 
 protocol CodeIdentifiable: Codable, Identifiable {

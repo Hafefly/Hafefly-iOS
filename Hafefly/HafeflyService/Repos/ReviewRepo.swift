@@ -14,6 +14,10 @@ class ReviewRepo {
     
     private let reviewCollection = Firestore.firestore().collection(HFCollection.reviews.rawValue)
     
+    func createReview(_ review: Review) throws {
+        try reviewCollection.document().setData(from: review)
+    }
+    
     func getReviews(withIds ids: [String]) async throws -> [Review] {
         guard !ids.isEmpty else {
             return []

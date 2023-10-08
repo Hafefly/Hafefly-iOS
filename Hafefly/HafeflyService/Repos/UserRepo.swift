@@ -13,8 +13,12 @@ class UserRepo {
     
     let userCollection = Firestore.firestore().collection(HFCollection.users.rawValue)
     
-    func userDocument(_ id: String) -> DocumentReference {
+    private func userDocument(_ id: String) -> DocumentReference {
         return userCollection.document(id)
+    }
+    
+    private func ordersCollection(_ id: String) -> CollectionReference {
+        return userDocument(id).collection(HFCollection.orders.rawValue)
     }
     
     func createUser(_ user: HFUser) throws {
@@ -47,10 +51,16 @@ class UserRepo {
         return try await BarbershopRepo.shared.listBarbershops(withIds: docIds)
     }
     
-    func createHaircut(_ id: String, haircutID: String) throws {
-        let haircut = DocReference(docId: haircutID, createdAt: Timestamp())
+    func getUserOrderHaistory(_ id: String) async throws -> [Order] {
+        guard let docIds = try self.decodeDocuments(try await self.ordersCollection(id).getDocuments(), as: OrderReference.self).map({ $0.id }) as? [String] else {
+            throw URLError(.badURL)
+        }
         
-        try self.userDocument(id).collection(HFCollection.history.rawValue).addDocument(from: haircut)
+        return try await OrderRepo.shared.getOrders(withIds: docIds)
+    }
+    
+    func createOrderReference(ref: OrderReference, referenceId: String) throws {
+        try ordersCollection(ref.userId).document(referenceId).setData(from: ref)
     }
     
     func decodeDocuments<T: Decodable>(_ snapshots: QuerySnapshot, as type: T.Type) throws -> [T] {
