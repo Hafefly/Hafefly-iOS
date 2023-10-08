@@ -14,7 +14,7 @@ struct ProfileView: View {
     @State private var isEditingProfile = false
     
     var body: some View {
-        VStack{
+        VStack(spacing: 16){
             profilePanel()
             switch model.historyUiState {
             case .idle: EmptyView()
@@ -44,7 +44,7 @@ struct ProfileView: View {
                 }
             }
         }
-        .padding(.bottom, 8)
+        .padding(16)
     }
     
     @ViewBuilder

@@ -70,7 +70,7 @@ struct LoginView: View {
                         .font(.white, Font.HafeflyRubik.semiBold, 18)
                 }.padding(.bottom, 24)
             }
-            .padding(24)
+            .padding(16)
         }
     }
 }

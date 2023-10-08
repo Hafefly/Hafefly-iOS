@@ -100,7 +100,7 @@ struct SignUpInfoView: View {
                         .font(.white, Font.HafeflyRubik.semiBold, 18)
                 }.padding(.bottom, 24)
             }
-            .padding()
+            .padding(16)
         }
     }
 }

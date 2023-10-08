@@ -53,8 +53,6 @@ struct CategoryView: View {
                     )
             }
             .padding(.horizontal, 8)
-            .padding(.top, edges.top + 8)
-            .padding(.bottom, edges.bottom)
             .frame(width: UIScreen.main.bounds.width)
         }
         .setupDefaultBackHandler()

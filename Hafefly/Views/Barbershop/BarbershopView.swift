@@ -65,7 +65,6 @@ struct BarbershopView: View {
                     .padding(.horizontal, 16)
                 }
             }
-            .padding(.top, edges.top)
             .setupDefaultBackHandler()
         }
     }

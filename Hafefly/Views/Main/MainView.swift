@@ -26,9 +26,6 @@ struct MainView: View {
                     HeaderView(title: tab == .home ? "Hafefly" : tab.rawValue.lowercased().localized)
                 } content: { edges in
                     tab.view
-                        .padding(.top, edges.top + 16)
-                        .padding(.bottom, edges.bottom)
-                        .padding(.horizontal, 16)
                 }
                 .tabItem {
                     VStack{

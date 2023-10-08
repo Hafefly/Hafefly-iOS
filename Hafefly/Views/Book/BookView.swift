@@ -27,30 +27,24 @@ struct BookView: View {
         self.barber = barber
     }
     
-    let gridItems = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
     var body: some View {
         ViewLayout {
             HeaderView(title: "book".localized)
         } content: { edges in
             VStack{
                 ScrollView(showsIndicators: false){
-                    LazyVGrid(columns: gridItems, spacing: 20) {
-                        ForEach(Haircut.allCases, id: \.hashValue){ haircut in
-                            if nil != pricing.atHome {
-                                HaircutCard(haircut, pricing: pricing){ isSelected in
-                                    if isSelected {
-                                        haircuts.removeAll { $0.hashValue == haircut.hashValue }
-                                    } else {
-                                        haircuts.append(haircut)
-                                    }
+                    VStack(spacing: 28){
+                        ForEach(Haircut.allCases, id: \.hashValue) { haircut in
+                            HaircutCard(haircut, pricing: pricing){ isSelected in
+                                if isSelected {
+                                    haircuts.removeAll { $0.hashValue == haircut.hashValue }
+                                } else {
+                                    haircuts.append(haircut)
                                 }
                             }
                         }
                     }
+                    .padding(.vertical)
                 }
                 
                 HafeflyButton(disabled: totalPrice == 0, foregroundColor: .orange) {
@@ -64,10 +58,8 @@ struct BookView: View {
                             .font(.white, Font.HafeflyRubik.bold, 22)
                     }
                 }
-                .padding(.horizontal)
             }
-            .padding(.bottom, edges.bottom)
-            .padding(.top, edges.top + 16)
+            .padding(.horizontal, 16)
         }
     }
     
@@ -109,7 +101,7 @@ enum Haircut: String, CaseIterable, Codable {
     case atHome
     
     var illustration: String {
-        return "ilu_\(self.rawValue)"
+        return "ic_\(self.rawValue)"
     }
     
     func pricing(_ pricing: Pricing) -> UInt {
@@ -152,35 +144,28 @@ struct HaircutCard: View {
             action(isSelected)
             isSelected.toggle()
         } label: {
-            ZStack(alignment: .bottom){
-                Image(haircut.illustration)
-                    .resizable()
-                    .frame(width: 112, height: 112)
-                    .padding(.top, 20)
-                VStack(alignment: .leading){
-                    HStack{
-                        Spacer()
-                        Text(haircut.pricing(pricing).toString)
-                            .font(.white, Font.HafeflyRubik.medium, 22)
-                            .padding(4)
-                            .padding(.horizontal, 4)
-                            .background(Color.favoriteBlue)
-                            .cornerRadius(8)
-                    }
-                    Spacer()
+            ZStack{
+                HStack{
+                    Image(haircut.illustration)
+                        .resizable()
+                        .frame(width: 28, height: 28)
                     Text(haircut.rawValue)
-                        .font(.white, Font.HafeflyRubik.medium, 22)
-                        .padding(4)
-                        .padding(.horizontal, 4)
-                        .background(Color.favoriteBlue)
-                        .cornerRadius(8)
+                        .font(.white, .medium, 20)
+                    Spacer()
+                    ZStack{
+                        Text(haircut.pricing(pricing).toString + " DA")
+                            .font(.white, .medium, 18)
+                            .frame(minWidth: 70)
+                            .frame(height: 28)
+                            .background(Color.hafeflyDarkBlue)
+                            .cornerRadius(6)
+                    }
                 }
-                .padding(8)
             }
-            .background(isSelected ? Color.favoriteBlue.lighter(by: 10) : Color.favoriteBlue.darker(by: 20))
-            .cornerRadius(16)
-            .padding(.horizontal)
-            .shadow(color: isSelected ? .hafeflyLightBlue : .clear, radius: 10)
+            .padding(12)
+            .background(isSelected ? Color.favoriteBlue.lighter() : Color.favoriteBlue)
+            .cornerRadius(12)
+            .shadow(color: isSelected ? .favoriteBlue.lighter(by: 10) : .clear, radius: 2)
         }
     }
 }

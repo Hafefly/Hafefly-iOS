@@ -27,8 +27,8 @@ struct MapView: View {
             case .failed(let error):
                 FailView(errorMess: error)
             }
-            
         }
+        .padding(16)
     }
 }
 

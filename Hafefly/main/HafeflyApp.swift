@@ -21,7 +21,6 @@ struct HafeflyApp: App {
             ZStack{
                 StackTrigger(coordinator)
                     .onAppear {
-                        coordinator.setStartPoint(SplashView())
                         LocationManager.shared.requestLocation()
                     }
             }

@@ -44,6 +44,7 @@ struct SearchView: View {
             }
             Spacer()
         }
+        .padding(16)
         .onReceive(model.$searchText, perform: model.search)
     }
 }

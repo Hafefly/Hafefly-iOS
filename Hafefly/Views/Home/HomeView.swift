@@ -28,7 +28,7 @@ struct HomeView: View {
                         }
                     }
                     .padding(.vertical)
-                }
+                }.padding(.horizontal, 16)
             }
             
             VStack(alignment: .leading){
@@ -62,6 +62,7 @@ struct HomeView: View {
                     }
                 }
             }
+            .padding(.horizontal, 16)
         }
     }
 }

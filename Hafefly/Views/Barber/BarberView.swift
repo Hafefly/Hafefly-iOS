@@ -21,44 +21,13 @@ struct BarberView: View {
     }
     
     var body: some View {
-        VStack{
-            HStack(spacing: 16){
-                Image(barber.profileImage ?? "BarberAvatar")
-                    .scaleEffect(1.3)
-                    .background(Color.white)
-                    .cornerRadius(14)
-                
-                VStack(alignment: .leading){
-                    Text(barber.firstname + " " + barber.lastname)
-                        .font(.white, Font.HafeflyRubik.semiBold, 22)
-                    HStack{
-                        Image("ic_clock")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                        Text("\(barber.experience.toString) \(barber.experience.whichString(single: "year", plural: "years")) exp")
-                            .font(.white, Font.HafeflyRubik.medium, 18)
-                    }
-                    Text(barber.bio)
-                        .font(.white, Font.HafeflyRubik.regular, 18)
-                    HStack{
-                        Spacer()
-                        HStack{
-                            Image("ic_star")
-                            Text("\(barber.rating.rating())")
-                                .font(.white, Font.HafeflyRubik.regular, 22)
-                        }
-                    }
-                }
-            }
-            .padding(.top, 65)
-            .padding(.bottom)
-            .padding(.horizontal)
-            .background(Color.favoriteBlue)
-            .cornerRadius(18, corners: [.bottomRight, .bottomLeft])
-            .ignoresSafeArea()
+        ViewLayout {
+            barberHeader(barber: barber)
+        } content: { edges in
             VStack{
                 workingHoursPanel(open: barber.workingHours.openingDate.getFormattedHour(), close: barber.workingHours.closingDate.getFormattedHour())
                     .shadow(radius: 4)
+                Spacer()
                 switch model.reviewsUiState {
                 case .idle:
                     EmptyView()
@@ -70,39 +39,74 @@ struct BarberView: View {
                 case .failed(let error):
                     FailView(errorMess: error)
                 }
-                    
-                Spacer()
                 
-                HafeflyButton(foregroundColor: .orange) {
+                HafeflyButton(radius: 18, foregroundColor: .orange) {
                     pushScreen(BookView(pricing, barber: barber))
                 } label: {
                     Text("book".localized)
                         .font(.white, Font.HafeflyRubik.bold, 24)
                 }
             }
-            .padding()
+            .padding(16)
         }
-        .background(LinearGradient(colors: [.hafeflyBlue, .hafeflyDarkBlue], startPoint: .bottom, endPoint: .top).ignoresSafeArea())
         .onAppear {
             model.getReviews(for: barber.id)
         }
     }
     
     @ViewBuilder
+    private func barberHeader(barber: Barber) -> some View {
+        VStack(alignment: .leading){
+            HStack(spacing: 18){
+                Image(barber.profileImage ?? "BarberAvatar")
+                    .scaleEffect(1.5)
+                    .background(Color.white)
+                    .cornerRadius(14)
+                
+                VStack(alignment: .leading){
+                    VStack(alignment: .leading){
+                        Text(barber.firstname + " " + barber.lastname)
+                            .font(.white, Font.HafeflyRubik.semiBold, 22)
+                        HStack{
+                            Image("ic_clock")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                            Text("\(barber.experience.toString) \(barber.experience.whichString(single: "year", plural: "years")) exp")
+                                .font(.white, Font.HafeflyRubik.medium, 18)
+                        }
+                        Text(barber.bio)
+                            .font(.white, Font.HafeflyRubik.regular, 18)
+                    }
+                }
+            }
+            HStack{
+                Spacer()
+                HStack{
+                    Image("ic_star")
+                    Text("\(barber.rating.rating())")
+                        .font(.white, Font.HafeflyRubik.regular, 22)
+                }
+            }
+        }
+        .padding(.vertical)
+        .padding(.horizontal, 36)
+        .background(Color.favoriteBlue)
+        .cornerRadius(18, corners: [.bottomRight, .bottomLeft])
+    }
+    
+    @ViewBuilder
     private func workingHoursPanel(open: String, close: String) -> some View {
         HStack{
-            VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 16){
                 Text("Working hours")
                     .font(.white, Font.HafeflyRubik.semiBold, 22)
-                Spacer()
                 Text("\(open) - \(close)")
                     .font(.white.opacity(0.8), Font.HafeflyRubik.regular, 18)
             }
             Spacer()
             Image("ilu_mower")
         }
-        .fixedSize(horizontal: false, vertical: true)
-        .padding(12)
+        .padding()
         .background(Color.favoriteBlue)
         .cornerRadius(18)
     }

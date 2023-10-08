@@ -18,7 +18,8 @@ struct ViewLayout<Header: View, Content: View>: View {
     
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
+            VStack(alignment: .center, spacing: 0) {
+                header
                 content(
                     EdgeInsets(
                         top: proxy.safeAreaInsets.top,
@@ -27,7 +28,6 @@ struct ViewLayout<Header: View, Content: View>: View {
                         trailing: proxy.safeAreaInsets.trailing))
                 .background(LinearGradient(colors: [.hafeflyBlue, .hafeflyDarkBlue], startPoint: .bottom, endPoint: .top).ignoresSafeArea())
                 .setupDefaultBackHandler()
-                header
             }
         }
     }
